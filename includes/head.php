@@ -19,7 +19,6 @@ $siteurl='http://localhost/retailernew';
 $sitname='Sigmaways Retail Analytics';
 
 //Global email for recieving and sending emails.
-
 $owner_email='info@sigmaways.com';
 
 //Email signature

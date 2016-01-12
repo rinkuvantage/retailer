@@ -102,6 +102,7 @@ if(isset($_POST['fname']))
 			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 			
 			$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />
+			
 			Thanks for signing up with us. Your account is pending activation. Once activated you will receive an email from the website. You will be able to access your account then using the following credentials:<br /><br />
 			Token: ".$post['tokenid']."<br />
 			Key: ".$post['keyid']."<br /><br />
