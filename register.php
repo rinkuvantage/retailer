@@ -95,6 +95,7 @@ if(isset($_POST['fname']))
 			//Email to user
 			$to      = 	$post['user_email'];
 			$subject = 'Welcome to Sigmaways Retail Analytics';	
+			
 			$from = $owner_email;
 			$fromname=$sitname;
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
