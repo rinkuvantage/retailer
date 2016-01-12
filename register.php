@@ -73,6 +73,7 @@ if(isset($_POST['fname']))
 		{
 			$activatationlink=$siteurl.'/?activateaccount='.$post['activationkey'].'&email='.$post['user_email'];
 			
+			//Email to site owner
 			$to      = 	$owner_email;
 			$subject = 'Welcome to Sigmaways Retail Analytics';	
 			$from = $post['user_email'];
@@ -91,7 +92,26 @@ if(isset($_POST['fname']))
 			$message.=$email_signature;
 			@mail($to, $subject, $message, $headers);
 			
-			$_SESSION['message']='You have registered successfully, please check your email to activate your account.';
+			//Email to user
+			$to      = 	$post['user_email'];
+			$subject = 'Welcome to Sigmaways Retail Analytics';	
+			$from = $owner_email;
+			$fromname=$sitname;
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
+			
+			$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />
+			Thanks for signing up with us. Please make a note of your credentials to send analytics request.<br /><br />
+			Token: ".$post['tokenid']."<br />
+			Key: ".$post['keyid']."<br /><br />
+			Your login details are given below:<br /><br />
+			Email: ".$post['user_email']."<br />
+			Password: ".$_POST['pwd']."<br /><br />
+			Your account is pending. Once admin will activate it after review.</a><br />";
+			$message.=$email_signature;
+			@mail($to, $subject, $message, $headers);
+			
+			$_SESSION['message']='You have registered successfully, please wait for the admin to activate your account.';
 			@header('Location: '.$siteurl.'/register');
 		}
 	}

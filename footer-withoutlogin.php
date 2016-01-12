@@ -196,7 +196,7 @@ jQuery(document).ready(function(){
 		if(!error)
 		{
 			jQuery.ajax({
-				url: '<?php echo $siteurl; ?>/update',
+				url: 'update.php',
 				type: 'post',
 				data: {email:email, pwd:pwd, login:'1'},
 				success: function(res) {
@@ -224,7 +224,7 @@ jQuery(document).ready(function(){
 		if(!error)
 		{
 			jQuery.ajax({
-				url: '<?php echo $siteurl; ?>/update',
+				url: 'update.php',
 				type: 'post',
 				data: {email:email, forgotpwd:'1'},
 				success: function(res) {

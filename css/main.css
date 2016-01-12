@@ -1,11 +1,14 @@
 /* CSS Document */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 .showingerror {
-    border: 1px solid #d05125;
     margin-bottom: 20px;
     text-align: center;
-    background: #d05125;
+    background: #333333;
     color: #fff;
+	line-height:25px;
+}
+.btn.btn-info.btn-lg.anchortext.forgotpwdlink {
+    border-radius: 0;
 }
 .scroll-top.page-scroll.visible-xs.visible-sm {
     position: absolute;

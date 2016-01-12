@@ -1,13 +1,31 @@
-<?php
+<?php @ob_start();
+
+//Include database config file
 require_once('db_connection.php');
+
+//Website global configuration
 global $prefix;
+
+//Database table prefix.
 $prefix="ret_";
+
+//Salt using for creating password and activation key.
 $_salt='R{2dX8fi7SD#J(1f[Sus&&Q9dcAUUo:k_,k@5I8rIdUh/:@O =^N[Y}aOD;l;jE6';
-require_once('class/users.php');
+
+//Website url
 $siteurl='http://localhost/retailernew';
+
+//Website Name use for title in head tag
 $sitname='Sigmaways Retail Analytics';
+
+//Global email for recieving and sending emails.
 $owner_email='rinku.vantage@gmail.com';
+
+//Email signature
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
+
+require_once('class/users.php');
+
 $sepratefiles=explode('/',$_SERVER['REQUEST_URI']);
 $currentpage=$sepratefiles[count($sepratefiles)-1];
 if($currentpage==''){$currentpage='index.php';}
@@ -35,7 +53,20 @@ if(isset($_REQUEST['activateaccount']) && isset($_REQUEST['email']))
 			$res=$user->updateUser($uid ,$post);
 			if($res>0)
 			{
-				$_SESSION['message']='Thanks for activation your account.';
+				$to      = 	$email;
+				$subject = 'Welcome to Sigmaways Retail Analytics';	
+				$from = $owner_email;
+				$fromname=$sitname;
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
+				
+				$message="Dear ".$user->Userdetail($uid,'fname', true)." ".$user->Userdetail($uid,'lname', true).",<br /><br />
+				Congrats!<br /><br />
+				Your account has been activated.</a><br />";
+				$message.=$email_signature;
+				@mail($to, $subject, $message, $headers);
+				
+				$_SESSION['message']='Account Activated. Please click on login to get inside.';
 				echo"<script type='text/javascript'>window.location='".$siteurl."';</script>";
 				exit();
 			}
