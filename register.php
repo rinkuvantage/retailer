@@ -101,13 +101,12 @@ if(isset($_POST['fname']))
 			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 			
 			$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />
-			Thanks for signing up with us. Please make a note of your credentials to send analytics request.<br /><br />
+			Thanks for signing up with us. Your account is pending activation. Once activated you will receive an email from the website. You will be able to access your account then using the following credentials:<br /><br />
 			Token: ".$post['tokenid']."<br />
 			Key: ".$post['keyid']."<br /><br />
 			Your login details are given below:<br /><br />
 			Email: ".$post['user_email']."<br />
-			Password: ".$_POST['pwd']."<br /><br />
-			Your account is pending. Once admin will activate it after review.</a><br />";
+			Password: ".$_POST['pwd']."<br /><br />";
 			$message.=$email_signature;
 			@mail($to, $subject, $message, $headers);
 			
