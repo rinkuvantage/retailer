@@ -1,4 +1,6 @@
-<?php require_once('header-withoutlogin.php');
+<?php 
+@ob_start();
+require_once('header-withoutlogin.php');
 $errors=array();
 $company='';
 $fname='';
@@ -71,15 +73,13 @@ if(isset($_POST['fname']))
 		$res=$user->addUser($fieldnames,$fieldvalues);
 		if($res>0)
 		{
-			$activatationlink=$siteurl.'/?activateaccount='.$post['activationkey'].'&email='.$post['user_email'];
+			$activatationlink=$siteurl.'?activateaccount='.$post['activationkey'].'&email='.$post['user_email'];
 			
 			//Email to site owner
 			$to      = 	$owner_email;
 			$subject = 'Welcome to Sigmaways Retail Analytics';	
 			$from = $post['user_email'];
 			$fromname=$sitname;
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 			
 			$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />
 			Thanks for signing up with us. Please make a note of your credentials to send analytics request.<br /><br />
@@ -90,7 +90,7 @@ if(isset($_POST['fname']))
 			Password: ".$_POST['pwd']."<br /><br />
 			Also, click on this link to activate your account: <a href='".$activatationlink."'>".$activatationlink."</a><br />";
 			$message.=$email_signature;
-			@mail($to, $subject, $message, $headers);
+			Sendemail( $to, $subject, $message,$from,$from,$fromname);
 			
 			//Email to user
 			$to      = 	$post['user_email'];
@@ -98,8 +98,6 @@ if(isset($_POST['fname']))
 			
 			$from = $owner_email;
 			$fromname=$sitname;
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 			
 			$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />
 			Thanks for signing up with us. Your account is pending activation. Once activated you will receive an email from the website. You will be able to access your account then using the following credentials:<br /><br />
@@ -109,10 +107,12 @@ if(isset($_POST['fname']))
 			Email: ".$post['user_email']."<br />
 			Password: ".$_POST['pwd']."<br /><br />";
 			$message.=$email_signature;
-			@mail($to, $subject, $message, $headers);
+			Sendemail( $to, $subject, $message,$from,$from,$fromname);
 			
 			$_SESSION['message']='You have registered successfully, please wait for the admin to activate your account.';
-			@header('Location: '.$siteurl.'/register');
+			
+			@header('Location: register.php');
+			exit();
 		}
 	}
 	else
@@ -181,7 +181,7 @@ if(isset($_POST['fname']))
 	 </div>
 		
           <div class="form-box-footer form-header">
-            <p>By signing up, you agree to the <a href="<?php echo $siteurl; ?>/termsofservices" target="_blank">Terms of Service</a> and <a href="<?php echo $siteurl; ?>/privacy" target="_blank">Privacy Policy</a>.</p>
+            <p>By signing up, you agree to the <a href="termsofservices.php" target="_blank">Terms of Service</a> and <a href="privacy.php" target="_blank">Privacy Policy</a>.</p>
             <input class="btn btn-block" type="submit" name="signupSubmit" value="Continue" /> 
        
           </div>

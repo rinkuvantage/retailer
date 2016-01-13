@@ -33,12 +33,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top top_box">
   <div class="top_header col-lg-12 container-fluid">
-    <div class="container"> <a class="navbar-brand logobox col-lg-3" href="<?php echo $siteurl; ?>"><img src="img/RA.png"/></a>
+    <div class="container"> <a class="navbar-brand logobox col-lg-3" href="index.php"><img src="img/RA.png"/></a>
       <div class="right_box col-lg-9 pull-right">
         <?php if($login_active){ ?>
-        <a class="contact dashboard" href="<?php echo $siteurl; ?>/dashboard">
+        <a class="contact dashboard" href="dashboard.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"> <i class="fa fa-dashboard"></i> Dashboard</button>
-        </a> <a class="contact" href="<?php echo $siteurl; ?>/contactus">
+        </a> <a class="contact" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
         <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
@@ -52,13 +52,13 @@
 				<input name="pwd" id="pwd" type="password" placeholder="Password" title="Enter your password" required="" class="required"><br>
 				<button type="button" id="btnLogin" class="btn">Login</button>
 			</form>
-              <a href="<?php echo $siteurl; ?>/register" title="Fast and free sign up!" id="btnNewUser"  class="collapsed anchortext">New User? Sign-up..</a>
+              <a href="register.php" title="Fast and free sign up!" id="btnNewUser"  class="collapsed anchortext">New User? Sign-up..</a>
             <button type="button" class="btn btn-info btn-lg anchortext forgotpwdlink" data-toggle="modal" data-target="#myModal">Forgot username or password?</button>
-            <a class="anchortext"href="<?php echo $siteurl; ?>/contactus"><small>Need help? Contact us</small></a>
+            <a class="anchortext"href="contactus.php"><small>Need help? Contact us</small></a>
             <!-- Modal -->
           </div>
         </div>
-        <a class="contact pull-right" href="<?php echo $siteurl; ?>/contactus">
+        <a class="contact pull-right" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"><span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
         <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
@@ -93,6 +93,7 @@
     </div>
   </div>
 </div>
+
 <?php if(isset($_SESSION['message']) && trim($_SESSION['message'])!=''){ ?>
 <div class="success"><?php echo $_SESSION['message']; $_SESSION['message']=''; ?></div>
 <?php } ?>

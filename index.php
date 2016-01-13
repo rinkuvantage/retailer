@@ -10,7 +10,7 @@
 				<div class="col-lg-7 col-sm-12 banner_left">
 				<h1 class="text-left">Retail Analytics as Service</h1>
 				<p>Do more with your sales data.</p>
-				<a href="<?php echo $siteurl; ?>/register"><button type="submit" class="btn btn-default learnmore text-left">Get started today</button></a>
+				<a href="register.php"><button type="submit" class="btn btn-default learnmore text-left">Get started today</button></a>
 				</div>
 				<div class="col-lg-5 col-sm-12 map_img">
 				<img src="img/analytic.png" alt=""/>
@@ -38,7 +38,7 @@
 		 </div>
 		  <div class="col-md-8">
 		 <h1>Churn Analytics</h1>
-		 <p>Stop the churn before it happens. You put our blood and sweat to earn a customer and our analytics helps you to keep them. Some of the features include determining your current churn rate, predict and target customers who will churn and prioritized marketing through time based online and offline customer data, and then use audience clustering to influence similar, high-value customers.</p>
+		 <p>Stop the churn before it happens. You put your blood and sweat to earn a customer and our analytics helps you to keep them. Some of the features include determining your current churn rate, predict and target customers who will churn and prioritized marketing through time based online and offline customer data, and then use audience clustering to influence similar, high-value customers.</p>
 		 <!-- <button type="submit" class="btn btn-default learnmore">Learn More</button>-->
 		 </div>
 		 </div>

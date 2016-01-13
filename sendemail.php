@@ -3,11 +3,7 @@ $errors=array();
 
 if(isset($_POST['requestdemo']))
 {
-	$redirect='';
-	if($_POST['redirect']!='index.php'){
-		$redirects=explode('.',$_POST['redirect']);
-		$redirect='/'.$redirects[0];
-	}
+	$redirect=$_POST['redirect'];
 	$first_name=$_POST['first_name'];
 	$last_name=$_POST['last_name'];
 	$email=$_POST['email'];
@@ -20,6 +16,7 @@ if(isset($_POST['requestdemo']))
 	$title=$_POST['title'];
 	$phoneno=$_POST['phoneno'];
 	$comments=$_POST['comments'];
+	
 	if(empty($errors))
 	{
 		
@@ -27,8 +24,7 @@ if(isset($_POST['requestdemo']))
 		$subject = $sitname.' : Request Demo';	
 		$from = $email;
 		$fromname=$sitname;
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
+		
 		
 		$message="Dear Admin,<br /><br />
 		Following user has been contact you for demo. The user detail is given below<br /><br />
@@ -40,20 +36,16 @@ if(isset($_POST['requestdemo']))
 		Phone Number: ".$phoneno."<br />
 		Comments: ".$comments."<br /><br />";
 		$message.=$email_signature;
-		@mail($to, $subject, $message, $headers);
+		Sendemail( $to, $subject, $message,$from,$from,$fromname);
 		
 		$_SESSION['message']='Thanks for sending message.';
-		@header('Location: '.$siteurl.$redirect);
+		@header('Location: '.$redirect);
 	}
-	@header('Location: '.$siteurl.$redirect);
+	@header('Location: '.$redirect);
 }
 if(isset($_POST['requestsupport']))
 {
-	$redirect='';
-	if($_POST['redirect']!='index.php'){
-		$redirects=explode('.',$_POST['redirect']);
-		$redirect='/'.$redirects[0];
-	}
+	$redirect=$_POST['redirect'];
 	$name=$_POST['name'];
 	$email=$_POST['email'];
 	if(trim($email)=='')
@@ -70,8 +62,6 @@ if(isset($_POST['requestsupport']))
 		$subject = $sitname.' : Request Demo';	
 		$from = $email;
 		$fromname=$sitname;
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 		
 		$message="Dear Admin,<br /><br />
 		Following user has been contact you for support. The user detail is given below<br /><br />
@@ -80,10 +70,10 @@ if(isset($_POST['requestsupport']))
 		Website: ".$website."<br />
 		Message: ".$message1."<br /><br />";
 		$message.=$email_signature;
-		@mail($to, $subject, $message, $headers);
+		Sendemail( $to, $subject, $message,$from,$from,$fromname);
 		
 		$_SESSION['message']='Thanks for sending message.';
-		@header('Location: '.$siteurl.$redirect);
+		@header('Location: '.$redirect);
 	}
-	@header('Location: '.$siteurl.$redirect);
+	@header('Location: '.$redirect);
 }

@@ -84,7 +84,7 @@ if(isset($_POST['upfile']))
 		}
 		if($totalfile>1){$sumessage=$totalfile.' files uploaded successfully.';}else{$sumessage=$totalfile.' file uploaded successfully.';}
 		$_SESSION['message']=$sumessage;
-		echo"<script type='text/javascript'>window.location='".$siteurl."/viewfiles';</script>";
+		echo"<script type='text/javascript'>window.location='viewfiles.php';</script>";
 		exit();
 	}
 }
@@ -97,7 +97,7 @@ if(isset($_POST['upfile']))
       <div class="col-lg-12">
         <h1 class="page-header"> Upload Files </h1>
         <ol class="breadcrumb">
-          <li> <i class="fa fa-dashboard"></i> <a href="<?php echo $siteurl; ?>/dashboard">Dashboard</a> </li>
+          <li> <i class="fa fa-dashboard"></i> <a href="dashboard.php">Dashboard</a> </li>
           <li class="active"> <i class="fa fa-upload"></i> Upload Files </li>
         </ol>
       </div>

@@ -21,5 +21,5 @@ if($uid!='')
 		$_SESSION['message']='Not deleted user successfully.';
 	}
 }
-@header('Location: '.$siteurl.'/manageusers');
+@header('Location: manageusers.php');
 exit();

@@ -2,7 +2,7 @@
 if($user_type=='user')
 {
 	$_SESSION['message']='You do not have access this page.';
-	echo"<script type='text/javascript'>window.location='".$siteurl."/dashboard';</script>";
+	echo"<script type='text/javascript'>window.location='dashboard.php';</script>";
 	exit();
 }
 $uid=0;
@@ -79,14 +79,12 @@ if(isset($_POST['signupSubmit']))
 		{
 			if(isset($_POST['resetactivation']))
 			{
-				$activatationlink=$siteurl.'/?activateaccount='.$post['activationkey'].'&email='.$_POST['email'];
+				$activatationlink=$siteurl.'?activateaccount='.$post['activationkey'].'&email='.$_POST['email'];
 				
 				$to      = 	$owner_email;
 				$subject = $sitname.' : Reset activation.';	
 				$from = $_POST['email'];
 				$fromname=$sitname;
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 				
 				$message="Dear ".$post['fname']." ".$post['lname'].",<br /><br />Your account has been reset, for login you need to rectivate your account.<br /><br />";
 				if(isset($_POST['resettokenkey']))
@@ -103,11 +101,11 @@ if(isset($_POST['signupSubmit']))
 				}
 				$message.="To activate your account please click on <a href='".$activatationlink."'>".$activatationlink."</a><br />";
 				$message.=$email_signature;
-				@mail($to, $subject, $message, $headers);
+				Sendemail( $to, $subject, $message,$from,$from,$fromname);
 			}
 			
 			$_SESSION['message']='Profile of '.$post['fname'].' '.$post['lname'].' has been updated successfully.';
-			echo"<script type='text/javascript'>window.location='".$siteurl."/edit-user?user_id=".$uid."';</script>";
+			echo"<script type='text/javascript'>window.location='edit-user.php?user_id=".$uid."';</script>";
 			exit();
 		}
 	}
@@ -132,7 +130,7 @@ if(isset($_POST['signupSubmit']))
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="<?php echo $siteurl; ?>/dashboard">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-fw fa-user"></i> Profile

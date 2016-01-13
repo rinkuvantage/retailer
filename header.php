@@ -2,7 +2,7 @@
 if(!$login_active)
 {
 	$_SESSION['message']='Please login first.';
-	@header('Location: '.$siteurl);
+	@header('Location: index.php');
 	exit();
 }
 $uid=$_SESSION["User_id"];
@@ -43,10 +43,10 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-    <a class="navbar-brand userlogo" href="<?php echo $siteurl; ?>">Welcome <?php echo $username; ?></a> </div>
+    <a class="navbar-brand userlogo" href="index.php">Welcome <?php echo $username; ?></a> </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
-    <li> </a> <a class="contact" href="<?php echo $siteurl; ?>/contactus"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
+    <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
     <li>
       <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
     </li>
@@ -96,27 +96,27 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
     </li>
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username; ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li> <a href="<?php echo $siteurl; ?>/profile"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
+        <li> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
         <li> <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a> </li>
         <li> <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a> </li>
         <li class="divider"></li>
-        <li> <a href="<?php echo $siteurl; ?>/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a> </li>
+        <li> <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> </li>
       </ul>
     </li>
   </ul>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-      <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
-      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/profile"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
+      <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
+      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
       <?php /*?><li<?php if($currentpage=='manage-passwords.php'){ ?> class="active"<?php } ?>>
                         <a href="<?php echo $siteurl; ?>/manage-passwords"><i class="fa fa-fw fa-table"></i> Manage Password</a>
                     </li><?php */?>
-      <li<?php if($currentpage=='viewtokenkey.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/viewtokenkey"><i class="fa fa-key"></i> View Token/Key</a> </li>
-      <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/uploadfiles"><i class="fa fa-upload"></i> Upload Files</a> </li>
-      <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/viewfiles"><i class="fa fa-users"></i> View files</a> </li>
+      <li<?php if($currentpage=='viewtokenkey.php'){ ?> class="active"<?php } ?>> <a href="viewtokenkey.php"><i class="fa fa-key"></i> View Token/Key</a> </li>
+      <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="uploadfiles.php"><i class="fa fa-upload"></i> Upload Files</a> </li>
+      <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="viewfiles.php"><i class="fa fa-users"></i> View files</a> </li>
       <?php if($user_type=='admin'){ ?>
-      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="<?php echo $siteurl; ?>/manageusers"><i class="fa fa-users"></i> Manage Users</a> </li>
+      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php"><i class="fa fa-users"></i> Manage Users</a> </li>
       <?php } ?>
 	  <li><img class="" src="img/RA.png"/></li>
     </ul>

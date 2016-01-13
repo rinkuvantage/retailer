@@ -32,9 +32,7 @@ if(isset($_POST['sendmsg']))
 		$subject = $sitname.' : Contact Us';	
 		$from = $email;
 		$fromname=$sitname;
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
-		
+				
 		$message="Dear Admin,<br /><br />
 		Following user has been contact you. The user detail is given below<br /><br />
 		Name: ".$name."<br />
@@ -43,10 +41,10 @@ if(isset($_POST['sendmsg']))
 		Subject: ".$subject2."<br />
 		Message: ".$message."<br /><br />";
 		$message.=$email_signature;
-		@mail($to, $subject, $message, $headers);
+		Sendemail( $to, $subject, $message,$from,$from,$fromname);
 		
 		$_SESSION['message']='Thanks for sending message.';
-		@header('Location: '.$siteurl.'/contactus');
+		@header('Location: contactus.php');
 		
 	}
 	else

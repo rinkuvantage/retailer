@@ -55,7 +55,7 @@ if(isset($_POST['fname']))
 		if($res>0)
 		{
 			$_SESSION['message']='You profile updated successfully.';
-			echo"<script type='text/javascript'>window.location='".$siteurl."/profile';</script>";
+			echo"<script type='text/javascript'>window.location='profile.php';</script>";
 			exit();
 		}
 	}
@@ -80,7 +80,7 @@ if(isset($_POST['fname']))
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="<?php echo $siteurl; ?>/dashboard">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-fw fa-user"></i> Profile

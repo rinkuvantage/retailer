@@ -33,16 +33,14 @@ if(isset($_POST['email']))
 			$subject = $sitname.' : Forgot Password';	
 			$from = $owner_email;
 			$fromname=$sitname;
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 			
 			$message="Dear ".$username.",<br /><br />Thank you for contacting us regarding your lost password. Your password has been reset to <strong>".$pwd."</strong>, please log in and change the password to something more memorable.<br />";
 			$message.=$email_signature;
 			
-			@mail($to, $subject, $message, $headers);
+			Sendemail( $to, $subject, $message,$from,$from,$fromname);
 			
 			$_SESSION['message']='Your new password has been sent to your email '.$email.'.';
-			echo"<script type='text/javascript'>window.location='".$siteurl."/login';</script>";
+			echo"<script type='text/javascript'>window.location='login.php';</script>";
 			exit();
 		}
 	}

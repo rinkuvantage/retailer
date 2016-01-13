@@ -8,7 +8,7 @@ if(isset($_REQUEST['user_id']) && trim($_REQUEST['user_id'])>0)
 	if($user_type=='user')
 	{
 		$_SESSION['message']='You do not have access this page.';
-		echo"<script type='text/javascript'>window.location='".$siteurl."/dashboard';</script>";
+		echo"<script type='text/javascript'>window.location='dashboard.php';</script>";
 		exit();
 	}
 }
@@ -41,7 +41,7 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="<?php echo $siteurl; ?>/dashboard">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i>View Files
@@ -70,12 +70,12 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
 								$inputfile='javascript:;';
 								if(file_exists('input/'.$uid.'/'.$file['filename']))
 								{
-									$inputfile=$siteurl.'/viewfiles?fileid=input/'.$uid.'/'.$file['filename'];
+									$inputfile='viewfiles.php?fileid=input/'.$uid.'/'.$file['filename'];
 								}
 								$ourputfile='javascript:;';
 								if(file_exists('output/'.$uid.'/'.$file['filename']))
 								{
-									$ourputfile=$siteurl.'/viewfiles?fileid=output/'.$uid.'/'.$file['filename'];
+									$ourputfile='viewfiles.php?fileid=output/'.$uid.'/'.$file['filename'];
 								}
 								?>
                                     <tr>
@@ -99,7 +99,7 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
 							<?php 
 							if(count($totalrecords)>count($filelist))
 							{
-								$url=$siteurl.'/viewfiles?'.$newlink.'pagedid=';
+								$url='viewfiles.php?'.$newlink.'pagedid=';
 								echo $user->pagination($totalrec,$pageid,$url,count($totalrecords));
 							}
 							}else{ $filelist=$user->userFilelist($uid);

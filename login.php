@@ -32,7 +32,7 @@ if(isset($_POST['email']))
 		$check=$user->checkUserLogin($email, $password, $rememberme);
 		if($check>0)
 		{
-			@header('Location: '.$siteurl.'/dashboard');
+			@header('Location: dashboard.php');
 		}
 		else
 		{
@@ -68,7 +68,7 @@ if(isset($_POST['email']))
           <input type="checkbox" name="rememberme" />
           Remember me </label>
         </div>
-        <div class="col-xs-7 forgot"> <i class="fa fa-unlock-alt"></i> <a href="<?php echo $siteurl; ?>/forgot-password" id="forgot_from_1">Forgot password?</a> </div>
+        <div class="col-xs-7 forgot"> <i class="fa fa-unlock-alt"></i> <a href="forgot-password.php" id="forgot_from_1">Forgot password?</a> </div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
     </div>

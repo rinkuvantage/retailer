@@ -3,7 +3,7 @@ $totalrec=15;
 if($user_type=='user')
 {
 	$_SESSION['message']='You do not have access this page.';
-	echo"<script type='text/javascript'>window.location='".$siteurl."/dashboard';</script>";
+	echo"<script type='text/javascript'>window.location='dashboard.php';</script>";
 	exit();
 }
 if(isset($_REQUEST['pagedid']) && $_REQUEST['pagedid']>1)
@@ -32,7 +32,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="<?php echo $siteurl; ?>/dashboard">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-wrench"></i> Manage Users
@@ -64,9 +64,9 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
 										<td><?php if($user1['active']==1){echo 'Active';}else{echo 'Pending';} ?></td>
                                      <td><nav>
                             <ul class="pager adc">
-                              <li><a href="<?php echo $siteurl; ?>/viewfiles?user_id=<?php echo $user1['ID']; ?>">View Files</a></li>
-                              <li><a href="<?php echo $siteurl; ?>/edit-user?user_id=<?php echo $user1['ID']; ?>">Edit</a></li>
-                              <li><a href="<?php echo $siteurl; ?>/deleteuser?user_id=<?php echo $user1['ID']; ?>&key=<?php echo $user1['keyid']; ?>">Delete</a></li>
+                              <li><a href="viewfiles.php?user_id=<?php echo $user1['ID']; ?>">View Files</a></li>
+                              <li><a href="edit-user.php?user_id=<?php echo $user1['ID']; ?>">Edit</a></li>
+                              <li><a href="deleteuser.php?user_id=<?php echo $user1['ID']; ?>&key=<?php echo $user1['keyid']; ?>">Delete</a></li>
                             </ul>
                           </nav></td>
                                    
@@ -78,7 +78,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
 							<?php 
 							if(count($totalrecords)>count($userlist))
 							{
-								$url=$siteurl.'/manageusers?pagedid=';
+								$url='manageusers.php?pagedid=';
 								echo $user->pagination($totalrec,$pageid,$url,count($totalrecords));
 							}
 							}else{ ?>

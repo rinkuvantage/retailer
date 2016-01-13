@@ -13,22 +13,24 @@ $prefix="ret_";
 $_salt='R{2dX8fi7SD#J(1f[Sus&&Q9dcAUUo:k_,k@5I8rIdUh/:@O =^N[Y}aOD;l;jE6';
 
 //Website url
-$siteurl='http://localhost/retailernew';
+$siteurl='http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 
 //Website Name use for title in head tag
 $sitname='Sigmaways Retail Analytics';
 
 //Global email for recieving and sending emails.
-$owner_email='info@sigmaways.com';
+
+$owner_email='abhishek@tawebmedia.com';
+
 //Email signature
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
 
 require_once('class/users.php');
+require_once('sendemails.php');
 
 $sepratefiles=explode('/',$_SERVER['REQUEST_URI']);
 $currentpage=$sepratefiles[count($sepratefiles)-1];
-if($currentpage==''){$currentpage='index.php';}
-else{$currentpage=$currentpage.'.php';}
+
 $login_active=false;
 if(isset($_SESSION["User_id"]) && isset($_SESSION["User_type"])){ 
 	$login_active=true;
@@ -56,8 +58,6 @@ if(isset($_REQUEST['activateaccount']) && isset($_REQUEST['email']))
 				$subject = 'Welcome to Sigmaways Retail Analytics';	
 				$from = $owner_email;
 				$fromname=$sitname;
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= "Content-type: text/html; charset=utf-8" . "\r\nFrom: $fromname <$from>\r\nReply-To: $from";
 				
 				$message="Dear ".$user->Userdetail($uid,'fname', true)." ".$user->Userdetail($uid,'lname', true).",<br /><br />
 				Congrats!<br /><br />
@@ -65,22 +65,24 @@ if(isset($_REQUEST['activateaccount']) && isset($_REQUEST['email']))
 				$message.=$email_signature;
 				@mail($to, $subject, $message, $headers);
 				
+				Sendemail( $to, $subject, $message,$from,$from,$fromname);
+				
 				$_SESSION['message']='Account Activated. Please click on login to get inside.';
-				echo"<script type='text/javascript'>window.location='".$siteurl."';</script>";
+				echo"<script type='text/javascript'>window.location='index.php';</script>";
 				exit();
 			}
 		}
 		else
 		{
 			$_SESSION['message']='Activation code is not matched.';
-			echo"<script type='text/javascript'>window.location='".$siteurl."';</script>";
+			echo"<script type='text/javascript'>window.location='index.php';</script>";
 			exit();
 		}
 	}
 	else
 	{
 		$_SESSION['message']='Activation code is not matched.';
-		echo"<script type='text/javascript'>window.location='".$siteurl."';</script>";
+		echo"<script type='text/javascript'>window.location='index.php';</script>";
 		exit();
 	}
 }
@@ -106,3 +108,4 @@ if(isset($_REQUEST['fileid']))
 	}
 	else{ echo'file not exist';}
 }
+

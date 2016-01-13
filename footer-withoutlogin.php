@@ -26,15 +26,15 @@
             <li>
               <button type="button" class="btn btn-info btn-lg anchortext forgotpwdlink supportbox" data-toggle="modal" data-target="#myModal2">Support</button>
             </li>
-            <li><a href="<?php echo $siteurl; ?>/contactus">Contact</a></li>
+            <li><a href="contactus.php">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col col-xs-12 col-md-3 ftrblock">
           <h4>COMPANY</h4>
           <ul class="footer-list">
             <li><a href="http://sigmaways.com/">Company</a></li>
-            <li><a href="<?php echo $siteurl; ?>/privacy">Privacy Policy</a></li>
-            <li><a href="<?php echo $siteurl; ?>/termsofservices">Terms of Service</a></li>
+            <li><a href="privacy.php">Privacy Policy</a></li>
+            <li><a href="termsofservices.php">Terms of Service</a></li>
           </ul>
         </div>
       </div>
@@ -51,7 +51,7 @@
       <div class="modal-hero">
         <p>Get in touch with us to schedule a private demo. We're here to understand your needs, show you our solutions, and answer any questions.</p>
       </div>
-	  <form id="demo-form" method="post" action="<?php echo $siteurl; ?>/sendemail" novalidate="novalidate">
+	  <form id="demo-form" method="post" action="sendemail.php" novalidate="novalidate">
 	  <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
       <div class="modal-body">
         
@@ -112,7 +112,7 @@
         <p>Our average response time is 9 hours.</p>
         <p><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
       </div>
-	  <form id="support-form" method="post" action="<?php echo $siteurl; ?>/sendemail">
+	  <form id="support-form" method="post" action="sendemail.php">
 	   <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
       <div class="modal-body">
         
@@ -202,7 +202,7 @@ jQuery(document).ready(function(){
 				success: function(res) {
 					if(jQuery.trim(res)=='Done'){
 						jQuery('label.showmsg').next('.showingerror').remove();
-						window.location='<?php echo $siteurl; ?>/dashboard';
+						window.location='dashboard.php';
 					}
 					else
 					{
