@@ -24,8 +24,8 @@ else
 	$limitstart=0;
 	$limitsend=$totalrec;
 }
-$filelist=$user->userFilelist($uid, " and keyid='$skey' limit $limitstart, $totalrec");
-$totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
+$filelist=$user->userFilelist($uid, " and keyid='$skey' order by id desc limit $limitstart, $totalrec");
+$totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
  
 //echo $user->dirSize('input/'.$uid);
 ?>
@@ -54,7 +54,7 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
 								<div class="col-lg-12">
                       
                         <div class="table-responsive">
-						<?php if(!empty($filelist)){ ?>
+						<?php $cnt=$limitstart+1;if(!empty($filelist)){ ?>
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -79,10 +79,10 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
 								}
 								?>
                                     <tr>
-                                        <td><?php echo $file['ID']; ?></td>
+                                        <td><?php echo $cnt; ?></td>
                                         <td><?php echo $file['title']; ?></td>
-										 <td><?php echo date('d M Y',strtotime($file['udate'])); ?></td>
-                                        <td><?php if(trim($file['gdate'])!=''){echo date('d M Y',strtotime($file['gdate']));} ?></td>
+										 <td><?php echo date('d M Y h:i:s A',strtotime($file['udate'])); ?></td>
+                                        <td><?php if(trim($file['gdate'])!=''){echo date('d M Y h:i:s A',strtotime($file['gdate']));} ?></td>
                                      <td><nav>
                             <ul class="pager adc">
                               <li><a href="<?php echo $inputfile; ?>">Input File</a></li>
@@ -92,7 +92,7 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
                           </nav></td>
                                    
                                     </tr>
-                                 <?php } ?>
+                                 <?php $cnt++;} ?>
                            
                                 </tbody>
                             </table>
@@ -127,6 +127,4 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey'");
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-</body>
-
-</html>
+<?php require_once('footer.php'); ?>

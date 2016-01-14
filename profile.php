@@ -138,7 +138,7 @@ if(isset($_POST['fname']))
 							  <label for="inputPassword" class="sr-only">Password</label>
 							  <div class="inputiconbox">
 							  <span class="glyphicon glyphicon-lock"></span>
-							  <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password"  />
+							  <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" autocomplete="off" />
 							  </div>
 							  </div>
 						 </div>
@@ -170,6 +170,7 @@ if(isset($_POST['fname']))
 	<script type="text/javascript" src="js/validate.js"></script>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
+		jQuery('#pwd').val('');
 		jQuery.validator.addMethod("password",function(value,element)
 		{
 			return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(value); 
@@ -200,6 +201,4 @@ if(isset($_POST['fname']))
 	});
 	</script>
 
-</body>
-
-</html>
+<?php require_once('footer.php'); ?>

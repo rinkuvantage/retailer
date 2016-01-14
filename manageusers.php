@@ -105,6 +105,4 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-</body>
-
-</html>
+<?php require_once('footer.php'); ?>

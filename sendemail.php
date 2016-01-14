@@ -1,9 +1,11 @@
-<?php require_once('includes/head.php'); 
+<?php @ob_start();
+require_once('includes/head.php'); 
 $errors=array();
 
 if(isset($_POST['requestdemo']))
 {
 	$redirect=$_POST['redirect'];
+	if($redirect==''){$redirect='index.php';}
 	$first_name=$_POST['first_name'];
 	$last_name=$_POST['last_name'];
 	$email=$_POST['email'];
@@ -46,6 +48,7 @@ if(isset($_POST['requestdemo']))
 if(isset($_POST['requestsupport']))
 {
 	$redirect=$_POST['redirect'];
+	if($redirect==''){$redirect='index.php';}
 	$name=$_POST['name'];
 	$email=$_POST['email'];
 	if(trim($email)=='')

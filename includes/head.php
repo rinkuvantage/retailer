@@ -25,6 +25,13 @@ $owner_email='abhishek@tawebmedia.com';
 //Email signature
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
 
+//File Formats
+$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/zip');
+$fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.zip');
+
+//Set Timezone
+date_default_timezone_set('UTC');
+
 require_once('class/users.php');
 require_once('sendemails.php');
 

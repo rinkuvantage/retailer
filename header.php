@@ -22,6 +22,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
 <!-- Bootstrap Core CSS -->
 <link href="css/formcss.css" rel="stylesheet" />
 <link href="css/dashboardcss.css" rel="stylesheet" />
+<link href="css/footerwithlogin.css" rel="stylesheet" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/sb-admin.css" rel="stylesheet">
@@ -43,7 +44,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-    <a class="navbar-brand userlogo" href="index.php">Welcome <?php echo $username; ?></a> </div>
+    <a class="navbar-brand userlogo" href="#">Welcome <?php echo $username; ?></a> </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
     <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
@@ -118,7 +119,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
       <?php if($user_type=='admin'){ ?>
       <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php"><i class="fa fa-users"></i> Manage Users</a> </li>
       <?php } ?>
-	  <li><img class="" src="img/RA.png"/></li>
+	  <li><a href="index.php"><img class="" src="img/RA.png"/></a></li>
     </ul>
 	
   </div>

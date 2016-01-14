@@ -1,0 +1,75 @@
+/* CSS Document */
+
+footer .footer-above {
+  background: #d05125 !important;
+
+}
+footer .footer-above {
+
+  padding-top: 50px;
+    padding-left: 18%;
+}
+footer.text-center {
+  overflow:hidden;
+}
+footer .footer-col {
+  margin-bottom: 80px;
+}
+.ftrblock {
+  text-align: left;
+}
+.ftrblock h4 {
+  font-weight: normal;
+}
+.ftrblock ul.footer-list {
+  list-style: outside none none;
+  padding: 0;
+}
+.ftrblock ul.footer-list li {
+  margin-bottom: 10px;
+}
+.ftrblock ul.footer-list a {
+  color: #fff;
+}
+address{ color:#fff;}
+.ftrblock h4 {
+  font-weight: normal;
+  color: #fff;
+}
+.footer-list .btn.btn-info.btn-lg.anchortext.forgotpwdlink {
+  border-radius: 0;
+}
+.footer-list button.btn.btn-info.btn-lg.anchortext.forgotpwdlink {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #000;
+  margin: 0;
+  padding: 0 !important;
+  text-align: left;
+}
+.footer-list button.btn.btn-info.btn-lg.anchortext.forgotpwdlink.supportbox {
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+}
+.scroll-top.page-scroll.visible-xs.visible-sm {
+  position: absolute;
+  bottom:0px;
+}
+footer{ position:relative;}
+.scroll-top.page-scroll.visible-xs.visible-sm {
+  right: 0px;
+}
+.requestdemo .modal-hero {
+  background: #f2f5f8 none repeat scroll 0 0;
+  border-bottom: 1px solid #d1dce6;
+  border-radius: 3px 3px 0 0;
+  padding: 30px;
+}
+.navbar-right{ right:0px !important;}
+footer.text-center {
+
+  overflow: hidden;
+  position: relative;
+}

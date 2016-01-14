@@ -1,5 +1,16 @@
 /* CSS Document */
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+ .admindashboard .sr-only{ position:inherit !important;}
+ span.glyphicon.headericonbox{ position:inherit !important;}
+ .admindashboard .navbar{ min-height:inherit !important;}
+} 
+
+.requestdemo .modal-dialog {
+  max-width: 830px !important;
+  width: 95% !important;
+}
 .showingerror {
     margin-bottom: 20px;
     text-align: center;
@@ -799,8 +810,34 @@ form.form-signin.registerbox{ display:inline-block;}
     color: #fff;
 }
 .top_header .btn-success a{ color:#fff;}
-
+@media (min-width: 768px) and (max-width: 970px) {
+.banner_left h1 {
+  font-size: 282%;
+}
+}
 @media only screen and (max-width:767px) {
+.right_box .dropdown-menu {
+  min-width: 297px;
+
+}
+.dropdown-menu.pull-right {
+  left: 9%;
+  right: 0;
+}
+#portfolio {
+  padding: 12px 0;
+}
+
+.row.turndata {
+  padding: 0px 10px;
+}
+.container.innerpage {
+  padding-top: 148px;
+}
+.cont_page .entry {
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
 .navbar-brand {
   font-size: 16px !important;
   line-height: 55px;
@@ -808,13 +845,123 @@ form.form-signin.registerbox{ display:inline-block;}
   padding-bottom: 0;
   padding-top: 5px;
 }
+
+.right_box{ text-align:center; padding:0px;}
+.right_box .dropdown {
+  display: inline-block;
+}
+.right_box .contact {
+  display: inline-block;
+  float: none !important;
+  vertical-align:top;
+}
+.right_box .phonno{
+  display: inline-block;
+  float: none !important;
+  vertical-align: top;
+}
+.top_header .container{ padding:0px;}
+.logobox  {
+  text-align: center;
+}
+.navbar-brand > img {
+  float: none;
+  margin-right: 0px;
+  display: inline-block;
+}
+.top_header {
+  padding: 0px;
+}
+.col-lg-5.map_img > img {
+  float: left;
+
+}
 }
 @media only screen and (max-width:640px) {
 .reg_box {
   width: 100%;
 }
+p.social-buttons a {
+  margin-right: 1px;
+}
+.social-buttons img {
+  width: 25%;
+}
+.ftrblock h4 {
+font-size:14px;
+}
+.ftrblock ul.footer-list a {
+  font-size: 12px;
+}
+address {
+  font-size: 12px;
+}
+button.btn.btn-info.btn-lg.anchortext.forgotpwdlink.supportbox {
+  font-size: 12px;
+
+}
+}
+
+@media only screen and (max-width:480px) {
+.ftrblock ul.footer-list a {
+  font-size: 16px;
+}
+address {
+  font-size: 16px;
+}
+button.btn.btn-info.btn-lg.anchortext.forgotpwdlink.supportbox {
+  font-size: 16px;
+
+}
+footer .footer-col {
+  margin-bottom: 16px !important;
+}
+.banner_left p {
+  font-size: 20px;
+}
+.ftrblock{ width:100%;}
+p.social-buttons a {
+  margin-right: 1px;
+}
+.social-buttons img {
+  width: auto;
+}
+#portfolio{ padding:12px 0;}
+.banner_left h1 {
+  font-size: 255%;
+
+}
+.dropdown-menu.pull-right {
+  left: 0;
+  right: 0;
+}
+
 }
 @media only screen and (max-width:410px) {
+.turndata h1 {
+  font-size: 2em;
+
+}
+.turndata p {
+  font-size: 21px;
+
+  line-height: 34px;
+}
+h2.main_heading {
+  font-size: 23px !important;
+}
+.banner_left h1 {
+  font-weight: 600 !important;
+
+}
+.top_header .contact .btn-success, .phonno.pull-right {
+  padding: 0 3px 0 3px;
+  font-size: 12px;
+}
+button#dropdownMenu1 {
+  font-size: 12px;
+
+}
 .login_form form.form-signin{ padding:7px;}
 .navbar-brand {
   font-size: 16px !important;

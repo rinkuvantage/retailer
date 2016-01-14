@@ -32,7 +32,7 @@
         <div class="footer-col col-xs-12 col-md-3 ftrblock">
           <h4>COMPANY</h4>
           <ul class="footer-list">
-            <li><a href="#">About</a></li>
+            <li><a href="http://sigmaways.com/">About</a></li>
             <li><a href="privacy.php">Privacy Policy</a></li>
             <li><a href="termsofservices.php">Terms of Service</a></li>
           </ul>
@@ -147,14 +147,14 @@
     </div>
   </div>
 </div>
-<!-- Portfolio Modals -->
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	jQuery('a.scrolltotop').click(function(){
+		jQuery('html, body').animate({
+			scrollTop:0
+		}, 2000);
+	});
 	jQuery('#support-form').validate();
 	jQuery('#demo-form').validate({
 		rules: {
@@ -172,135 +172,13 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
-	/*var navpos = jQuery('.footer_box').offset();
-	jQuery(window).bind('scroll', function() {
-	  if (jQuery(window).scrollTop() > navpos.top) {
-		jQuery('.page-scroll').fadeIn('slow');
-	   }
-	   else {
-		 jQuery('.page-scroll').fadeOut('slow');
-	   }
-	});*/
-	jQuery('a.scrolltotop').click(function(){
-		jQuery('html, body').animate({
-			scrollTop:0
-		}, 2000);
-	});
-	jQuery('#btnLogin').click(function(){
-		jQuery('#toploginuser').validate();
-		var error=false;
-		var email=jQuery('#toploginuser #email').val();
-		if(jQuery.trim(email)==''){error=true;}
-		var pwd=jQuery('#toploginuser #pwd').val();
-		if(jQuery.trim(pwd)==''){error=true;}
-		if(!error)
-		{
-			jQuery.ajax({
-				url: 'update.php',
-				type: 'post',
-				data: {email:email, pwd:pwd, login:'1'},
-				success: function(res) {
-					if(jQuery.trim(res)=='Done'){
-						jQuery('label.showmsg').next('.showingerror').remove();
-						window.location='dashboard.php';
-					}
-					else
-					{
-						jQuery('label.showmsg').next('.showingerror').remove();
-						jQuery('label.showmsg').after('<div class="showingerror">'+res+'</div>');
-					}
-				}	
-			});
-			return false;
-		}
-		jQuery('#toploginuser').submit();
-	});
 	
-	jQuery('#btnForgotPassword').click(function(){
-		jQuery('#formForgotPassword').validate();
-		var error=false;
-		var email=jQuery('#formForgotPassword #fgemail').val();
-		if(jQuery.trim(email)==''){error=true;}
-		if(!error)
-		{
-			jQuery.ajax({
-				url: 'update.php',
-				type: 'post',
-				data: {email:email, forgotpwd:'1'},
-				success: function(res) {
-					jQuery('#formForgotPassword .showingerror').remove();
-					jQuery('#formForgotPassword').prepend('<div class="showingerror">'+res+'</div>');
-				}	
-			});
-			return false;
-		}
-		jQuery('#formForgotPassword').submit();
-	});
 });
 </script>
-<?php if($currentpage=='index.php'){ ?>
-<script type="text/javascript" src="js/jquery.appear.js"></script>
-<!-- Plugin JavaScript -->
-<script>
-$('*').each(function(){
-		if($(this).attr('data-animation')) {
-			var $animationName = $(this).attr('data-animation'),
-				$animationDelay = "delay-"+$(this).attr('data-animation-delay');
-			$(this).appear(function() {
-				$(this).addClass('animated').addClass($animationName);
-				$(this).addClass('animated').addClass($animationDelay);
-			});
-		}
-	});
-	
-</script>
+<?php if($currentpage=='dashboard.php'){ ?>
+<script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
 <?php } ?>
-<?php if($currentpage=='login.php' || $currentpage=='register.php'){ ?>
-<!-- Plugin JavaScript -->
-<?php } ?>
-<?php if($currentpage=='register.php'){ ?>
-<link rel="stylesheet" type="text/css" href="css/all.min.css" />
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	
-	jQuery.validator.addMethod("password",function(value,element)
-	{
-		return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(value); 
-	},"Passwords must have a minimum of 8 characters with at least one digit and one letter.");
-	jQuery('#newuser').validate({
-		rules: {
-			pwd: {
-				required: true,
-				minlength: 8,
-				password: true,
-			},
-			phoneno: {
-				required: true,
-				number: true,
-				minlength: 10
-			}
-		},
-		messages: {
-			pwd: {
-				required: "Please provide a password",
-				minlength: "Your password must be at least 8 characters long",
-			},
-			phoneno: {
-				required: "Please enter phone number",
-				number: "Please enter valid phone number",
-				minlength: "Your phone number must be at least 10 number"
-			}
-		}
-	});
-		
-});
-</script>
-<?php } ?>
-<?php if($currentpage=='login.php' || $currentpage=='forgot-password.php' || $currentpage=='contactus.php'){ ?>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	jQuery('#loginuser').validate();
-});
-</script>
-<?php } ?>
-</body></html>
+</body>
+</html>

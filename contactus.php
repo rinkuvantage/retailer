@@ -64,7 +64,7 @@ if(isset($_POST['sendmsg']))
 <div class="container innerpage">
 
   <div class="row contactusblock">
-    <h1>CONTACT US</h1>
+    <h1>CONTACT</h1>
     <div class="col-sm-12 col-md-5">
       <div class="gf_browser_gecko gform_wrapper" id="gform_wrapper_1"><a id="gf_1" class="gform_anchor"></a>
         <form method="post" name="loginuser" id="loginuser" action="">
@@ -124,7 +124,7 @@ if(isset($_POST['sendmsg']))
       </address>
       <hr>
       <h4>Looking for support?</h4>
-      <p> Contact support at <a href="mailto:support@woopra.com">support@sigmaways.com</a>.</p>
+      <p> Contact support at <a href="mailto:support@sigmaways.com">support@sigmaways.com</a>.</p>
       <hr>
       <h4>Looking for sales?</h4>
       <p> Contact sales at <a href="mailto:sales@sigmaways.com"> sales@sigmaways.com</a> or call <a href="callto:+855-867-4473">855-867-4473</a> </p>

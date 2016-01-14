@@ -1,6 +1,7 @@
 <?php require_once('header.php');
 require_once('includes/class/encryptclass.php');
-
+$errors=array();
+$errormsg='';
 if(isset($_POST['upfile']))
 {
 	if(!empty($_FILES))
@@ -17,15 +18,22 @@ if(isset($_POST['upfile']))
 			//$replace = '';
 			//$alias=strtolower(str_replace($order, $replace, $_POST['filename'][$i].'-'.$alias2));
 			$alias=$alias2;
-			//print_r($_FILES['uploadfiles']);
+			
 			if(isset($_FILES['uploadfiles']['name'][$i]))
 			{
 				if($_FILES['uploadfiles']['name'][$i]!='')
 				{
-					
-					if ($_FILES['uploadfiles']["error"][$i] > 0)
+					if($_FILES['uploadfiles']['size'][$i]<=0)
 					{
-						 echo "Error: " . $_FILES['uploadfiles']["error"][$i] . "<br />";
+						array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has 0 size');
+					}
+					else if ($_FILES['uploadfiles']["error"][$i] > 0)
+					{
+						 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has error '.$_FILES['uploadfiles']["error"][$i]);
+					}
+					else if (!in_array($_FILES['uploadfiles']['type'][$i],$filetypes))
+					{
+						 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has different extsion. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
 					}
 					else
 					{
@@ -82,10 +90,21 @@ if(isset($_POST['upfile']))
 				}
 			}
 		}
-		if($totalfile>1){$sumessage=$totalfile.' files uploaded successfully.';}else{$sumessage=$totalfile.' file uploaded successfully.';}
-		$_SESSION['message']=$sumessage;
-		echo"<script type='text/javascript'>window.location='viewfiles.php';</script>";
-		exit();
+		
+		if($totalfile>1){
+		
+			$sumessage=$totalfile.' files uploaded successfully.';
+		}
+			else{$sumessage=$totalfile.' file uploaded successfully.';
+		}
+		
+		if(!empty($errors)){foreach($errors as $error){$errormsg.='<span class="error">'.$error.'</span><br />';}}
+		if($totalfile>0){
+			if(trim($errormsg)!=''){$errormsg='<br />'.$errormsg;}
+			$_SESSION['message']=$sumessage.$errormsg;
+			echo"<script type='text/javascript'>window.location='viewfiles.php';</script>";
+			exit();
+		}
 	}
 }
 ?>
@@ -102,6 +121,7 @@ if(isset($_POST['upfile']))
         </ol>
       </div>
     </div>
+	<?php if(trim($errormsg)!=''){echo $errormsg;} ?>
     <!-- /.row -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
 	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
@@ -110,7 +130,7 @@ if(isset($_POST['upfile']))
     <div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
       <input type="file" class="upfile" name="uploadfiles[]" />
       </span>
-      <input type="text" class="form-control filename" name="filename[]" value="">
+      <input type="text" class="form-control filename" readonly="" name="filename[]" value="">
     </div>
 	</div>
     <a class="add_more" href="javascript:;">Add More Files</a>
@@ -137,10 +157,17 @@ jQuery(document).ready(function(){
 		//var ff=jQuery(this).val();
 		jQuery(this).parents('.upload_box').find('.filename').val(ff);
 	});
+	jQuery('#upfiles').submit(function(){
+		var i=1;
+		jQuery('#upfiles input[type="text"]').each(function(){
+			if(jQuery(this).val()!=''){i=parseInt(i)+1;}
+		});
+		if(i==1){return false;}
+	});
 });
 </script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.appear.js"></script>
 
-</body></html>
+<?php require_once('footer.php'); ?>

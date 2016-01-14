@@ -1,6 +1,12 @@
 <?php 
 @ob_start();
 require_once('header-withoutlogin.php');
+if($login_active)
+{
+	$_SESSION['message']='You do not have access of registration page after login.';
+	@header('Location: dashboard.php');
+	exit();
+}
 $errors=array();
 $company='';
 $fname='';
@@ -110,7 +116,6 @@ if(isset($_POST['fname']))
 			Sendemail( $to, $subject, $message,$from,$from,$fromname);
 			
 			$_SESSION['message']='You have registered successfully, please wait for the admin to activate your account.';
-			
 			@header('Location: register.php');
 			exit();
 		}
@@ -135,14 +140,14 @@ if(isset($_POST['fname']))
   <div class="rg_top_section">
 		  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
 		  <div class="reg_box">
-		    <label for="inputEmail" class="sr-only">First Name</label>
+		    <label for="inputEmail" class="sr-only">First Name*</label>
 			<div class="inputiconbox">
 			
 		  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" placeholder="" required="required"  />
 		  </div>
 		  </div>
 		  <div class="reg_box lstbox">
-		    <label for="inputEmail" class="sr-only">Last Name</label>
+		    <label for="inputEmail" class="sr-only">Last Name*</label>
 			<div class="inputiconbox">
 			<span class="glyphicon glyphicon-user"></span>
 		  <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" class="form-control required" placeholder="" required="required"  />
@@ -150,7 +155,7 @@ if(isset($_POST['fname']))
 		  </div>
 		  
 		  <div class="reg_box fullreg">
-		  <label for="inputEmail" class="sr-only">Company Name</label>
+		  <label for="inputEmail" class="sr-only">Company Name*</label>
 		  <div class="inputiconbox">
 		  <span class="glyphicon glyphicon-briefcase"></span>
 		  <input type="text" id="company" name="company" value="<?php echo $company; ?>" class="form-control required" placeholder="" required="required" />
@@ -158,23 +163,23 @@ if(isset($_POST['fname']))
 		  </div>
 		  
 		  <div class="reg_box fullreg">
-					   <label for="inputEmail" class="sr-only">Phone No</label>
+					   <label for="inputEmail" class="sr-only">Phone No*</label>
 					   <div class="inputiconbox">
 				<i class="fa fa-phone pno"></i>
 					  <input type="text" id="phoneno" name="phoneno" value="<?php echo $phoneno; ?>" class="form-control required" placeholder="" required="required"></div>
 					  </div>
 		  		<div class="reg_box fullreg">
-          <label for="inputEmail" class="sr-only">Email address</label>
+          <label for="inputEmail" class="sr-only">Email address*</label>
 		  <div class="inputiconbox">
 		  <span class="glyphicon glyphicon-envelope"></span>
           <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control required email" placeholder="" required="required"  />
 		  </div>
 		  </div>
 		  <div class="reg_box fullreg">
-          <label for="inputPassword" class="sr-only">Password</label>
+          <label for="inputPassword" class="sr-only">Password*</label>
 		  <div class="inputiconbox">
 		  <span class="glyphicon glyphicon-lock"></span>
-          <input type="password" id="pwd" name="pwd" class="form-control required" placeholder="Password" required="required"  />
+          <input type="password" id="pwd" name="pwd" class="form-control required" placeholder="Password" autocomplete="off" required="required"  />
 		  </div>
 		  </div>
 		    <p class="digittext">Passwords must have a minimum of 8 characters with at least one digit and one letter.</p>
