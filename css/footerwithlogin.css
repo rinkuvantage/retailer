@@ -90,3 +90,7 @@ footer.text-center {
     bottom: 0px;
 }
 .modal{z-index:9999999999!important;}
+#myModal1 .modal-dialog, #myModal2 .modal-dialog {
+    max-width: 830px !important;
+    width: 95% !important;
+}
