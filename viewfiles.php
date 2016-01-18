@@ -24,8 +24,8 @@ else
 	$limitstart=0;
 	$limitsend=$totalrec;
 }
-$filelist=$user->userFilelist($uid, " and keyid='$skey' order by id desc limit $limitstart, $totalrec");
-$totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
+$filelist=$user->userFilelist($uid, " and keyid='$skey' order by id asc limit $limitstart, $totalrec");
+$totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
  
 //echo $user->dirSize('input/'.$uid);
 ?>

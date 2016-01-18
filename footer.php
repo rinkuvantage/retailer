@@ -29,7 +29,7 @@
             <li><a href="contactus.php">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col col-xs-12 col-md-3 ftrblock">
+        <div class="footer-col col-xs-12 col-md-3 ftrblock lastfblock">
           <h4>COMPANY</h4>
           <ul class="footer-list">
             <li><a href="http://sigmaways.com/">About</a></li>

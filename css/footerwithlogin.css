@@ -1,25 +1,39 @@
 /* CSS Document */
-
+div#wrapper {
+    padding-bottom: 200px;
+}
+footer .footer-above .container {
+    width: 100%;
+    padding: 0px 29px;
+    padding-left: 10%;
+}
+.nav>li>a>img {
+    max-width: 80% !important;
+}
+p.social-buttons a {
+    margin-right: 10px;
+}
 footer .footer-above {
   background: #d05125 !important;
 
 }
 footer .footer-above {
 
-  padding-top: 50px;
-    padding-left: 18%;
-}
+  padding-top: 20px;
+  }
 footer.text-center {
   overflow:hidden;
 }
 footer .footer-col {
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 .ftrblock {
   text-align: left;
 }
 .ftrblock h4 {
   font-weight: normal;
+  text-transform:uppercase;
+  font-weight:600;
 }
 .ftrblock ul.footer-list {
   list-style: outside none none;
@@ -33,7 +47,6 @@ footer .footer-col {
 }
 address{ color:#fff;}
 .ftrblock h4 {
-  font-weight: normal;
   color: #fff;
 }
 .footer-list .btn.btn-info.btn-lg.anchortext.forgotpwdlink {
@@ -69,7 +82,11 @@ footer{ position:relative;}
 }
 .navbar-right{ right:0px !important;}
 footer.text-center {
-
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: fixed !important;
+    float: left;
+    width: 100% !important;
+    z-index: 99999999999 !important;
+    bottom: 0px;
 }
+.modal{z-index:9999999999!important;}

@@ -32,7 +32,7 @@
         <div class="footer-col col-xs-12 col-md-3 ftrblock">
           <h4>COMPANY</h4>
           <ul class="footer-list">
-            <li><a href="#">About</a></li>
+            <li><a href="http://sigmaways.com/">About</a></li>
             <li><a href="privacy.php">Privacy Policy</a></li>
             <li><a href="termsofservices.php">Terms of Service</a></li>
           </ul>
@@ -49,9 +49,9 @@
     <!-- Modal requestdome content-->
     <div class="modal-content">
       <div class="modal-hero">
-        <p>Get in touch with us to schedule a private demo. We're here to understand your needs, show you our solutions, and answer any questions.</p>
+        <p id="request_demomessage">Get in touch with us to schedule a private demo. We're here to understand your needs, show you our solutions, and answer any questions.</p>
       </div>
-	  <form id="demo-form" method="post" action="sendemail.php" novalidate="novalidate">
+	  <form id="demo-form" method="post"  novalidate="novalidate">
 	  <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
       <div class="modal-body">
         
@@ -61,45 +61,45 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <label for="first_name">First Name*</label>
-                    <input type="text" name="first_name" id="first_name" value="" size="40" class="form-control input-small required" placeholder="John">
+                    <input type="text" name="first_name" id="first_name" size="40" class="form-control input-small required" placeholder="John">
                   </div>
                   <div class="col-xs-6">
                     <label for="first_name">Last Name*</label>
-                    <input type="text" name="last_name" id="last_name" value="" size="40" class="form-control input-small required" aria-required="true" placeholder="Doe">
+                    <input type="text" name="last_name" id="last_name" size="40" class="form-control input-small required" aria-required="true" placeholder="Doe">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="email">Email*</label>
-                <input type="text" name="email" value="" size="40" aria-required="true" placeholder="johndoe@mybusiness.com" class="form-control required email">
+                <input type="text" name="email" size="40" aria-required="true" placeholder="johndoe@mybusiness.com" class="form-control required email">
               </div>
               <div class="form-group">
                 <label for="website">Website</label>
-                <input type="text" name="website" value="" size="40" aria-required="true" placeholder="mybusiness.com" class="form-control url">
+                <input type="text" name="website" size="40" aria-required="true" placeholder="mybusiness.com" class="form-control url">
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label for="company">Company</label>
-                <input type="text" name="company" value="" size="40" class="form-control company-name" aria-required="true" autocomplete="off" placeholder="My Business">
+                <input type="text" name="company" size="40" class="form-control company-name" aria-required="true" autocomplete="off" placeholder="My Business">
               </div>
               <div class="form-group">
                 <label for="title">Title*</label>
-                <input type="text" name="title" value="" size="40" placeholder="CMO, Sales, Business Developer..." class="form-control  required">
+                <input type="text" name="title" size="40" placeholder="CMO, Sales, Business Developer..." class="form-control  required">
               </div>
               <div class="form-group">
                 <label for="phone">Phone*</label>
-                <input type="text" name="phoneno" id="phoneno" value="" size="40" aria-required="true" placeholder="415-800-3787" class="form-control  required">
+                <input type="text" name="phoneno" id="phoneno" maxlength="13" aria-required="true" placeholder="415-800-3787" class="form-control  required">
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="comments">Comments*</label>
-            <textarea name="comments" data-optional="true" value="" placeholder="Anything else you would like to mention" class="form-control  required" style="height: 100px;"></textarea>
+            <textarea name="comments" data-optional="true" placeholder="Anything else you would like to mention" class="form-control  required" style="height: 100px;"></textarea>
           </div>
         
       </div>
-      <div class="modal-footer"><input class="btn btn-info" type="submit" name="requestdemo" value="Request Demo" /> </div>
+      <div class="modal-footer"><input class="btn btn-info" type="button" name="requestdemo" id="requestdemo" value="Request Demo" /> </div>
 	  </form>
     </div>
   </div>
@@ -110,28 +110,29 @@
     <div class="modal-content">
       <div class="modal-hero">
         <p>Our average response time is 9 hours.</p>
-        <p><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
+        <p id="request_message"><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
+        
       </div>
-	  <form id="support-form" method="post" action="sendemail.php">
-	   <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
+	  <form id="support-form" method="post" onsubmit="requestsupport();">
+	
       <div class="modal-body">
         
           <div class="form-group">
             <label>Name*</label>
             <div class="controls">
-              <input name="name" value="" placeholder="Your name" class="form-control required">
+              <input name="name" type="text"  placeholder="Your name" class="form-control required">
             </div>
           </div>
           <div class="form-group">
             <label>Email*</label>
             <div class="controls">
-              <input name="email" value="" placeholder="Your email address" class="form-control required email">
+              <input name="email" type="text"  placeholder="Your email address" class="form-control required email">
             </div>
           </div>
           <div class="form-group">
             <label>Website</label>
             <div class="controls">
-              <input name="website" value="" placeholder="Your website (if relevant)" class="form-control url" data-optional="true">
+              <input name="website" type="text"  placeholder="Your website (if relevant)" class="form-control url" data-optional="true">
             </div>
           </div>
           <div class="form-group">
@@ -142,7 +143,7 @@
           </div>
         
       </div>
-      <div class="modal-footer"><input class="btn btn-info" type="submit" name="requestsupport" value="Submit Request" /></div>
+      <div class="modal-footer"><input class="btn btn-info" type="button" id="requestsupport" name="requestsupport" value="Submit Request" /></div>
 	  </form>
     </div>
   </div>
@@ -153,6 +154,113 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+jQuery("#requestsupport").click(function(){		
+	
+		jQuery.ajax({
+		url: './sendemail.php?form=requestsendmail',
+		type: 'post',
+		data: jQuery('#support-form input[type=\'text\'], #support-form textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			jQuery('#requestsupport').attr('disabled', true);			
+		},	
+		complete: function() {
+			jQuery('#requestsupport').attr('disabled', false); 			
+		},			
+		success: function(json) {		
+			jQuery('.error, #message').remove();
+									
+					 if (json['error']) {				
+							
+						if (json['error']['name']) {
+												
+							jQuery('#support-form input[name=\'name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
+						}
+						
+						if (json['error']['email']) {
+												
+							jQuery('#support-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
+						}
+						
+					if (json['error']['message']) {
+											
+						jQuery('#support-form textarea[name=\'message\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
+					}
+														
+																																											
+					}else if (json['success']) {						
+						jQuery("#request_message").after("<p id='message'>" + json['success']['confirmation']  +"</p>");
+						jQuery('#support-form textarea[name=\'message\'], #support-form input[type=\'text\']').val('');														
+					}
+							
+	       }	
+	    });
+});
+});
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+jQuery("#requestdemo").click(function(){		
+	
+		jQuery.ajax({
+		url: './sendemail.php?requestdemo=true',
+		type: 'post',
+		data: jQuery('#demo-form input[type=\'text\'], #demo-form textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			jQuery('#requestdemo').attr('disabled', true);			
+		},	
+		complete: function() {
+			jQuery('#requestdemo').attr('disabled', false); 			
+		},			
+		success: function(json) {		
+			jQuery('label.error, #message').remove();
+									
+					 if (json['error']) {				
+							
+						if (json['error']['name']) {												
+							jQuery('#demo-form input[name=\'first_name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
+						}
+						
+						if (json['error']['lastname']) {												
+							jQuery('#demo-form input[name=\'last_name\']').after('<label for="name" generated="true" class="error">' + json['error']['lastname'] + '</label>');
+						}
+						
+						
+						if (json['error']['title']) {												
+							jQuery('#demo-form input[name=\'title\']').after('<label for="name" generated="true" class="error">' + json['error']['title'] + '</label>');
+						}
+						
+						
+						if (json['error']['phoneno']) {												
+							jQuery('#demo-form input[name=\'phoneno\']').after('<label for="name" generated="true" class="error">' + json['error']['phoneno'] + '</label>');
+						}
+						
+						if (json['error']['email']) {												
+							jQuery('#demo-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
+						}
+						
+						
+						
+						
+					if (json['error']['message']) {
+											
+						jQuery('#demo-form textarea[name=\'comments\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
+					}
+														
+																																											
+					}else if (json['success']) {						
+						jQuery("#request_demomessage").after("<p id='message2'>" + json['success']['confirmation']  +"</p>");
+						jQuery('#demo-form textarea[name=\'comments\'], #demo-form input[type=\'text\']').val('');														
+					}
+							
+	       }	
+	    });
+});
+});
+</script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	jQuery('#support-form').validate();
@@ -216,6 +324,17 @@ jQuery(document).ready(function(){
 		jQuery('#toploginuser').submit();
 	});
 	
+	
+	$('#toploginuser input[name=\'email\'], #pwd').on('keydown', function(e) {
+		if (e.keyCode == 13) {
+			jQuery('#btnLogin').trigger('click');
+		}
+	});
+	
+	
+	
+	
+	
 	jQuery('#btnForgotPassword').click(function(){
 		jQuery('#formForgotPassword').validate();
 		var error=false;
@@ -236,6 +355,9 @@ jQuery(document).ready(function(){
 		}
 		jQuery('#formForgotPassword').submit();
 	});
+	
+	
+	
 });
 </script>
 <?php if($currentpage=='index.php'){ ?>
@@ -267,8 +389,17 @@ jQuery(document).ready(function(){
 	{
 		return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(value); 
 	},"Passwords must have a minimum of 8 characters with at least one digit and one letter.");
+	jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  return value.indexOf(" ") < 0 && value != ""; 
+		}, "No space please and don't leave it empty");
 	jQuery('#newuser').validate({
 		rules: {
+			fname: {
+					noSpace: true,
+				},
+				lname: {
+					noSpace: true,
+				},
 			pwd: {
 				required: true,
 				minlength: 8,
@@ -292,6 +423,11 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
+	
+	
+	
+	
+	
 		
 });
 </script>

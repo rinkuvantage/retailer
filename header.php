@@ -119,7 +119,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
       <?php if($user_type=='admin'){ ?>
       <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php"><i class="fa fa-users"></i> Manage Users</a> </li>
       <?php } ?>
-	  <li><a href="index.php"><img class="" src="img/RA.png"/></a></li>
+	  <li class="sitelogo"><a href="index.php"><img class="" src="img/RA.png"/></a></li>
     </ul>
 	
   </div>

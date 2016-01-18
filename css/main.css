@@ -5,6 +5,7 @@
  .admindashboard .sr-only{ position:inherit !important;}
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
+  .mainregisterbox .sr-only{position:inherit !important;}
 } 
 
 .requestdemo .modal-dialog {

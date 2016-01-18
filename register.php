@@ -19,16 +19,25 @@ if(isset($_POST['fname']))
 	if(trim($post['fname'])=='')
 	{
 		array_push($errors,'Please enter first name.');
+	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($post['fname'])))
+	{
+		array_push($errors,'Please enter valid first name.');		
 	}
 	$post['lname']=$_POST['lname'];
 	if(trim($post['lname'])=='')
 	{
 		array_push($errors,'Please enter last name.');
+	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($post['lname'])))
+	{
+		array_push($errors,'Please enter valid last name.');		
 	}
 	$post['company']=$_POST['company'];
 	if(trim($post['company'])=='')
 	{
 		array_push($errors,'Please enter company name.');
+	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($post['company'])))
+	{
+		array_push($errors,'Please enter valid company name.');		
 	}
 	
 	$post['phoneno']=$_POST['phoneno'];
@@ -41,6 +50,9 @@ if(isset($_POST['fname']))
 	if(trim($post['user_email'])=='')
 	{
 		array_push($errors,'Please enter email address.');
+	}elseif(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", trim($post['user_email'])))
+	{
+		
 	}
 	$check=$user->Userfield('user_email', $post['user_email']);
 	if(!empty($check))
@@ -128,6 +140,7 @@ if(isset($_POST['fname']))
 		}
 	}
 }
+
  ?>
 
 
@@ -143,14 +156,14 @@ if(isset($_POST['fname']))
 		    <label for="inputEmail" class="sr-only">First Name*</label>
 			<div class="inputiconbox">
 			
-		  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" placeholder="" required="required"  />
+		  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" required="required"  />
 		  </div>
 		  </div>
 		  <div class="reg_box lstbox">
 		    <label for="inputEmail" class="sr-only">Last Name*</label>
 			<div class="inputiconbox">
 			<span class="glyphicon glyphicon-user"></span>
-		  <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" class="form-control required" placeholder="" required="required"  />
+		  <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" class="form-control required" required="required"  />
 		  </div>
 		  </div>
 		  
@@ -158,7 +171,7 @@ if(isset($_POST['fname']))
 		  <label for="inputEmail" class="sr-only">Company Name*</label>
 		  <div class="inputiconbox">
 		  <span class="glyphicon glyphicon-briefcase"></span>
-		  <input type="text" id="company" name="company" value="<?php echo $company; ?>" class="form-control required" placeholder="" required="required" />
+		  <input type="text" id="company" name="company" value="<?php echo $company; ?>" class="form-control required" required="required" />
 		  </div>
 		  </div>
 		  
@@ -166,13 +179,13 @@ if(isset($_POST['fname']))
 					   <label for="inputEmail" class="sr-only">Phone No*</label>
 					   <div class="inputiconbox">
 				<i class="fa fa-phone pno"></i>
-					  <input type="text" id="phoneno" name="phoneno" value="<?php echo $phoneno; ?>" class="form-control required" placeholder="" required="required"></div>
+					  <input type="text" id="phoneno" maxlength="13" name="phoneno" value="<?php echo $phoneno; ?>" class="form-control required" required="required"></div>
 					  </div>
 		  		<div class="reg_box fullreg">
           <label for="inputEmail" class="sr-only">Email address*</label>
 		  <div class="inputiconbox">
 		  <span class="glyphicon glyphicon-envelope"></span>
-          <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control required email" placeholder="" required="required"  />
+          <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control required email" required="required"  />
 		  </div>
 		  </div>
 		  <div class="reg_box fullreg">

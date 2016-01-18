@@ -240,8 +240,17 @@ if(isset($_POST['signupSubmit']))
 		{
 			return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(value); 
 		},"Passwords must have a minimum of 8 characters with at least one digit and one letter.");
+		jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  return value.indexOf(" ") < 0 && value != ""; 
+		}, "No space please and don't leave it empty");
 		jQuery('#newuser').validate({
 			rules: {
+				fname: {
+					noSpace: true,
+				},
+				lname: {
+					noSpace: true,
+				},
 				pwd: {
 					minlength: 8,
 					password: true,

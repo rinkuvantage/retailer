@@ -3,6 +3,7 @@
  .admindashboard .sr-only{ position:inherit !important;}
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
+ .mainregisterbox .sr-only{position:inherit !important;}
 } 
 .showingerror .error{ color:#fff !important;}
 .showingerror {
@@ -12,6 +13,7 @@
     background: #d05125;
     color: #fff;
 }
+.side-nav > li.sitelogo > a{padding-top:4px; margin-top:0px;}
 span.glyphicon.headericonbox {
     float: left;
     position: unset !important;
