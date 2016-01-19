@@ -4,7 +4,13 @@
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
  .mainregisterbox .sr-only{position:inherit !important;}
-} 
+}
+footer .footer-above .container {
+  padding: 0 29px 0 10% !important;
+}
+.navbar-toggle .sr-only {
+  display: none;
+}
 .showingerror .error{ color:#fff !important;}
 .showingerror {
     border: 1px solid #d05125;
@@ -195,6 +201,7 @@ p.tokenkey {
     width: 14% !important;
     margin-top: 30px;
     border-radius: unset !important;
+	margin-bottom:10px;
 }
 ul.pager.adc li a:hover{ border:1px solid #000;}
 
@@ -224,6 +231,25 @@ ul.pager.adc li a:hover{ border:1px solid #000;}
   margin-left: 10px;
   margin-top:15px;
 }
+@media only screen and (max-width:1080px) {
+.table-responsive {
+  min-height: 0.01%;
+  overflow-x: auto !important;
+}
+.table {
+  margin-bottom: 21px !important;
+  max-width: 1000px !important;
+  width: 1000px !important;
+}
+.mainregisterbox .form-box-footer.form-header {
+  padding: 29px 33px;
+}
+.form-box-footer.form-header .btn.btn-block {
+  padding: 0px !important;
+}
+
+.admindashboard .upload_submit{ width:auto !important;}
+}
 @media only screen and (max-width:767px) {
 
 .top-nav > li {
@@ -249,8 +275,19 @@ body {
 .navbar-header {
   border-bottom: 1px solid #e25f32;
 }
+
+.text-center .footer-above .container {
+  padding: 0 5px !important;
+  width: 100%;
+}
+p.social-buttons a {
+  margin-right: 1px !important;
+}
+.footer-list li a{ font-size:14px;}
+
 }
 @media only screen and (max-width:560px) {
+
 .admindashboard .upload_submit {
   width: 33% !important;
 }
@@ -260,5 +297,16 @@ body {
 }
 .userlogo {
   padding: 5px 21px !important;
+}
+}
+@media only screen and (max-width:525px) {
+footer .footer-above .container {
+  padding: 0 29px 0 10% !important;
+  }
+.footer-col {
+  width: 100% !important;
+}
+footer .footer-col {
+  margin-bottom: 5px !important;
 }
 }

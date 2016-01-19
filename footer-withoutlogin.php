@@ -2,7 +2,7 @@
   <div class="footer-above footer_box">
     <div class="container">
       <div class="row">
-        <div class="footer-col col-xs-12 col-md-3 ftrblock">
+        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
           <p class="social-buttons"> <a href="https://twitter.com/sigmaways"><img src="img/tw.png"/></a> <a href="https://www.facebook.com/sigmaways"><img src="img/fb.png"/></a> <a href="https://www.linkedin.com/company/203731"><img src="img/linkedin.png"/></a> </p>
           <address>
           <strong>Sigmaways Inc</strong><br>
@@ -10,14 +10,14 @@
           Fremont, CA 94538
           </address>
         </div>
-        <div class="footer-col col-xs-12 col-md-3 ftrblock">
+        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
           <h4>Solutions</h4>
           <ul class="footer-list">
             <li><a href="#">Churn Analytics</a></li>
             <li><a href="#">Loyalty Analytics </a></li>
           </ul>
         </div>
-        <div class="footer-col col-xs-12 col-md-3 ftrblock">
+        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
           <h4>CONTACT</h4>
           <ul class="footer-list">
             <li>
@@ -29,7 +29,7 @@
             <li><a href="contactus.php">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col col-xs-12 col-md-3 ftrblock">
+        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
           <h4>COMPANY</h4>
           <ul class="footer-list">
             <li><a href="http://sigmaways.com/">About</a></li>

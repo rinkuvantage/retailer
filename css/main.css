@@ -877,6 +877,11 @@ form.form-signin.registerbox{ display:inline-block;}
   float: left;
 
 }
+.text-center .footer-above .container {
+  padding: 0 5px !important;
+
+}
+
 }
 @media only screen and (max-width:640px) {
 .reg_box {
@@ -888,10 +893,10 @@ p.social-buttons a {
 .social-buttons img {
   width: 25%;
 }
-.ftrblock h4 {
+/*.ftrblock h4 {
 font-size:14px;
-}
-.ftrblock ul.footer-list a {
+}*/
+/*.ftrblock ul.footer-list a {
   font-size: 12px;
 }
 address {
@@ -900,6 +905,17 @@ address {
 button.btn.btn-info.btn-lg.anchortext.forgotpwdlink.supportbox {
   font-size: 12px;
 
+}*/
+}
+@media only screen and (max-width:525px) {
+.footer-col {
+  width: 100% !important;
+}
+.social-buttons img {
+  width: auto;
+}
+footer .footer-col {
+  margin-bottom: 5px !important;
 }
 }
 

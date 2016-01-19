@@ -126,5 +126,11 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			var h=parseInt(jQuery(window).height())-parseInt(jQuery('.navbar-fixed-top').height())-parseInt(jQuery('footer.text-center').height());
+			jQuery('#page-wrapper').css({'min-height':h+'px'});
+		});
+	</script>
 
 <?php require_once('footer.php'); ?>

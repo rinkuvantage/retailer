@@ -1,11 +1,9 @@
 /* CSS Document */
-div#wrapper {
-    padding-bottom: 200px;
-}
+
 footer .footer-above .container {
     width: 100%;
-    padding: 0px 29px;
-    padding-left: 10%;
+    padding: 0px 29px !important;
+    padding-left: 10% !important;
 }
 .nav>li>a>img {
     max-width: 80% !important;
@@ -19,7 +17,7 @@ footer .footer-above {
 }
 footer .footer-above {
 
-  padding-top: 20px;
+  padding-top: 50px;
   }
 footer.text-center {
   overflow:hidden;
@@ -83,7 +81,6 @@ footer{ position:relative;}
 .navbar-right{ right:0px !important;}
 footer.text-center {
     overflow: hidden;
-    position: fixed !important;
     float: left;
     width: 100% !important;
     z-index: 99999999999 !important;
