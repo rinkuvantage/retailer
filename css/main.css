@@ -6,6 +6,9 @@
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
+}
+.hdr_toglebox label {
+  margin-bottom: 10px;
 } 
 
 .requestdemo .modal-dialog {

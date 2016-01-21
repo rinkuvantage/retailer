@@ -51,7 +51,7 @@
       <div class="modal-hero">
         <p>Get in touch with us to schedule a private demo. We're here to understand your needs, show you our solutions, and answer any questions.</p>
       </div>
-	  <form id="demo-form" method="post" action="sendemail.php" novalidate="novalidate">
+	  <form id="demo-form" method="post" action="">
 	  <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
       <div class="modal-body">
         
@@ -112,7 +112,7 @@
         <p>Our average response time is 9 hours.</p>
         <p><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
       </div>
-	  <form id="support-form" method="post" action="sendemail.php">
+	  <form id="support-form" method="post" action="">
 	   <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
       <div class="modal-body">
         
@@ -155,13 +155,54 @@ jQuery(document).ready(function(){
 			scrollTop:0
 		}, 2000);
 	});
-	jQuery('#support-form').validate();
+	jQuery.validator.addMethod("onlytext",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z ]+$/i.test(value); 
+	},"Please enter only letter.");
+	jQuery.validator.addMethod("textnumber",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9 ]+$/i.test(value); 
+	},"Please enter only letter and number.");
+	jQuery.validator.addMethod("textnumberdash",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z0-9,. ]+$/i.test(value); 
+	},"Special characters are not allowed");
+	
+	jQuery.validator.addMethod("noSpace", function(value, element) { 
+	  return value.indexOf(" ") < 0 && value != ""; 
+	}, "No space please and don't leave it empty");
+	
+	jQuery('#support-form').validate({
+		rules: {
+			name: {
+				onlytext: true
+			},
+			message: {
+				textnumberdash: true
+			}
+		}
+	});
 	jQuery('#demo-form').validate({
 		rules: {
 			phoneno: {
 				required: true,
 				number: true,
-				minlength: 10
+				minlength: 10,
+				maxlength: 13
+			},
+			first_name: {
+				noSpace: true,
+				onlytext: true
+			},
+			last_name: {
+				noSpace: true,
+				onlytext: true
+			},
+			title: {
+				textnumber: true
+			},
+			comments: {
+				textnumberdash: true
 			}
 		},
 		messages: {
@@ -171,6 +212,113 @@ jQuery(document).ready(function(){
 				minlength: "Your phone number must be at least 10 number"
 			}
 		}
+	});
+	
+	jQuery("#demo-form").submit(function(){	
+		if(jQuery("#demo-form input, #demo-form textarea").hasClass('error'))
+		{
+			return false;
+		}	
+		jQuery.ajax({
+		url: './sendemail.php?requestdemo=true',
+		type: 'post',
+		data: jQuery('#demo-form input[type=\'text\'], #demo-form textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			jQuery('#requestdemo').attr('disabled', true);			
+		},	
+		complete: function() {
+			jQuery('#requestdemo').attr('disabled', false); 			
+		},			
+		success: function(json) {		
+			jQuery('label.error, #message').remove();
+									
+					 if (json['error']) {				
+							
+						if (json['error']['name']) {												
+							jQuery('#demo-form input[name=\'first_name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
+						}
+						
+						if (json['error']['lastname']) {												
+							jQuery('#demo-form input[name=\'last_name\']').after('<label for="name" generated="true" class="error">' + json['error']['lastname'] + '</label>');
+						}
+						
+						
+						if (json['error']['title']) {												
+							jQuery('#demo-form input[name=\'title\']').after('<label for="name" generated="true" class="error">' + json['error']['title'] + '</label>');
+						}
+						
+						
+						if (json['error']['phoneno']) {												
+							jQuery('#demo-form input[name=\'phoneno\']').after('<label for="name" generated="true" class="error">' + json['error']['phoneno'] + '</label>');
+						}
+						
+						if (json['error']['email']) {												
+							jQuery('#demo-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
+						}
+						
+						
+						
+						
+					if (json['error']['message']) {
+											
+						jQuery('#demo-form textarea[name=\'comments\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
+					}
+														
+																																											
+					}else if (json['success']) {	
+						window.location='<?php echo $currentpage; ?>';														
+					}
+							
+		   }	
+		});
+		return false;
+	});
+	
+	jQuery("#support-form").submit(function(){		
+		if(jQuery("#support-form input, #support-form textarea").hasClass('error'))
+		{
+			return false;
+		}
+		jQuery.ajax({
+		url: './sendemail.php?form=requestsendmail',
+		type: 'post',
+		data: jQuery('#support-form input[type=\'text\'], #support-form textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			jQuery('#requestsupport').attr('disabled', true);			
+		},	
+		complete: function() {
+			jQuery('#requestsupport').attr('disabled', false); 			
+		},			
+		success: function(json) {		
+			jQuery('.error, #message').remove();
+									
+					 if (json['error']) {				
+							
+						if (json['error']['name']) {
+												
+							jQuery('#support-form input[name=\'name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
+						}
+						
+						if (json['error']['email']) {
+												
+							jQuery('#support-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
+						}
+						
+					if (json['error']['message']) {
+											
+						jQuery('#support-form textarea[name=\'message\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
+					}
+														
+																																											
+					}else if (json['success']) {						
+						window.location='<?php echo $currentpage; ?>';														
+					}
+							
+		   }	
+		});
+		return false;
 	});
 	
 });

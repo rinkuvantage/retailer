@@ -15,7 +15,7 @@ if(isset($_POST['sendmsg']))
 	if(trim($name)=='')
 	{
 		array_push($errors,'Please enter your name.');
-	}elseif(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($name)))
+	}elseif(!preg_match('/^[a-zA-Z ]*$/', trim($name)))
 	{
 		array_push($errors,'Please enter valid  name.');	
 	}
@@ -39,7 +39,7 @@ if(isset($_POST['sendmsg']))
 	if(trim($message)=='')
 	{
 		array_push($errors,'Please enter message.');
-	}elseif(!preg_match('/^[a-zA-Z][a-zA-Z,. ]*$/', trim($message)))
+	}elseif(!preg_match('/^[a-zA-Z,. ][a-zA-Z0-9,. ]*$/', trim($message)))
 	{
 		array_push($errors,'Please enter valid message.');	
 	}
@@ -52,7 +52,7 @@ if(isset($_POST['sendmsg']))
 		$fromname=$sitname;
 				
 		$message="Dear Admin,<br /><br />
-		Following user has been contact you. The user detail is given below<br /><br />
+		The following user has contacted you. The user detail is given below<br /><br />
 		Name: ".$name."<br />
 		Email: ".$email."<br />
 		Website: ".$website."<br />

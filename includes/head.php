@@ -26,13 +26,26 @@ $owner_email='abhishek@tawebmedia.com';
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
 
 //File Formats
-$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/zip');
+$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/zip','application/octet-stream','application/msword');
 $fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.zip');
 
-//Set Timezone
-date_default_timezone_set('UTC');
+
 
 require_once('class/users.php');
+
+$ip=$user->getRealIpAddr();
+$data=$user->ip_info($ip, "country_code");
+$timezone='UTC';
+$zones2=$user->coutrytimzones(" and country_code='$data'");
+if(!empty($zones2))
+{
+	$timezone=$zones2[1]['zone_name'];
+	if(empty($timezone)){$timezone='Asia/Kolkata';}
+}
+//Set Timezone
+
+date_default_timezone_set($timezone);
+
 require_once('sendemails.php');
 
 $sepratefiles=explode('/',$_SERVER['REQUEST_URI']);

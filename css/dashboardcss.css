@@ -5,6 +5,17 @@
  .admindashboard .navbar{ min-height:inherit !important;}
  .mainregisterbox .sr-only{position:inherit !important;}
 }
+a.deletefiles {
+    margin-left: 10px !important;
+    background: #000;
+    /* width: 30px !important; */
+    /* height: 29px !important; */
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 14px !important;
+    color: #fff;
+    box-shadow: none !important;
+}
 footer .footer-above .container {
   padding: 0 29px 0 10% !important;
 }

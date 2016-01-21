@@ -99,7 +99,7 @@
           </div>
         
       </div>
-      <div class="modal-footer"><input class="btn btn-info" type="button" name="requestdemo" id="requestdemo" value="Request Demo" /> </div>
+      <div class="modal-footer"><input class="btn btn-info" type="submit" name="requestdemo" id="requestdemo" value="Request Demo" /> </div>
 	  </form>
     </div>
   </div>
@@ -113,7 +113,7 @@
         <p id="request_message"><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
         
       </div>
-	  <form id="support-form" method="post" onsubmit="requestsupport();">
+	  <form id="support-form" method="post" action="">
 	
       <div class="modal-body">
         
@@ -143,7 +143,7 @@
           </div>
         
       </div>
-      <div class="modal-footer"><input class="btn btn-info" type="button" id="requestsupport" name="requestsupport" value="Submit Request" /></div>
+      <div class="modal-footer"><input class="btn btn-info" type="submit" id="requestsupport" name="requestsupport" value="Submit Request" /></div>
 	  </form>
     </div>
   </div>
@@ -154,56 +154,78 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
+
+
 <script type="text/javascript">
 jQuery(document).ready(function(){
-jQuery("#requestsupport").click(function(){		
+	jQuery.validator.addMethod("onlytext",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z ]+$/i.test(value); 
+	},"Please enter only letter.");
+	jQuery.validator.addMethod("validemail",function(value,element)
+	{
+		return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value); 
+	},"Please enter valid email.");
+	jQuery.validator.addMethod("textnumber",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9 ]+$/i.test(value); 
+	},"Please enter only letter and number.");
+	jQuery.validator.addMethod("textnumberdash",function(value,element)
+	{
+		return this.optional(element) || /^[a-zA-Z0-9,. ]+$/i.test(value); 
+	},"Special characters are not allowed");
 	
-		jQuery.ajax({
-		url: './sendemail.php?form=requestsendmail',
-		type: 'post',
-		data: jQuery('#support-form input[type=\'text\'], #support-form textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			jQuery('#requestsupport').attr('disabled', true);			
-		},	
-		complete: function() {
-			jQuery('#requestsupport').attr('disabled', false); 			
-		},			
-		success: function(json) {		
-			jQuery('.error, #message').remove();
-									
-					 if (json['error']) {				
-							
-						if (json['error']['name']) {
-												
-							jQuery('#support-form input[name=\'name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
-						}
-						
-						if (json['error']['email']) {
-												
-							jQuery('#support-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
-						}
-						
-					if (json['error']['message']) {
-											
-						jQuery('#support-form textarea[name=\'message\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
-					}
-														
-																																											
-					}else if (json['success']) {						
-						jQuery("#request_message").after("<p id='message'>" + json['success']['confirmation']  +"</p>");
-						jQuery('#support-form textarea[name=\'message\'], #support-form input[type=\'text\']').val('');														
-					}
-							
-	       }	
-	    });
-});
-});
-</script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-jQuery("#requestdemo").click(function(){		
+	jQuery.validator.addMethod("noSpace", function(value, element) { 
+	  return value.indexOf(" ") < 0 && value != ""; 
+	}, "No space please and don't leave it empty");
 	
+	jQuery('#support-form').validate({
+		rules: {
+			name: {
+				onlytext: true
+			},
+			message: {
+				textnumberdash: true
+			}
+		}
+	});
+	jQuery('#demo-form').validate({
+		rules: {
+			phoneno: {
+				required: true,
+				number: true,
+				minlength: 10,
+				maxlength: 13
+			},
+			first_name: {
+				noSpace: true,
+				onlytext: true
+			},
+			last_name: {
+				noSpace: true,
+				onlytext: true
+			},
+			title: {
+				textnumber: true
+			},
+			comments: {
+				textnumberdash: true
+			}
+		},
+		messages: {
+			phoneno: {
+				required: "Please enter phone number",
+				number: "Please enter valid phone number",
+				minlength: "Your phone number must be at least 10 number"
+			}
+		}
+	});
+	
+	jQuery("#demo-form").submit(function(){	
+		if(jQuery("#demo-form input, #demo-form textarea").hasClass('error'))
+		{
+			return false;
+		}	
 		jQuery.ajax({
 		url: './sendemail.php?requestdemo=true',
 		type: 'post',
@@ -251,44 +273,61 @@ jQuery("#requestdemo").click(function(){
 					}
 														
 																																											
-					}else if (json['success']) {						
-						jQuery("#request_demomessage").after("<p id='message2'>" + json['success']['confirmation']  +"</p>");
-						jQuery('#demo-form textarea[name=\'comments\'], #demo-form input[type=\'text\']').val('');														
+					}else if (json['success']) {	
+						window.location='<?php echo $currentpage; ?>';														
 					}
 							
-	       }	
-	    });
-});
-});
-</script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	jQuery('#support-form').validate();
-	jQuery('#demo-form').validate({
-		rules: {
-			phoneno: {
-				required: true,
-				number: true,
-				minlength: 10
-			}
-		},
-		messages: {
-			phoneno: {
-				required: "Please enter phone number",
-				number: "Please enter valid phone number",
-				minlength: "Your phone number must be at least 10 number"
-			}
-		}
+		   }	
+		});
+		return false;
 	});
-	/*var navpos = jQuery('.footer_box').offset();
-	jQuery(window).bind('scroll', function() {
-	  if (jQuery(window).scrollTop() > navpos.top) {
-		jQuery('.page-scroll').fadeIn('slow');
-	   }
-	   else {
-		 jQuery('.page-scroll').fadeOut('slow');
-	   }
-	});*/
+	
+	jQuery("#support-form").submit(function(){		
+		if(jQuery("#support-form input, #support-form textarea").hasClass('error'))
+		{
+			return false;
+		}
+		jQuery.ajax({
+		url: './sendemail.php?form=requestsendmail',
+		type: 'post',
+		data: jQuery('#support-form input[type=\'text\'], #support-form textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			jQuery('#requestsupport').attr('disabled', true);			
+		},	
+		complete: function() {
+			jQuery('#requestsupport').attr('disabled', false); 			
+		},			
+		success: function(json) {		
+			jQuery('.error, #message').remove();
+									
+					 if (json['error']) {				
+							
+						if (json['error']['name']) {
+												
+							jQuery('#support-form input[name=\'name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
+						}
+						
+						if (json['error']['email']) {
+												
+							jQuery('#support-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
+						}
+						
+					if (json['error']['message']) {
+											
+						jQuery('#support-form textarea[name=\'message\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
+					}
+														
+																																											
+					}else if (json['success']) {						
+						window.location='<?php echo $currentpage; ?>';														
+					}
+							
+		   }	
+		});
+		return false;
+	});
+	
 	jQuery('a.scrolltotop').click(function(){
 		jQuery('html, body').animate({
 			scrollTop:0
@@ -325,15 +364,11 @@ jQuery(document).ready(function(){
 	});
 	
 	
-	$('#toploginuser input[name=\'email\'], #pwd').on('keydown', function(e) {
+	jQuery('#toploginuser input[name=\'email\'], #pwd').on('keydown', function(e) {
 		if (e.keyCode == 13) {
 			jQuery('#btnLogin').trigger('click');
 		}
 	});
-	
-	
-	
-	
 	
 	jQuery('#btnForgotPassword').click(function(){
 		jQuery('#formForgotPassword').validate();
@@ -390,16 +425,21 @@ jQuery(document).ready(function(){
 		return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(value); 
 	},"Passwords must have a minimum of 8 characters with at least one digit and one letter.");
 	jQuery.validator.addMethod("noSpace", function(value, element) { 
-		  return value.indexOf(" ") < 0 && value != ""; 
-		}, "No space please and don't leave it empty");
+	  return value.indexOf(" ") < 0 && value != ""; 
+	}, "No space please and don't leave it empty");
 	jQuery('#newuser').validate({
 		rules: {
 			fname: {
 					noSpace: true,
+					onlytext:true
 				},
-				lname: {
+			lname: {
 					noSpace: true,
+					onlytext:true
 				},
+			email:{
+				validemail:true
+			},
 			pwd: {
 				required: true,
 				minlength: 8,
@@ -432,10 +472,27 @@ jQuery(document).ready(function(){
 });
 </script>
 <?php } ?>
-<?php if($currentpage=='login.php' || $currentpage=='forgot-password.php' || $currentpage=='contactus.php'){ ?>
+<?php if($currentpage=='login.php' || $currentpage=='forgot-password.php'){ ?>
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	jQuery('#loginuser').validate();
+});
+</script>
+<?php } ?>
+<?php if($currentpage=='contactus.php'){ ?>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	
+	jQuery('#loginuser').validate({
+		rules: {
+			name:{
+					onlytext: true,
+				},
+			message:{
+				textnumberdash: true,
+			}
+		}
+	});
 });
 </script>
 <?php } ?>

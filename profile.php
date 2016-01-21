@@ -178,17 +178,43 @@ if(isset($_POST['fname']))
 		jQuery.validator.addMethod("noSpace", function(value, element) { 
 		  return value.indexOf(" ") < 0 && value != ""; 
 		}, "No space please and don't leave it empty");
+		
+		jQuery.validator.addMethod("onlytext",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z ]+$/i.test(value); 
+		},"Please enter only letter.");
+		jQuery.validator.addMethod("validemail",function(value,element)
+		{
+			return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value); 
+		},"Please enter valid email.");
+		jQuery.validator.addMethod("textnumber",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9 ]+$/i.test(value); 
+		},"Please enter only letter and number.");
+		jQuery.validator.addMethod("textnumberdash",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z0-9,. ]+$/i.test(value); 
+		},"Special characters are not allowed");
+		
+		jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  return value.indexOf(" ") < 0 && value != ""; 
+		}, "No space please and don't leave it empty");
 		jQuery('#newuser').validate({
 			rules: {
 				fname: {
 					noSpace: true,
+					onlytext:true
 				},
 				lname: {
 					noSpace: true,
+					onlytext:true
 				},
 				pwd: {
 					minlength: 8,
 					password: true,
+				},
+				email:{
+					validemail:true
 				},
 				phoneno: {
 					required: true,

@@ -1,4 +1,10 @@
-<?php require_once('header-withoutlogin.php'); ?>
+<?php require_once('header-withoutlogin.php');
+if($login_active)
+{
+	@header('Location: dashboard.php');
+	exit();
+}
+ ?>
 
     <!-- Header -->
     <header>

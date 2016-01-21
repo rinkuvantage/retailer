@@ -19,7 +19,7 @@ if(isset($_POST['fname']))
 	if(trim($post['fname'])=='')
 	{
 		array_push($errors,'Please enter first name.');
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($post['fname'])))
+	}else if(!preg_match('/^[a-zA-Z]*$/', trim($post['fname'])))
 	{
 		array_push($errors,'Please enter valid first name.');		
 	}
@@ -27,7 +27,7 @@ if(isset($_POST['fname']))
 	if(trim($post['lname'])=='')
 	{
 		array_push($errors,'Please enter last name.');
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($post['lname'])))
+	}else if(!preg_match('/^[a-zA-Z]*$/', trim($post['lname'])))
 	{
 		array_push($errors,'Please enter valid last name.');		
 	}
@@ -155,8 +155,8 @@ if(isset($_POST['fname']))
 		  <div class="reg_box">
 		    <label for="inputEmail" class="sr-only">First Name*</label>
 			<div class="inputiconbox">
-			
-		  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" required="required"  />
+			<span class="glyphicon glyphicon-user"></span>
+		  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required" required="required"  />
 		  </div>
 		  </div>
 		  <div class="reg_box lstbox">

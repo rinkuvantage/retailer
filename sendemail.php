@@ -20,7 +20,8 @@ if(isset($_GET['requestdemo']))
 		$json['error']['name'] = 'Please enter first name.';
 		$error++;
 		
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($first_name)))
+	}
+	else if(!preg_match('/^[a-zA-Z0-9 ]+$/', trim($first_name)))
 	{
 		$json['error']['name'] = 'Please enter valid first name.';
 		$error++;
@@ -30,7 +31,7 @@ if(isset($_GET['requestdemo']))
 		$json['error']['lastname'] = 'Please enter last name.';
 		$error++;
 		
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($last_name)))
+	}else if(!preg_match('/^[a-zA-Z0-9 ]+$/', trim($last_name)))
 	{
 		$json['error']['lastname'] = 'Please enter valid last name.';
 		$error++;
@@ -40,7 +41,7 @@ if(isset($_GET['requestdemo']))
 		$json['error']['title'] = 'Please enter title.';
 		$error++;
 		
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($title)))
+	}else if(!preg_match('/^[a-zA-Z][a-zA-Z0-9 ]+$/', trim($title)))
 	{
 		$json['error']['title'] = 'Please enter valid title.';
 		$error++;
@@ -69,7 +70,7 @@ if(isset($_GET['requestdemo']))
 		$json['error']['message'] = 'Please enter message.';
 		$error++;
 		
-	}else if(!preg_match('/^[a-zA-Z][a-zA-Z,. ]*$/', trim($comments)))
+	}else if(!preg_match('/^[a-zA-Z0-9,. ]+$/', trim($comments)))
 	{
 		$json['error']['message'] = 'Please enter valid message.';
 		$error++;
@@ -96,7 +97,8 @@ if(isset($_GET['requestdemo']))
 		Comments: ".$comments."<br /><br />";
 		$message.=$email_signature;
 		Sendemail( $to, $subject, $message,$from,$from,$fromname);		
-		$json['success']['confirmation'] = "Thank You,<br/>Your message has been sent successfully. We will get back to you shortly.";
+		$json['success']['confirmation'] = "Thank You,Your message has been sent successfully. We will get back to you shortly.";
+		$_SESSION['message']=$json['success']['confirmation'];
 		
 	}
 	print(json_encode($json));
@@ -120,7 +122,7 @@ if(isset($_GET['form']))
 			$json['error']['name'] = 'Please enter your name.';
 			$error++;
 			
-		}else if(!preg_match('/^[a-zA-Z][a-zA-Z ]*$/', trim($name)))
+		}else if(!preg_match('/^[a-zA-Z0-9 ]+$/', trim($name)))
 		{
 			$json['error']['name'] = 'Please enter valid name.';
 			$error++;
@@ -138,7 +140,7 @@ if(isset($_GET['form']))
 			$json['error']['message'] = 'Please enter message.';
 			$error++;
 			
-		}else if(!preg_match('/^[a-zA-Z][a-zA-Z,. ]*$/', trim($message)))
+		}else if(!preg_match('/^[a-zA-Z0-9,. ]+$/', trim($message)))
 		{
 			$json['error']['message'] = 'Please enter valid message.';
 			$error++;
@@ -169,7 +171,8 @@ if(isset($_GET['form']))
 		$message .= "Message: ".$message1."<br /><br />";
 		$message.=$email_signature;
 		Sendemail( $to, $subject, $message,$from,$from,$fromname);
-		$json['success']['confirmation'] = "Thank You,<br/>Your message has been sent successfully. We will get back to you shortly.";
+		$json['success']['confirmation'] = "Thank You, Your message has been sent successfully. We will get back to you shortly.";
+		$_SESSION['message']=$json['success']['confirmation'];
 		
 	}
 	

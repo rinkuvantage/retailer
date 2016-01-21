@@ -10,12 +10,12 @@ if(isset($_POST['upfile']))
 		$totalfile=0;
 		$fnames = $_FILES['uploadfiles']['name'];
 
-		if(count(array_unique($fnames))<count($fnames))
+		/*if(count(array_unique($fnames))<count($fnames))
 		{
 			array_push($errors,'You are uploading more than one file with same name & same type.');
 		}
 		else
-		{			
+		{*/			
 					
 			foreach($_FILES['uploadfiles']['name'] as $i=>$vale)
 			{
@@ -30,8 +30,16 @@ if(isset($_POST['upfile']))
 				
 				if(isset($_FILES['uploadfiles']['name'][$i]))
 				{
+					
+					
 					if($_FILES['uploadfiles']['name'][$i]!='')
 					{
+						$uploadedfile=$_FILES['uploadfiles']["name"][$i];
+						$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
+						if(count($checkfileexist)>0)
+						{
+							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' is already exist.');
+						}
 						if($_FILES['uploadfiles']['size'][$i]<=0)
 						{
 							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has 0 size');
@@ -47,7 +55,7 @@ if(isset($_POST['upfile']))
 					}
 				}
 			}
-		}
+		//}
 	
 		if(empty($errors))
 		{
@@ -62,60 +70,69 @@ if(isset($_POST['upfile']))
 				//$alias=strtolower(str_replace($order, $replace, $_POST['filename'][$i].'-'.$alias2));
 				$alias=$alias2;
 				
+				
 				if(isset($_FILES['uploadfiles']['name'][$i]))
 				{
 					if($_FILES['uploadfiles']['name'][$i]!='')
 					{
-						
-						if (!is_dir('input')) {
-							mkdir('input');
-						}
-						if (!is_dir('input/'.$uid)) {
-							mkdir('input/'.$uid);
-						}
-						if (!is_dir('output')) {
-							mkdir('output');
-						}
-						if (!is_dir('output/'.$uid)) {
-							mkdir('output/'.$uid);
-						}
-						
-						$exts=explode('.',$_FILES['uploadfiles']["name"][$i]);
-						$exten='.'.$exts[count($exts)-1];
-						$altername=$alias.$exten;
-						move_uploaded_file($_FILES['uploadfiles']["tmp_name"][$i],"input/".$uid."/" . $_FILES['uploadfiles']["name"][$i]);
-						rename("input/".$uid."/".$_FILES['uploadfiles']["name"][$i], "input/".$uid."/".$altername);
-						$mainfile="input/".$uid."/".$altername;
-						$str = file_get_contents($mainfile);
-						$converter = new Encryption;
-						$encoded = $converter->encode($str, $skey);
-						$fp = fopen($mainfile, 'wb');
-						fwrite($fp, $encoded);
-						fclose($fp);
-						$post['udate'] = date('Y-m-d H:i:s');
-						$post['keyid']=$skey;
-						$post['user_id']=$uid;
-						$post['filename']=$altername;
-						$post['title']=$_POST['filename'][$i];
-						$fieldnames='';
-						$fieldvalues='';
-						$cnt=1;
-						foreach($post as $key=>$value)
+						$uploadedfile=$_FILES['uploadfiles']["name"][$i];
+						$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
+						if(count($checkfileexist)>0)
 						{
-							if($cnt==1)
-							{
-								$fieldnames.="`$key`";
-								$fieldvalues.="'$value'";
-							}
-							else
-							{
-								$fieldnames.=", `$key`";
-								$fieldvalues.=", '$value'";
-							}
-							$cnt++;
+							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' is already exist.');
 						}
-						$res=$user->addUserFiles($fieldnames,$fieldvalues);
-						$totalfile++;
+						else
+						{
+							if (!is_dir('input')) {
+								mkdir('input');
+							}
+							if (!is_dir('input/'.$uid)) {
+								mkdir('input/'.$uid);
+							}
+							if (!is_dir('output')) {
+								mkdir('output');
+							}
+							if (!is_dir('output/'.$uid)) {
+								mkdir('output/'.$uid);
+							}
+							
+							$exts=explode('.',$_FILES['uploadfiles']["name"][$i]);
+							$exten='.'.$exts[count($exts)-1];
+							$altername=$_FILES['uploadfiles']["name"][$i];
+							move_uploaded_file($_FILES['uploadfiles']["tmp_name"][$i],"input/".$uid."/" . $_FILES['uploadfiles']["name"][$i]);
+							//rename("input/".$uid."/".$_FILES['uploadfiles']["name"][$i], "input/".$uid."/".$altername);
+							$mainfile="input/".$uid."/".$altername;
+							$str = file_get_contents($mainfile);
+							$converter = new Encryption;
+							$encoded = $converter->encode($str, $skey);
+							$fp = fopen($mainfile, 'wb');
+							fwrite($fp, $encoded);
+							fclose($fp);
+							$post['udate'] = date('Y-m-d H:i:s');
+							$post['keyid']=$skey;
+							$post['user_id']=$uid;
+							$post['filename']=$altername;
+							$post['title']=$_POST['filename'][$i];
+							$fieldnames='';
+							$fieldvalues='';
+							$cnt=1;
+							foreach($post as $key=>$value)
+							{
+								if($cnt==1)
+								{
+									$fieldnames.="`$key`";
+									$fieldvalues.="'$value'";
+								}
+								else
+								{
+									$fieldnames.=", `$key`";
+									$fieldvalues.=", '$value'";
+								}
+								$cnt++;
+							}
+							$res=$user->addUserFiles($fieldnames,$fieldvalues);
+							$totalfile++;
+						}
 					}
 				}
 			}
@@ -126,7 +143,7 @@ if(isset($_POST['upfile']))
 			}
 		}
 		
-		if(!empty($errors)){foreach($errors as $error){$errormsg.='<span class="error">'.$error.'</span><br />';}}
+		
 		if($totalfile>0 && empty($errors)){
 			if(trim($errormsg)!=''){$errormsg='<br />'.$errormsg;}
 			$_SESSION['message']=$sumessage.$errormsg;
@@ -149,7 +166,7 @@ if(isset($_POST['upfile']))
         </ol>
       </div>
     </div>
-	<?php if(trim($errormsg)!=''){echo $errormsg;} ?>
+	<?php if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
     <!-- /.row -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
 	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
@@ -176,8 +193,12 @@ if(isset($_POST['upfile']))
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	
 	jQuery('.add_more').live('click', function(){
-		jQuery('.uploading_files').append('<div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files<input type="file" name="uploadfiles[]" class="upfile" onchange="ValidateFileInput(this);" /></span><input type="text" class="form-control filename" readonly="true" name="filename[]" value=""></div>');
+		jQuery('.uploading_files').append('<div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files<input type="file" name="uploadfiles[]" class="upfile" onchange="ValidateFileInput(this);" /></span><input type="text" class="form-control filename" readonly="true" name="filename[]" value=""><a href="javascript:;" class="deletefiles">X</a></div>');
+	});
+	jQuery('.deletefiles').live('click', function(){
+		jQuery(this).parent('.upload_box').remove();
 	});
 	jQuery('.upfile').live('change',function(){
 		var file = this.files[0];  
@@ -196,7 +217,7 @@ jQuery(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip"];    
+var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip", ".tar.gz"];    
 function ValidateFileInput(oInput) {
     if (oInput.type == "file") {
         var sFileName = oInput.value;
@@ -209,15 +230,11 @@ function ValidateFileInput(oInput) {
                     break;
                 }
             }
-             
             if (!blnValid) {
                 alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + validFileExtensions.join(", "));
                 oInput.value = "";
-				$(".upload_submit").attr('disabled', "disabled");
                 return false;
-            }else{				
-					$(".upload_submit").attr('disabled', false);					
-			}
+            }
         }
     }
     return true;
