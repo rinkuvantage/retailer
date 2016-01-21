@@ -26,8 +26,8 @@ $owner_email='abhishek@tawebmedia.com';
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
 
 //File Formats
-$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/zip','application/octet-stream','application/msword');
-$fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.zip');
+$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/gzip','application/tar', 'application/download', 'application/csv', 'application/zip','application/octet-stream','application/msword');
+$fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.tar.gz', '.zip');
 
 
 

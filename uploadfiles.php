@@ -2,6 +2,7 @@
 require_once('includes/class/encryptclass.php');
 $errors=array();
 $errormsg='';
+$sumessage='';
 if(isset($_POST['upfile']))
 {
 	if(!empty($_FILES))
@@ -10,28 +11,15 @@ if(isset($_POST['upfile']))
 		$totalfile=0;
 		$fnames = $_FILES['uploadfiles']['name'];
 
-		/*if(count(array_unique($fnames))<count($fnames))
+		
+		if(empty($errors))
 		{
-			array_push($errors,'You are uploading more than one file with same name & same type.');
-		}
-		else
-		{*/			
-					
 			foreach($_FILES['uploadfiles']['name'] as $i=>$vale)
 			{
-				$exts=explode('.',$_FILES['uploadfiles']['name'][$i]);
-				$totalstrlen=(strlen($_FILES['uploadfiles']['name'][$i])-strlen($exts[count($exts)-1]))-1;
-				$alias2=substr($_FILES['uploadfiles']['name'][$i],0,$totalstrlen).'-'.$uid;
 				
-				//$order   = array("&","$","%","!","~","'","`","_","(",")","{","}","[","]",":",";","<",">",",",".","/","|","=","+","*","#"," ","  ","   ","°");
-				//$replace = '';
-				//$alias=strtolower(str_replace($order, $replace, $_POST['filename'][$i].'-'.$alias2));
-				$alias=$alias2;
 				
 				if(isset($_FILES['uploadfiles']['name'][$i]))
 				{
-					
-					
 					if($_FILES['uploadfiles']['name'][$i]!='')
 					{
 						$uploadedfile=$_FILES['uploadfiles']["name"][$i];
@@ -40,7 +28,7 @@ if(isset($_POST['upfile']))
 						{
 							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' is already exist.');
 						}
-						if($_FILES['uploadfiles']['size'][$i]<=0)
+						else if($_FILES['uploadfiles']['size'][$i]<=0)
 						{
 							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has 0 size');
 						}
@@ -51,35 +39,6 @@ if(isset($_POST['upfile']))
 						else if (!in_array($_FILES['uploadfiles']['type'][$i],$filetypes))
 						{
 							 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has different extsion. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
-						}
-					}
-				}
-			}
-		//}
-	
-		if(empty($errors))
-		{
-			foreach($_FILES['uploadfiles']['name'] as $i=>$vale)
-			{
-				$exts=explode('.',$_FILES['uploadfiles']['name'][$i]);
-				$totalstrlen=(strlen($_FILES['uploadfiles']['name'][$i])-strlen($exts[count($exts)-1]))-1;
-				$alias2=substr($_FILES['uploadfiles']['name'][$i],0,$totalstrlen).'-'.$uid;
-				
-				//$order   = array("&","$","%","!","~","'","`","_","(",")","{","}","[","]",":",";","<",">",",",".","/","|","=","+","*","#"," ","  ","   ","°");
-				//$replace = '';
-				//$alias=strtolower(str_replace($order, $replace, $_POST['filename'][$i].'-'.$alias2));
-				$alias=$alias2;
-				
-				
-				if(isset($_FILES['uploadfiles']['name'][$i]))
-				{
-					if($_FILES['uploadfiles']['name'][$i]!='')
-					{
-						$uploadedfile=$_FILES['uploadfiles']["name"][$i];
-						$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
-						if(count($checkfileexist)>0)
-						{
-							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' is already exist.');
 						}
 						else
 						{
@@ -96,8 +55,7 @@ if(isset($_POST['upfile']))
 								mkdir('output/'.$uid);
 							}
 							
-							$exts=explode('.',$_FILES['uploadfiles']["name"][$i]);
-							$exten='.'.$exts[count($exts)-1];
+							
 							$altername=$_FILES['uploadfiles']["name"][$i];
 							move_uploaded_file($_FILES['uploadfiles']["tmp_name"][$i],"input/".$uid."/" . $_FILES['uploadfiles']["name"][$i]);
 							//rename("input/".$uid."/".$_FILES['uploadfiles']["name"][$i], "input/".$uid."/".$altername);
@@ -166,7 +124,9 @@ if(isset($_POST['upfile']))
         </ol>
       </div>
     </div>
-	<?php if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
+	<?php 
+	if($sumessage!=''){echo'<span>'.$sumessage.'</span><br />';}
+	if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
     <!-- /.row -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
 	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
