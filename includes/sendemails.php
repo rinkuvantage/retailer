@@ -33,6 +33,6 @@ function Sendemail( $to, $subject, $message,$repyto,$from,$fromname)
 		$mail->Send();
 		return true;
 	} catch (phpmailerException $e) {
-		echo $e->errorMessage();
+		//echo $e->errorMessage();
 	}
 }

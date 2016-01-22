@@ -3,6 +3,7 @@ require_once('includes/class/encryptclass.php');
 $errors=array();
 $errormsg='';
 $sumessage='';
+
 if(isset($_POST['upfile']))
 {
 	if(!empty($_FILES))
@@ -38,7 +39,7 @@ if(isset($_POST['upfile']))
 						}
 						else if (!in_array($_FILES['uploadfiles']['type'][$i],$filetypes))
 						{
-							 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has different extsion. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
+							 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has different extension. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
 						}
 						else
 						{
@@ -94,10 +95,12 @@ if(isset($_POST['upfile']))
 					}
 				}
 			}
-			if($totalfile>1){
-				$sumessage=$totalfile.' files uploaded successfully.';
-			}
-				else{$sumessage=$totalfile.' file uploaded successfully.';
+			if($totalfile>0){
+				if($totalfile>1){
+					$sumessage=$totalfile.' files uploaded successfully.';
+				}
+					else{$sumessage=$totalfile.' file uploaded successfully.';
+				}
 			}
 		}
 		
@@ -133,9 +136,9 @@ if(isset($_POST['upfile']))
 	<input type="hidden" name="upfile">
 	<div class="uploading_files">
     <div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
-      <input type="file" class="upfile" name="uploadfiles[]"onchange="ValidateFileInput(this);"/>
+      <input type="file" class="upfile firstfile" name="uploadfiles[]"onchange="ValidateFileInput(this);"/>
       </span>
-      <input type="text" class="form-control filename" readonly="" name="filename[]" value="">
+      <input type="text" class="form-control filename" readonly="" name="filename[]" value=""> *
     </div>
 	</div>
     <a class="add_more" href="javascript:;">Add More Files</a>
@@ -167,6 +170,13 @@ jQuery(document).ready(function(){
 		jQuery(this).parents('.upload_box').find('.filename').val(ff);
 	});
 	jQuery('#upfiles').submit(function(){
+		var firstfile=jQuery('.firstfile').val();
+		if(jQuery.trim(firstfile)=='')
+		{
+			jQuery('.uploading_files span.error').remove();
+			jQuery('.uploading_files').prepend('<span class="error">First file is required</span>');
+			return false;
+		}
 		var i=1;
 		jQuery('#upfiles input[type="text"]').each(function(){
 			if(jQuery(this).val()!=''){i=parseInt(i)+1;}
@@ -177,7 +187,7 @@ jQuery(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip", ".tar.gz"];    
+var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip", ".tar.gz", ".dat"];    
 function ValidateFileInput(oInput) {
     if (oInput.type == "file") {
         var sFileName = oInput.value;

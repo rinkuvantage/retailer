@@ -81,7 +81,10 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
                                     <tr>
                                         <td><?php echo $cnt; ?></td>
                                         <td><?php echo $file['title']; ?></td>
-										 <td><?php echo date('d M Y h:i:s A',strtotime($file['udate'])); ?></td>
+										 <td>
+										 	<?php echo date('d M Y h:i:s A',strtotime($file['udate'])); ?><br />
+											Timezone: <?php echo $timezone; ?>
+										</td>
                                         <td><?php if(trim($file['gdate'])!=''){echo date('d M Y h:i:s A',strtotime($file['gdate']));} ?></td>
                                      <td><nav>
                             <ul class="pager adc">

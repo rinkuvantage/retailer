@@ -148,9 +148,10 @@ if(isset($_POST['signupSubmit']))
 					  <div class="rg_top_section">
 							  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
 							  <div class="reg_box">
-								<label for="inputEmail" class="sr-only">First Name</label>
+								<label for="inputEmail" class="sr-only">First Name*</label>
 								<div class="inputiconbox">
-							  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" placeholder="" required="required"  />
+								<span class="glyphicon glyphicon-user"></span>
+							  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required" required="required"  />
 							  </div>
 							  </div>
 							  <div class="reg_box lstbox">
@@ -258,7 +259,8 @@ if(isset($_POST['signupSubmit']))
 				phoneno: {
 					required: true,
 					number: true,
-					minlength: 10
+					minlength: 10,
+					maxlength: 13
 				}
 			},
 			messages: {

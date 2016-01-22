@@ -26,8 +26,8 @@ $owner_email='abhishek@tawebmedia.com';
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
 
 //File Formats
-$filetypes=array('text/plain','application/rtf','text/csv','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/x-tar','application/x-gtar', 'application/x-gzip', 'application/gzip','application/tar', 'application/download', 'application/csv', 'application/zip','application/octet-stream','application/msword');
-$fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.tar.gz', '.zip');
+$filetypes=array('text/plain','application/rtf','application/msword','zz-application/zz-winassoc-dat','text/comma-separated-values','text/csv', 'application/csv', 'application/excel', 'application/vnd.ms-excel', 'application/vnd.msexcel', 'text/anytext','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/tar', 'application/x-tar', 'applicaton/x-gtar', 'multipart/x-tar', 'application/x-compress', 'application/x-compressed','application/gzip', 'application/x-gzip', 'application/x-gunzip', 'application/gzipped', 'application/gzip-compressed', 'gzip/document', 'application/octet-stream','application/zip', 'application/x-zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/download');
+$fileextension=array('.txt','.rtf','.csv','.xlsx','.tar','.gz', '.tar.gz', '.zip', '.dat');
 
 
 
@@ -35,7 +35,7 @@ require_once('class/users.php');
 
 $ip=$user->getRealIpAddr();
 $data=$user->ip_info($ip, "country_code");
-$timezone='UTC';
+$timezone='Asia/Kolkata';
 $zones2=$user->coutrytimzones(" and country_code='$data'");
 if(!empty($zones2))
 {
