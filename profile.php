@@ -75,13 +75,9 @@ if(isset($_POST['fname']))
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Profile
-                        </h1>
+                     
                         <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
-                            </li>
+                            
                             <li class="active">
                                 <i class="fa fa-fw fa-user"></i> Profile
                             </li>

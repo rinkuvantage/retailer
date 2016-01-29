@@ -27,13 +27,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Manage Users
-                        </h1>
                         <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
-                            </li>
                             <li class="active">
                                 <i class="fa fa-wrench"></i> Manage Users
                             </li>

@@ -7,6 +7,180 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
 }
+.col-md-12.imgsection {
+    text-align: center;
+}
+.getstartdbutton a {
+    width: 100%;
+	float:left;
+	height:100%;
+}
+img.chuns1img {
+    width: auto !important;
+}
+.getstartdbutton {
+    position: absolute;
+    bottom: 98px;
+    /* margin: 0 auto !important; */
+    /* float: none; */
+    display: inline-block;
+    margin-left: -72px;
+    background: url("http://www.tawebserver.com/retailernew/img/getstarted.png") no-repeat;
+    width: 194px;
+    height: 50px;
+	cursor:pointer;
+}
+.getstartdbutton:hover{ background:url("http://www.tawebserver.com/retailernew/img/gh.png") no-repeat;} 
+.banner.homebnr {
+    position: relative;
+    text-align: center;
+}
+ul.datemainbox {
+    padding: 0px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    list-style: none !important;
+    float: left;
+    width: 100%;
+    padding: 16px 0px;
+}
+.cmntli{padding-left: 44px;}
+ul.datemainbox li {
+    float: left;
+    padding-right: 44px;
+    border-right: 1px solid #eee;
+}
+.cntboxinner img {
+    width: 100%;
+}
+img.churmimgs {
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.clearbox {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+.banner > img {
+  width: 100%;
+}
+.innermidbox {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.adrsblock p{ font-size:13px;}
+.contactshadow .ginput_container input {
+    width: 69%;
+    height: 35px;
+    font-size: 14px;
+    box-shadow: inset 0 2px 1px rgba(0,0,0,0.075);
+}
+.contactshadow {
+    box-shadow: 0px 4px 12px 4px #eee;
+    margin-top: 50px;
+    padding: 0px;
+    padding-bottom: 50px;
+}
+.mapbox {
+    margin-top: 40px;
+}
+.conrightblock {
+    float: right;
+    margin-right: 20px;
+    /* margin-top: 0px; */
+}
+.cntleftblock {
+    margin-left: 20px;
+}
+.cntmidbox {
+    padding: 0px 15px;
+}
+.contactshadow h1 {
+    padding-left: 10px;
+    margin-bottom: 30px;
+    /* border-bottom: 1px solid #eee; */
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 0px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+.common_cntr {
+    width: 100% !important;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.row.contactusblock {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.f_leftbox {
+    text-align: left;
+}
+.f_rightbox {
+    text-align: right;
+}
+.f_rightbox li{ list-style:none; display:inline;}
+.ftrmid {
+    max-width: 1160px;
+    margin: 0 auto;
+    float: none;
+    display: inline-block;
+    padding: 20px 0px 5px 0px;
+}
+.f_rightbox li a{ color:#fff; margin-right:20px;}
+.ftrbox {
+    background: #000;
+	    float: left;
+    width: 100%;
+}
+.lastservice{ padding:0px;}
+.readmorebox {
+    background: #d5653e;
+    color: #fff;
+    margin-bottom: 3px;
+    padding: 7px 15px;
+}
+.readmorebox a {
+    font-size: 20px;
+}
+.container.offeringblock {
+    max-width: 1200px;
+    width: 100%;
+}
+.mainservices {
+    padding-left: 0px;
+    padding-right: 36px;
+}
+.mainservices img {
+    width: 100%;
+}
+.readmorebox a{
+    color: #fff;
+}
+.offeringblock h1 {
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: normal;
+    color: #000;
+}
+.block1box h1 {
+    text-align: center;
+    color: #d5653e;
+    font-weight: normal;
+    font-size: 20px;
+    min-height: 50px;
+    margin-bottom: 0px;
+}
+.block1box {
+    box-shadow: 0px 0px 11px 2px #eee;
+    margin-right: 20px;
+	padding:0px;
+}
 .hdr_toglebox label {
   margin-bottom: 10px;
 } 
@@ -186,7 +360,7 @@ form-horizontal .controls {
     margin-bottom: 10px !important;
 }
 .hdr_toglebox input {
-    float: left;
+
     width: 100%;
     margin-bottom: 10px;
 	border:1px solid #cccccc;
@@ -428,7 +602,7 @@ footer .footer-above{ background:#d05125 !important;}
 }
 .top_box{ background:#000 !important;}
 #page-top header {
-  background: #d05125;
+  background: #fff;
 }
 .container.banner_box {
   padding-bottom: 80px !important;
@@ -470,24 +644,28 @@ footer .footer-above{ background:#d05125 !important;}
 }
 .learnmore:hover{ background:none; border:2px solid #000; color:#18bd9b;}
 .turndata p {
-  color: #606a6e;
-  font-family: "Open Sans",sans-serif;
-  font-size: 25px;
-  font-weight: 300;
-  letter-spacing: -0.025em;
-  line-height: 47px;
+    color: #000;
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px !important;
+    font-weight: 300;
+    /* letter-spacing: -0.025em; */
+    line-height: 31px;
+    font-weight: 500;
+}
+section#portfolio {
+    padding-top: 0px !important;
 }
 .turndata h1 {
     color: #1f282c;
-    font-family: "Source Sans Pro",Helvetica,Arial,Lucida,sans-serif;
-    font-size: 2.25em;
-    font-weight: normal;
+    font-family: "Open Sans",sans-serif;
+    font-size: 30px;
+    font-weight: bold;
     letter-spacing: -0.025em;
     line-height: 1em;
     text-transform: capitalize;
 }
 .row.turndata {
-  padding-bottom: 70px;
+  padding-bottom: 20px;
 }
 .retailer_box {
   margin-bottom: 50px;
@@ -737,7 +915,7 @@ line-height:40px;
 }
 
 .container.innerpage {
-    padding-top: 114px;
+    padding-top: 87px;
 	padding-bottom:50px;
 }
 .reg_box {
@@ -814,6 +992,10 @@ form.form-signin.registerbox{ display:inline-block;}
     color: #fff;
 }
 .top_header .btn-success a{ color:#fff;}
+@media only screen and (max-width:880px) {
+
+
+}
 @media (min-width: 768px) and (max-width: 970px) {
 .banner_left h1 {
   font-size: 282%;
@@ -887,6 +1069,7 @@ form.form-signin.registerbox{ display:inline-block;}
 
 }
 @media only screen and (max-width:640px) {
+.contactshadow{ margin:0px 20px; float:left !important;}
 .reg_box {
   width: 100%;
 }

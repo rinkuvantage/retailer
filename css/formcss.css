@@ -115,7 +115,7 @@ i.fa.fa-phone.pno {
     text-align: center;
     top: 87px;
     width: 100%;
-    z-index: 999;
+    z-index: 99;
 }
 .admindashboard .success {
     top: 57px !important;

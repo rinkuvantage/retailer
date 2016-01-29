@@ -2,8 +2,9 @@
 
 
     <!-- Portfolio Grid Section -->
-	<div class="container innerpage cont_page">
-		 <div class="row">
+	<div class="container innerpage cont_page common_cntr">
+	<div class="banner"><img src="img/p.png"/></div>
+		 <div class="row innermidbox">
 		 <div class="entry">
 		 	<h2 class="main_heading">Privacy Policy</h2>
 				<p>At Sigmaways, we offer real-time customer analytics for our customers, who incorporate certain code such as JavaScript into their sites or use other identifiers so that when they use our customer relationship tools they can better understand their consumers' activities. It also allows those website managers to identify their visitors within their system. Whenever a visitor to one of our customer's sites submits their email address or information, that company can store this information so that the user will be identified during future visits. The JavaScript and other tools we make available to our customers use  only first party cookies or identifiers – not third party cookies. All of the data collected by that company can then be analyzed using various reports by the customer. The Sigmaways customer may also use the data to trigger events like targeted emails or website content. </p>

@@ -1,5 +1,9 @@
 /* CSS Document */
-
+footer.text-center {
+    background: #f7f7f7;
+    padding: 19px 0px;
+	margin-top:30px;
+}
 footer .footer-above .container {
     width: 100%;
     padding: 0px 29px !important;

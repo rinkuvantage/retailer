@@ -27,113 +27,159 @@ else
 $filelist=$user->userFilelist($uid, " and keyid='$skey' order by id asc limit $limitstart, $totalrec");
 $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
  
-//echo $user->dirSize('input/'.$uid);
+
 ?>
-        <div id="page-wrapper">
 
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            View Files
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i>View Files
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- /.row -->
-				<div class="row">
-								<div class="col-lg-12">
-                      
-                        <div class="table-responsive">
-						<?php $cnt=$limitstart+1;if(!empty($filelist)){ ?>
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>File Id</th>
-                                        <th>Name</th>
-                                        <th>Upload Date</th>
-                                       <th>Generate Date</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-								<?php foreach($filelist as $file){ 
-								$inputfile='javascript:;';
-								if(file_exists('input/'.$uid.'/'.$file['filename']))
-								{
-									$inputfile='viewfiles.php?fileid=input/'.$uid.'/'.$file['filename'];
-								}
-								$ourputfile='javascript:;';
-								if(file_exists('output/'.$uid.'/'.$file['filename']))
-								{
-									$ourputfile='viewfiles.php?fileid=output/'.$uid.'/'.$file['filename'];
-								}
-								?>
-                                    <tr>
-                                        <td><?php echo $cnt; ?></td>
-                                        <td><?php echo $file['title']; ?></td>
-										 <td>
-										 	<?php echo date('d M Y h:i:s A',strtotime($file['udate'])); ?><br />
-											Timezone: <?php echo $timezone; ?>
-										</td>
-                                        <td><?php if(trim($file['gdate'])!=''){echo date('d M Y h:i:s A',strtotime($file['gdate']));} ?></td>
-                                     <td><nav>
-                            <ul class="pager adc">
-                              <li><a href="<?php echo $inputfile; ?>">Input File</a></li>
-                              <li><a href="<?php echo $ourputfile; ?>">Output File</a></li>
-                              <li><a href="#">Download</a></li>
-                            </ul>
-                          </nav></td>
-                                   
-                                    </tr>
-                                 <?php $cnt++;} ?>
-                           
-                                </tbody>
-                            </table>
-							<?php 
-							if(count($totalrecords)>count($filelist))
-							{
-								$url='viewfiles.php?'.$newlink.'pagedid=';
-								echo $user->pagination($totalrec,$pageid,$url,count($totalrecords));
-							}
-							}else{ $filelist=$user->userFilelist($uid);
-								if(!empty($filelist)){echo'Please upload files again.';}
-								else{echo'There is no file.';}
-							?>
-							
-							<?php } ?>
-                        </div>
-                    </div>
-					</div>
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12 brdcum">
+        <ol class="breadcrumb">
+          <li class="active"> <i class="fa fa-eye"></i> View Files </li>
+        </ol>
+      </div>
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
+    <!-- /.row -->
+    <div class="row">
+	<?php if(!empty($filelist)){ ?>
+      <div class="viewfilebox">
+	 
+        <ul class="fileheading col-md-12">
+          <li class="f_name col-md-6">Name</li>
+          <li class="f_size col-md-1">Size</li>
+          <li class="f_type col-md-2">Type</li>
+          <li class="f_date col-md-2">Date Modified</li>
+          <li class="f_action col-md-1">Action</li>
+        </ul>
+		<?php foreach($filelist as $file){ 
+				if (is_dir('uploads/'.$uid.'/'.date('Y-m-d H-i-s',strtotime($file['udate'])))) {
+				$inputfile='javascript:;';
+				if(file_exists('input/'.$uid.'/'.$file['filename']))
+				{
+					$inputfile='viewfiles.php?fileid=input/'.$uid.'/'.$file['filename'];
+				}
+				$ourputfile='javascript:;';
+				if(file_exists('output/'.$uid.'/'.$file['filename']))
+				{
+					$ourputfile='viewfiles.php?fileid=output/'.$uid.'/'.$file['filename'];
+				}
+				$size=$user->dirSize('uploads/'.$uid.'/'.date('Y-m-d H-i-s',strtotime($file['udate'])));
+			?>
+		 <div class="viewfileblocks">
+		 
+        <ul class="main_folder col-md-12">
+          <li class="f_name col-md-6"><a href="javascript:;" coords="<?php echo $file['ID']; ?>" class="maindir"><b class="upcaret"></b> <img src="img/f.png"/> <?php echo $file['udate']; ?></a></li>
+          <li class="f_size col-md-1"><?php echo $size; ?></li>
+          <li class="f_type col-md-2">Directory</li>
+          <li class="f_date col-md-2"><?php echo date('Y-m-d',strtotime($file['udate'])); ?></li>
+          <li class="f_action col-md-1">
+            <select>
+              <option value="volvo">Run chum</option>
+              <option value="saab">Run Loyalty</option>
+            
+            </select>
+          </li>
+        </ul>
+		</div>
+		<?php }} ?>
+		
+		
+      </div>
+	  <?php 
+			if(count($totalrecords)>count($filelist))
+			{
+				$url='viewfiles.php?'.$newlink.'pagedid=';
+				echo $user->pagination($totalrec,$pageid,$url,count($totalrecords));
+			}
+			}else{ $filelist=$user->userFilelist($uid);
+				if(!empty($filelist)){echo'Please upload files again.';}
+				else{echo'There is no file.';}
+			?>
+			
+			<?php } ?>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
 		jQuery(document).ready(function(){
 			var h=parseInt(jQuery(window).height())-parseInt(jQuery('.navbar-fixed-top').height())-parseInt(jQuery('footer.text-center').height());
 			jQuery('#page-wrapper').css({'min-height':h+'px'});
+			jQuery('a.maindir').live('click', function(){
+				var ID=jQuery(this).attr('coords');
+				$this=jQuery(this);
+				var $this2=jQuery($this).parent('li');
+				var $this3=jQuery($this).parents('ul');
+				jQuery.ajax({
+				url: './viewdirs.php?showdir=maindir',
+				type: 'post',
+				data: {dir:ID, skey:'<?php echo $skey; ?>', uid:'<?php echo $uid; ?>'},
+				dataType: 'json',
+				beforeSend: function() {
+					jQuery('img.preloading',$this2).remove();
+					jQuery($this2).append('<img src="img/loading.gif" alt="Loading..." class="preloading" />');
+				},	
+				complete: function() {
+					jQuery('img.preloading',$this2).remove();
+				},			
+				success: function(json) {		
+						if (json['error']) {				
+							alert(json['error']);	
+						}
+						else if (json['data']) {
+							jQuery('b',$this).removeClass('upcaret');
+							jQuery('b',$this).addClass('caret');
+							jQuery($this3).nextAll('ul.subfolder_'+ID).remove();
+							jQuery($this3).nextAll('ul.files_'+ID).remove();
+							
+							jQuery(json['data']).insertAfter(jQuery($this3));
+						}
+				   }	
+				});
+				return false;
+				
+			});
+			jQuery('a.getfiles').live('click', function(){
+				var ID=jQuery(this).attr('coords');
+				var filetype=jQuery(this).attr('filetype');
+				$this=jQuery(this);
+				var $this2=jQuery($this).parent('li');
+				var $this3=jQuery($this).parents('ul');
+				jQuery.ajax({
+				url: './viewdirs.php?showdir=files',
+				type: 'post',
+				data: {dir:ID, skey:'<?php echo $skey; ?>', uid:'<?php echo $uid; ?>',filetype:filetype},
+				dataType: 'json',
+				beforeSend: function() {
+					jQuery('img.preloading',$this2).remove();
+					jQuery($this2).append('<img src="img/loading.gif" alt="Loading..." class="preloading" />');
+				},	
+				complete: function() {
+					jQuery('img.preloading',$this2).remove();
+				},			
+				success: function(json) {		
+						if (json['error']) {				
+							alert(json['error']);	
+						}
+						else if (json['data']) {
+							jQuery('b',$this).removeClass('upcaret');
+							jQuery('b',$this).addClass('caret');
+							jQuery($this3).next('ul.'+filetype+'_'+ID).remove();
+							jQuery(json['data']).insertAfter(jQuery($this3));
+						}
+				   }	
+				});
+				return false;
+				
+			});
 		});
 	</script>
-
 <?php require_once('footer.php'); ?>

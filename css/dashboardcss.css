@@ -1,9 +1,298 @@
 /* CSS Document */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
  .admindashboard .sr-only{ position:inherit !important;}
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
  .mainregisterbox .sr-only{position:inherit !important;}
+}
+.admindashboard ul.nav.navbar-right.top-nav a:focus {
+    background: #fff !important;
+}
+.open>a:focus{  background: #fff !important;}
+.top-nav>.open>.dropdown-menu li:hover {
+    background: #eee;
+}
+.cancelbox a {
+    color: #4084d7;
+}
+.viewdropdown a {
+    padding: 5px !important;
+    font-size: 12px;
+}
+.viewdropdown a:hover {
+    background: #eee!important;
+}
+b.upcaret {
+    background: url("http://tawebserver.com/retailernew/img/close.png") no-repeat;
+    width: 25px;
+    height: 10px;
+    float: left;
+    margin-top: 4px;
+}
+.f_name a {
+    color: #000 !important;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}	
+.brdcum{ padding:0px !important;}
+ .admindashboard .row{ margin-left:0px !important; margin-right:0px;}
+.analyticchartsection {
+    padding-left: 20px;
+    margin-top: 30px;
+}
+.analyticimg img {
+    vertical-align: top;
+}
+.breadcrumb>.active {
+    color: #95a5a6;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.navbar-header img {
+    width: 67%;
+}
+.f_name {
+    font-weight: bold;
+    font-size: 14px;
+}
+.viewfilebox {
+    float: left;
+    width: 100%;
+    border-left: 1px solid #eee;
+}
+.viewfileblocks {
+    float: left;
+    width: 100% !important;
+}
+.main_subbox .f_name {
+    padding-left: 27px;
+}
+.m_sub_subbox .f_name {
+    padding-left: 47px;
+}
+.m_subsubmainsection {
+    float: left;
+    width: 100%;
+    padding: 0px;
+}
+.main_folder .caret {
+   
+    border-top: 9px dashed;
+    border-top: 4px solid \9;
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+    color: #4789c6;
+    margin-right: 6px;
+    margin-top: 5px !important;
+    float: left;
+}
+ul.main_folder {
+    border-bottom: 1px solid #eee;
+    margin: 0px;
+}
+.main_folder i.fa.fa-folder-open {
+    color: #d1a539;
+}
+ul.viewfilebox {
+    float: left;
+    width: 100%;
+    padding: 0px;
+}
+.main_folder li {
+    list-style: none;
+    padding: 10px;
+	font-size:12px;
+}
+.main_folder {
+    float: left;
+}
+.fileheading {
+    background: #dddddd;
+    padding: 0px !important;
+    padding-left: 12px !important;
+}
+.fileheading li {
+    list-style: none;
+    padding: 0px;
+    border-right: 1px solid #c4c4c4;
+    padding: 10px;
+    font-size: 13px;
+}
+.fileheading ul{ padding:0px;}
+form#upfiles {
+    padding-left: 10px;
+}
+.notification_note {
+    width: 100%;
+    color: #999897!important;
+	    margin-bottom: 30px;
+}
+.notificationtable1 .submitbox .cancelbox {
+    margin-top: 5px;
+}
+.notificationtable1 th {
+    padding: 26px 0px !important;
+    font-weight: bold;
+}
+.typescription td {
+    padding: 16px 10px !important;
+}
+.row.notificationtable1 {
+    padding-left: 15px;
+}
+.notificationtable1 input.upload_submit.btn.btn-lg.btn-primary.btn-block {
+    width: auto !important;
+    padding: 7px 13px !important;
+    border-radius: 3px !important;
+    font-size: 15px;
+}
+
+.notificationtable1 .submitbox {
+    margin-bottom: 30px;
+}
+.notification_note h1 {
+    color: #000;
+    font-size: 20px;
+    margin: 0px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+.notificationtable1 tr {
+    background: none !important;
+    border-bottom: 1px solid #eee;
+    /* padding: 17px 0px !important; */
+    line-height: 50px !important;
+}
+
+.typescription span {
+    padding: 0px !important;
+}
+.viewdropdown ul.dropdown-menu {
+    float: left !important;
+    padding: 0px !important;
+    right: 0px !important;
+    min-width: 116px;
+}
+.notificationtable th {
+    color: #4084d7;
+}
+.notificationtable tr {
+    border-top: 1px solid #dddddd;
+}
+.notificationtable td {
+    padding: 13px 8px !important;
+}
+.nhding { border-top:none !important;}
+li.viewdropdown {
+    float: right;
+    width: 18%;
+    display: inherit;
+}
+.breadcrumb>li+li:before{ display:none;}
+li.viewdropdown ul {
+    float: right;
+}
+li.viewdropdown b.caret {
+    color: #000;
+}
+li.viewdropdown a.dropdown-toggle {
+    color: #000;
+    font-size: 12px;
+}
+li.viewdropdown ul {
+    float: right;
+    border: 1px solid #ddd;
+    padding: 0px;
+    list-style: none;
+    padding: 3px 0px;
+}
+li.rightviewingbox {
+    float: right;
+    width: auto !important;
+}
+li.rightviewingbox .dropup {
+    float: right;
+    /* padding: 5px !important; */
+}
+.notificationtable{ width:}
+.admindashboard .upload_box input.filename {
+    width: 76% !important;
+}
+.upload_box {
+    padding: 0px !important;
+}
+.rightuploadcnt {
+    background: #f4f4f4;
+    margin-left: 30px;
+    margin-top: 46px;
+}
+.notificationtable1 th{ color:#000 !important;}
+.admindashboard .submitbox input {
+    float: left !important;
+    margin: 0px !important;
+    margin-right: 10px;
+	padding:7px 28px !important;
+	font-size:18px;
+}
+.submitbox .cancelbox {
+    float: left;
+    margin: 10px;
+    margin-top: 8px;
+}
+.leftuploadcnt .submitbox {
+    padding: 0px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.leftuploadcnt textarea {
+    min-height: 245px;
+    border: 1px solid #cccccc;
+}
+.rightuploadcnt h2, .rightuploadcnt p{font-size:14px;}
+.leftuploadcnt{
+  padding: 0px !important;}
+.leftuploadcnt h1 {
+    font-size: 14px;
+    color: #171515 !important;
+}
+.uploadfile_textarebox {
+    padding: 0px !important;
+}
+.admindashboard div#page-wrapper {
+    padding: 0px;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.admindashboard .container-fluid {
+    padding: 0px;
+}
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+	color:#000;
+}
+div#wrapper.admindashboard {
+    margin-top: 92px;
+}
+.admin_herder {
+    margin-top: 15px;
+}
+b.caret {
+    color: #d05125;
+}
+i.fa.fa-mobile {
+    font-size: 23px;
+    vertical-align: top;
+}
+.admindashboard ul.nav.navbar-right.top-nav a:hover {
+    background: none !important;
+}
+.admin_herder .fa {
+    color: #c64019;
 }
 a.deletefiles {
     margin-left: 10px !important;
@@ -35,7 +324,7 @@ span.glyphicon.headericonbox {
     float: left;
     position: unset !important;
     height: 23px !important;
-    color: #fff;
+    color: #d05125;
     font-size: 15px;
     line-height: 22px !important;
     padding: 0px 10px 0px 0px !important;
@@ -73,7 +362,7 @@ span.glyphicon.headericonbox {
     margin: 0 auto;
 }
 .admin_herder .phonno.pull-right {
-    color: #fff !important;
+    color: #000 !important;
     margin-top: 15px;
     margin-right: 15px;
     margin-left: 10px;
@@ -91,19 +380,34 @@ span.glyphicon.headericonbox {
 .error{  font-weight:normal; margin:0px; font-size:12px; color:#ff4357;}
 
 .admindashboard .navbar-inverse {
-    background-color: #d05125 !important;
+    background-color: #fff !important;
     border-color: transparent;
-	border-bottom:1px solid #e3793a;
 }
-.admindashboard .side-nav{background-color: #d05125 !important; top:50px !important;}
-.admindashboard .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{ background-color:#ea813c !important;}
+ul.nav.navbar-nav.side-nav.dashboardsidebar a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #000;
+    text-align: right;
+}
+ul.nav.navbar-nav.side-nav.dashboardsidebar li {
+    border-top: 1px solid #eee;
+	 border-right: 1px solid #eee;
+	 float:left;
+}
+.admindashboard .side-nav {
+    background-color: #fff !important;
+    top: 92px !important;
+    float: right;
+    border-right: 1px solid #eee;
+}
+.admindashboard .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{ background-color:#c64019 !important; color:#fff !important;}
 
-.admindashboard .side-nav li a:hover, .side-nav li a:focus{background-color:#ea813c !important; color:#fff;}
-.admindashboard ul.nav.navbar-right.top-nav a{ color:#fff;}
+.admindashboard .side-nav li a:hover, .side-nav li a:focus{background-color:#c64019 !important; color:#fff !important;}
+.admindashboard ul.nav.navbar-right.top-nav a{ color:#000;}
 .admindashboard .navbar {
-    height: 50px !important;
-	min-height:auto !important;
-
+    height: 94px !important;
+    min-height: auto !important;
+    padding-top: 7px;
 }
 
 ul.dropdown-menu a{ color:#000 !important;}
@@ -205,13 +509,15 @@ p.tokenkey {
     border-right: none;
 }
 .admindashboard .upload_submit {
+    width: auto !important;
+    padding: 7px 13px !important;
+    border-radius: 3px !important;
+    font-size: 15px;
     background: #d45424 !important;
     border: none !important;
-    padding: 9px 10px !important;
     float: left;
-    width: 14% !important;
+   
     margin-top: 30px;
-    border-radius: unset !important;
 	margin-bottom:10px;
 }
 ul.pager.adc li a:hover{ border:1px solid #000;}
@@ -242,6 +548,11 @@ ul.pager.adc li a:hover{ border:1px solid #000;}
   margin-left: 10px;
   margin-top:15px;
 }
+@media only screen and (max-width:1200px) {
+.admindashboard .upload_box input.filename {
+  width: 69% !important;
+}
+}
 @media only screen and (max-width:1080px) {
 .table-responsive {
   min-height: 0.01%;
@@ -262,7 +573,7 @@ ul.pager.adc li a:hover{ border:1px solid #000;}
 .admindashboard .upload_submit{ width:auto !important;}
 }
 @media only screen and (max-width:767px) {
-
+ul.nav.navbar-nav.side-nav.dashboardsidebar li{ float:none;}
 .top-nav > li {
   display: inline;
   float: left;

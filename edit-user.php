@@ -125,15 +125,9 @@ if(isset($_POST['signupSubmit']))
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Profile
-                        </h1>
                         <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
-                            </li>
                             <li class="active">
-                                <i class="fa fa-fw fa-user"></i> Profile
+                                <i class="fa fa-fw fa-user"></i>Edit User Profile
                             </li>
                         </ol>
                     </div>
@@ -148,10 +142,9 @@ if(isset($_POST['signupSubmit']))
 					  <div class="rg_top_section">
 							  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
 							  <div class="reg_box">
-								<label for="inputEmail" class="sr-only">First Name*</label>
+								<label for="inputEmail" class="sr-only">First Name</label>
 								<div class="inputiconbox">
-								<span class="glyphicon glyphicon-user"></span>
-							  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required" required="required"  />
+							  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" placeholder="" required="required"  />
 							  </div>
 							  </div>
 							  <div class="reg_box lstbox">
@@ -259,8 +252,7 @@ if(isset($_POST['signupSubmit']))
 				phoneno: {
 					required: true,
 					number: true,
-					minlength: 10,
-					maxlength: 13
+					minlength: 10
 				}
 			},
 			messages: {

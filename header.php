@@ -8,7 +8,7 @@ if(!$login_active)
 $uid=$_SESSION["User_id"];
 $username=$user->Userdetail($uid, 'fname', true).' '.$user->Userdetail($uid, 'lname', true);
 $currentpagesss=explode('?',$currentpage);
-if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
+if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +44,14 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-    <a class="navbar-brand userlogo" href="#">Welcome <?php echo $username; ?></a> </div>
+    <a class="navbar-brand userlogo" href="#"><a href="index.php"><img class="" src="img/RA.png"/></a> <?//php echo $username; ?></a> </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
     <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
     <li>
-      <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
+      <div class="phonno pull-right"><i class="fa fa-mobile"></i> 855-867-4473</div>
     </li>
-    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+    <!--<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu message-dropdown">
         <li class="message-preview"> <a href="#">
           <div class="media"> <span class="pull-left"> <img class="media-object" src="http://placehold.it/50x50" alt=""> </span>
@@ -82,7 +82,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
           </a> </li>
         <li class="message-footer"> <a href="#">Read All New Messages</a> </li>
       </ul>
-    </li>
+    </li>-->
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu alert-dropdown">
         <li> <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a> </li>
@@ -107,19 +107,21 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0].'.php';}
   </ul>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-      <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
-      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
+    <ul class="nav navbar-nav side-nav dashboardsidebar">
+      <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="dashboard.php"> Dashboard</a> </li>
+      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"> My Account</a> </li>
       <?php /*?><li<?php if($currentpage=='manage-passwords.php'){ ?> class="active"<?php } ?>>
                         <a href="<?php echo $siteurl; ?>/manage-passwords"><i class="fa fa-fw fa-table"></i> Manage Password</a>
                     </li><?php */?>
-      <li<?php if($currentpage=='viewtokenkey.php'){ ?> class="active"<?php } ?>> <a href="viewtokenkey.php"><i class="fa fa-key"></i> View Token/Key</a> </li>
-      <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="uploadfiles.php"><i class="fa fa-upload"></i> Upload Files</a> </li>
-      <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="viewfiles.php"><i class="fa fa-users"></i> View files</a> </li>
+      <li<?php if($currentpage=='notifications.php' || $currentpage=='edit-notifications.php'){ ?> class="active"<?php } ?>> <a href="notifications.php"> Notification</a> </li>
+      <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="uploadfiles.php"> Upload Files</a> </li>
+      <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="viewfiles.php"> View files</a> </li>
+	   <li<?php if($currentpage=='support.php'){ ?> class="active"<?php } ?>> <a href="support.php">Support</a> </li>
+	  <li<?php if($currentpage=='analytics.php'){ ?> class="active"<?php } ?>> <a href="analytics.php">Analytics</a> </li>
       <?php if($user_type=='admin'){ ?>
-      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php"><i class="fa fa-users"></i> Manage Users</a> </li>
+      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php">Users</a> </li>
       <?php } ?>
-	  <li class="sitelogo"><a href="index.php"><img class="" src="img/RA.png"/></a></li>
+	 
     </ul>
 	
   </div>

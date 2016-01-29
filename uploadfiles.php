@@ -11,100 +11,90 @@ if(isset($_POST['upfile']))
 		$i=0;
 		$totalfile=0;
 		$fnames = $_FILES['uploadfiles']['name'];
-
 		
 		if(empty($errors))
 		{
-			foreach($_FILES['uploadfiles']['name'] as $i=>$vale)
+			if(isset($_FILES['uploadfiles']['name']))
 			{
-				
-				
-				if(isset($_FILES['uploadfiles']['name'][$i]))
+				if($_FILES['uploadfiles']['name']!='')
 				{
-					if($_FILES['uploadfiles']['name'][$i]!='')
+					$uploadedfile=$_FILES['uploadfiles']["name"];
+					$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
+					if(count($checkfileexist)>0)
 					{
-						$uploadedfile=$_FILES['uploadfiles']["name"][$i];
-						$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
-						if(count($checkfileexist)>0)
-						{
-							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' is already exist.');
+						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' is already exist.');
+					}
+					else if($_FILES['uploadfiles']['size']<=0)
+					{
+						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has 0 size');
+					}
+					else if ($_FILES['uploadfiles']["error"] > 0)
+					{
+						 array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has error '.$_FILES['uploadfiles']["error"]);
+					}
+					else if (!in_array($_FILES['uploadfiles']['type'],$filetypes))
+					{
+						 array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has different extension. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
+					}
+					else
+					{
+						$time=date('Y-m-d H:i:s');
+						$filetime=date('Y-m-d H-i-s',strtotime($time));
+						if (!is_dir('uploads')) {
+							mkdir('uploads');
 						}
-						else if($_FILES['uploadfiles']['size'][$i]<=0)
-						{
-							array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has 0 size');
+						if (!is_dir('uploads/'.$uid)) {
+							mkdir('uploads/'.$uid);
 						}
-						else if ($_FILES['uploadfiles']["error"][$i] > 0)
-						{
-							 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has error '.$_FILES['uploadfiles']["error"][$i]);
+						if (!is_dir('uploads/'.$uid.'/'.$filetime)) {
+							mkdir('uploads/'.$uid.'/'.$filetime);
 						}
-						else if (!in_array($_FILES['uploadfiles']['type'][$i],$filetypes))
-						{
-							 array_push($errors,'File '.$_FILES['uploadfiles']['name'][$i].' has different extension. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
+						if (!is_dir('uploads/'.$uid.'/'.$filetime.'/input')) {
+							mkdir('uploads/'.$uid.'/'.$filetime.'/input');
 						}
-						else
+						if (!is_dir('uploads/'.$uid.'/'.$filetime.'/output')) {
+							mkdir('uploads/'.$uid.'/'.$filetime.'/output');
+						}
+						$uploadto='uploads/'.$uid.'/'.$filetime.'/input/';
+						
+						
+						$altername=$_FILES['uploadfiles']["name"];
+						move_uploaded_file($_FILES['uploadfiles']["tmp_name"],$uploadto. $_FILES['uploadfiles']["name"]);
+						
+						$post['udate'] = $time;
+						$post['keyid']=$skey;
+						$post['user_id']=$uid;
+						$post['filename']=$altername;
+						$post['title']=$_POST['filename'];
+						$post['filecolumns']=$_POST['filecolumns'];
+						$fieldnames='';
+						$fieldvalues='';
+						$cnt=1;
+						foreach($post as $key=>$value)
 						{
-							if (!is_dir('input')) {
-								mkdir('input');
-							}
-							if (!is_dir('input/'.$uid)) {
-								mkdir('input/'.$uid);
-							}
-							if (!is_dir('output')) {
-								mkdir('output');
-							}
-							if (!is_dir('output/'.$uid)) {
-								mkdir('output/'.$uid);
-							}
-							
-							
-							$altername=$_FILES['uploadfiles']["name"][$i];
-							move_uploaded_file($_FILES['uploadfiles']["tmp_name"][$i],"input/".$uid."/" . $_FILES['uploadfiles']["name"][$i]);
-							//rename("input/".$uid."/".$_FILES['uploadfiles']["name"][$i], "input/".$uid."/".$altername);
-							$mainfile="input/".$uid."/".$altername;
-							$str = file_get_contents($mainfile);
-							$converter = new Encryption;
-							$encoded = $converter->encode($str, $skey);
-							$fp = fopen($mainfile, 'wb');
-							fwrite($fp, $encoded);
-							fclose($fp);
-							$post['udate'] = date('Y-m-d H:i:s');
-							$post['keyid']=$skey;
-							$post['user_id']=$uid;
-							$post['filename']=$altername;
-							$post['title']=$_POST['filename'][$i];
-							$fieldnames='';
-							$fieldvalues='';
-							$cnt=1;
-							foreach($post as $key=>$value)
+							if($cnt==1)
 							{
-								if($cnt==1)
-								{
-									$fieldnames.="`$key`";
-									$fieldvalues.="'$value'";
-								}
-								else
-								{
-									$fieldnames.=", `$key`";
-									$fieldvalues.=", '$value'";
-								}
-								$cnt++;
+								$fieldnames.="`$key`";
+								$fieldvalues.="'$value'";
 							}
-							$res=$user->addUserFiles($fieldnames,$fieldvalues);
-							$totalfile++;
+							else
+							{
+								$fieldnames.=", `$key`";
+								$fieldvalues.=", '$value'";
+							}
+							$cnt++;
 						}
+						$res=$user->addUserFiles($fieldnames,$fieldvalues);
+						$totalfile++;
 					}
 				}
 			}
 			if($totalfile>0){
-				if($totalfile>1){
-					$sumessage=$totalfile.' files uploaded successfully.';
-				}
-					else{$sumessage=$totalfile.' file uploaded successfully.';
-				}
+				
+				$sumessage='File uploaded successfully.';
+				
 			}
 		}
-		
-		
 		if($totalfile>0 && empty($errors)){
 			if(trim($errormsg)!=''){$errormsg='<br />'.$errormsg;}
 			$_SESSION['message']=$sumessage.$errormsg;
@@ -119,10 +109,9 @@ if(isset($_POST['upfile']))
   <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header"> Upload Files </h1>
+      <div class="col-lg-12 brdcum">
+        
         <ol class="breadcrumb">
-          <li> <i class="fa fa-dashboard"></i> <a href="dashboard.php">Dashboard</a> </li>
           <li class="active"> <i class="fa fa-upload"></i> Upload Files </li>
         </ol>
       </div>
@@ -135,16 +124,35 @@ if(isset($_POST['upfile']))
 	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="upfile">
 	<div class="uploading_files">
-    <div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
-      <input type="file" class="upfile firstfile" name="uploadfiles[]"onchange="ValidateFileInput(this);"/>
+    <div class="upload_box col-md-7"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
+      <input type="file" class="upfile firstfile" name="uploadfiles"onchange="ValidateFileInput(this);"/>
       </span>
-      <input type="text" class="form-control filename" readonly="" name="filename[]" value=""> *
+      <input type="text" class="form-control filename" readonly="" name="filename" value=""> *
     </div>
 	</div>
-    <a class="add_more" href="javascript:;">Add More Files</a>
-    <p class="up_subp">
-      <input class="upload_submit btn btn-lg btn-primary btn-block" type="submit" value="Submit">
-    </p>
+	<div class="uploadfile_textarebox col-md-12">
+	<div class="col-md-7 col-sm-6 leftuploadcnt">
+	<h1>Coloumn Headers</h1>
+	<textarea class="col-md-12 col-sm-12" name="filecolumns"></textarea>
+	<div class="col-md-12 col-sm-12 submitbox">
+	<input class="upload_submit btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+    <div class="cancelbox">or <a href="javascript:;" onclick="upfiles.reset()">Cancel</a></div>
+	</div>
+	</div>
+	<div class="col-md-3 col-sm-4 rightuploadcnt">
+	
+   <h2><b>What are Coloumn Headers?</b></h2>
+
+     <p>Coloumn headers are the 
+    coloumn names of the file that
+    you are uploaded that is 
+    seperated by pipe delimetres.</p>
+
+
+	</div>
+	</div>
+  <!--  <a class="add_more" href="javascript:;">Add More Files</a>-->
+    
 	</form>
   </div>
   <!-- /.container-fluid -->

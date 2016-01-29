@@ -25,19 +25,6 @@ if ( !class_exists( 'Users' ) ) {
 				$_SESSION["User_key"] = $row["keyid"];
 				$_SESSION["User_token"] = $row["tokenid"];
 				
-				if (!is_dir('input')) {
-					mkdir('input');
-				}
-				if (!is_dir('input/'.$_SESSION["User_id"])) {
-					mkdir('input/'.$_SESSION["User_id"]);
-				}
-				if (!is_dir('output')) {
-					mkdir('output');
-				}
-				if (!is_dir('output/'.$_SESSION["User_id"])) {
-					mkdir('output/'.$_SESSION["User_id"]);
-				}
-				
 				if($rememberme) {
 					setcookie("ret_usrname", $usrname, time()+ (3600*24*365) );
 					setcookie("ret_password", $_POST['pwd'], time()+ (3600*24*365) );
@@ -375,10 +362,60 @@ if ( !class_exists( 'Users' ) ) {
 		
 		function dirSize($directory) {
 			$size = 0;
+			$filesize='0 Byte';
 			foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory)) as $file){
 				$size+=$file->getSize();
 			}
-			return $size;
+			if($size>=1000){
+				$sizeinkb=($size/1000);
+				if($sizeinkb>=1000)
+				{
+					$sizeinmb=($sizeinkb/1000);
+					if($sizeinmb>=1000)
+					{
+						$filesize=number_format(($sizeinmb/1000),2,'.',',').' GB';
+					}
+					else
+					{
+						$filesize=number_format($sizeinmb,2,'.',',').' MB';
+					}
+				}
+				else
+				{
+					$filesize=number_format($sizeinkb,2,'.',',').' KB';
+				}
+			}
+			else if($size<1000 && $size>0){$filesize=$size.' Bytes';}
+			return $filesize;
+		}
+		function fileSize($path) {
+			$filesize='0 Byte';
+			$size=filesize($path);
+			if($size>=1000){
+				$sizeinkb=($size/1000);
+				if($sizeinkb>=1000)
+				{
+					$sizeinmb=($sizeinkb/1000);
+					if($sizeinmb>=1000)
+					{
+						$filesize=number_format(($sizeinmb/1000),2,'.',',').' GB';
+					}
+					else
+					{
+						$filesize=number_format($sizeinmb,2,'.',',').' MB';
+					}
+				}
+				else
+				{
+					$filesize=number_format($sizeinkb,2,'.',',').' KB';
+				}
+			}
+			else if($size<1000 && $size>0){$filesize=$size.' Bytes';}
+			return $filesize;
+		}
+		function fileExtension($path) {
+			$file=pathinfo($path);
+			return $file['extension'].' file';
 		}
 		
 		function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
