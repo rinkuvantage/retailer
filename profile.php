@@ -54,7 +54,7 @@ if(isset($_POST['fname']))
 		$res=$user->updateUser($uid ,$post);
 		if($res>0)
 		{
-			$_SESSION['message']='You profile updated successfully.';
+			$_SESSION['message']='Your profile updated successfully.';
 			echo"<script type='text/javascript'>window.location='profile.php';</script>";
 			exit();
 		}
@@ -102,7 +102,7 @@ if(isset($_POST['fname']))
 							  </div>
 							  </div>
 							  <div class="reg_box lstbox">
-								<label for="inputEmail" class="sr-only">Last Name</label>
+								<label for="inputEmail" class="sr-only">Last Name*</label>
 								<div class="inputiconbox">
 								<span class="glyphicon glyphicon-user"></span>
 							  <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" class="form-control required" placeholder="" required="required"  />
@@ -110,7 +110,7 @@ if(isset($_POST['fname']))
 							  </div>
 							  
 							  <div class="reg_box fullreg">
-							  <label for="inputEmail" class="sr-only">Company Name</label>
+							  <label for="inputEmail" class="sr-only">Company Name*</label>
 							  <div class="inputiconbox">
 							  <span class="glyphicon glyphicon-briefcase"></span>
 							  <input type="text" id="company" name="company" value="<?php echo $company; ?>" class="form-control required" placeholder="" required="required" />
@@ -118,13 +118,13 @@ if(isset($_POST['fname']))
 							  </div>
 							  
 							  <div class="reg_box fullreg">
-										   <label for="inputEmail" class="sr-only">Phone No</label>
+										   <label for="inputEmail" class="sr-only">Phone No*</label>
 										   <div class="inputiconbox">
 									<i class="fa fa-phone pno"></i>
 										  <input type="text" id="phoneno" name="phoneno" value="<?php echo $phoneno; ?>" class="form-control required" placeholder="" required="required"></div>
 										  </div>
 									<div class="reg_box fullreg">
-							  <label for="inputEmail" class="sr-only">Email address</label>
+							  <label for="inputEmail" class="sr-only">Email address*</label>
 							  <div class="inputiconbox">
 							  <span class="glyphicon glyphicon-envelope"></span>
 							  <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control required email" placeholder="" required="required"  />

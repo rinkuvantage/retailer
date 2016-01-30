@@ -105,49 +105,7 @@
     </div>
   </div>
 </div>
-<div id="myModal2" class="modal fade requestdemo" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal requestdome content-->
-    <div class="modal-content">
-      <div class="modal-hero">
-        <p>Our average response time is 9 hours.</p>
-        <p><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
-      </div>
-	  <form id="support-form" method="post" action="">
-	   <input type="hidden" name="redirect" value="<?php echo $currentpage; ?>" />
-      <div class="modal-body">
-        
-          <div class="form-group">
-            <label>Name*</label>
-            <div class="controls">
-              <input name="name" value="" placeholder="Your name" class="form-control required">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email*</label>
-            <div class="controls">
-              <input name="email" value="" placeholder="Your email address" class="form-control required email">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Website</label>
-            <div class="controls">
-              <input name="website" value="" placeholder="Your website (if relevant)" class="form-control url" data-optional="true">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Message*</label>
-            <div class="controls">
-              <textarea name="message" placeholder="Your message..." style="height: 210px" class="form-control required"></textarea>
-            </div>
-          </div>
-        
-      </div>
-      <div class="modal-footer"><input class="btn btn-info" type="submit" name="requestsupport" value="Submit Request" /></div>
-	  </form>
-    </div>
-  </div>
-</div>
+
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -173,16 +131,7 @@ jQuery(document).ready(function(){
 	  return value.indexOf(" ") < 0 && value != ""; 
 	}, "No space please and don't leave it empty");
 	
-	jQuery('#support-form').validate({
-		rules: {
-			name: {
-				onlytext: true
-			},
-			message: {
-				textnumberdash: true
-			}
-		}
-	});
+	
 	jQuery('#demo-form').validate({
 		rules: {
 			phoneno: {
@@ -276,51 +225,7 @@ jQuery(document).ready(function(){
 		return false;
 	});
 	
-	jQuery("#support-form").submit(function(){		
-		if(jQuery("#support-form input, #support-form textarea").hasClass('error'))
-		{
-			return false;
-		}
-		jQuery.ajax({
-		url: './sendemail.php?form=requestsendmail',
-		type: 'post',
-		data: jQuery('#support-form input[type=\'text\'], #support-form textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			jQuery('#requestsupport').attr('disabled', true);			
-		},	
-		complete: function() {
-			jQuery('#requestsupport').attr('disabled', false); 			
-		},			
-		success: function(json) {		
-			jQuery('.error, #message').remove();
-									
-					 if (json['error']) {				
-							
-						if (json['error']['name']) {
-												
-							jQuery('#support-form input[name=\'name\']').after('<label for="name" generated="true" class="error">' + json['error']['name'] + '</label>');
-						}
-						
-						if (json['error']['email']) {
-												
-							jQuery('#support-form input[name=\'email\']').after('<label for="name" generated="true" class="error">' + json['error']['email'] + '</label>');
-						}
-						
-					if (json['error']['message']) {
-											
-						jQuery('#support-form textarea[name=\'message\']').after('<label for="name" generated="true" class="error">' + json['error']['message'] + '</label>');
-					}
-														
-																																											
-					}else if (json['success']) {						
-						window.location='<?php echo $currentpage; ?>';														
-					}
-							
-		   }	
-		});
-		return false;
-	});
+	
 	
 });
 </script>

@@ -35,9 +35,6 @@ if(isset($_POST['sendmsg']))
 	if(trim($message)=='')
 	{
 		array_push($errors,'Please enter message.');
-	}elseif(!preg_match('/^[a-zA-Z,. ][a-zA-Z0-9,. ]*$/', trim($message)))
-	{
-		array_push($errors,'Please enter valid message.');	
 	}
 	if($_SESSION['captcha']['code']!=$_POST['captchacode'])
 	{
@@ -137,7 +134,9 @@ Parkway Fremont, CA 94538<P/>
 <p><b>Phone No:</b> 1800-123-123</P>
     </div>
 	<div class="mapbox">
-	   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.094510946434!2d-121.98197988534402!3d37.55283703267152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc0a022ab19b7%3A0xa37c8a12ae9ece51!2sPaseo+Padre+Pkwy%2C+Fremont%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1453981805406" max-width="500" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+	   
+	   
+	   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.3003363386138!2d-121.9731088850734!3d37.54798723294867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc07f1320855f%3A0x9c39604edc3ea1ec!2sSigmaways!5e0!3m2!1sen!2sin!4v1454137087949" max-width="500" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 	   </div>
      
 	  </div>

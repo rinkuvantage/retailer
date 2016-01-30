@@ -117,9 +117,6 @@ jQuery(document).ready(function(){
 		rules: {
 			name: {
 				onlytext: true
-			},
-			message: {
-				textnumberdash: true
 			}
 		}
 	});
@@ -141,9 +138,6 @@ jQuery(document).ready(function(){
 			},
 			title: {
 				textnumber: true
-			},
-			comments: {
-				textnumberdash: true
 			}
 		},
 		messages: {
@@ -283,8 +277,10 @@ jQuery(document).ready(function(){
 	
 });
 </script>
-<?php if($currentpage=='index.php'){ ?>
-<script type="text/javascript" src="js/jquery.appear.js"></script>
+<?php if($currentpage=='index.php' || $currentpage=='slider.php'){ ?>
+ <script src="sliderengine/amazingslider.js"></script>
+    <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
+    <script src="sliderengine/initslider-1.js"></script>
 <!-- Plugin JavaScript -->
 <script>
 $('*').each(function(){
@@ -375,10 +371,7 @@ jQuery(document).ready(function(){
 		rules: {
 			name:{
 					onlytext: true,
-				},
-			message:{
-				textnumberdash: true,
-			}
+				}
 		}
 	});
 });

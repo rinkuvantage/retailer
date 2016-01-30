@@ -24,8 +24,8 @@ else
 	$limitstart=0;
 	$limitsend=$totalrec;
 }
-$filelist=$user->userFilelist($uid, " and keyid='$skey' order by id asc limit $limitstart, $totalrec");
-$totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
+$filelist=$user->userFilelist($uid, " and keyid='$skey' order by id desc limit $limitstart, $totalrec");
+$totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
  
 
 ?>
@@ -114,10 +114,24 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
 			var h=parseInt(jQuery(window).height())-parseInt(jQuery('.navbar-fixed-top').height())-parseInt(jQuery('footer.text-center').height());
 			jQuery('#page-wrapper').css({'min-height':h+'px'});
 			jQuery('a.maindir').live('click', function(){
+				
 				var ID=jQuery(this).attr('coords');
 				$this=jQuery(this);
 				var $this2=jQuery($this).parent('li');
 				var $this3=jQuery($this).parents('ul');
+				if(jQuery($this).hasClass('opened'))
+				{
+					jQuery('b',$this).removeClass('caret');
+					jQuery('b',$this).addClass('upcaret');
+					jQuery($this3).nextAll('ul.subfolder_'+ID).remove();
+					jQuery($this3).nextAll('ul.files_'+ID).remove();
+					jQuery($this).removeClass('opened');
+					return false;
+				}
+				else
+				{
+					jQuery($this).addClass('opened')
+				}
 				jQuery.ajax({
 				url: './viewdirs.php?showdir=maindir',
 				type: 'post',
@@ -153,6 +167,18 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id asc");
 				$this=jQuery(this);
 				var $this2=jQuery($this).parent('li');
 				var $this3=jQuery($this).parents('ul');
+				if(jQuery($this).hasClass('opened'))
+				{
+					jQuery('b',$this).removeClass('caret');
+					jQuery('b',$this).addClass('upcaret');
+					jQuery($this3).next('ul.'+filetype+'_'+ID).remove();
+					jQuery($this).removeClass('opened');
+					return false;
+				}
+				else
+				{
+					jQuery($this).addClass('opened');
+				}
 				jQuery.ajax({
 				url: './viewdirs.php?showdir=files',
 				type: 'post',

@@ -146,7 +146,8 @@ if(isset($_POST['upfile']))
      <p>Coloumn headers are the 
     coloumn names of the file that
     you are uploaded that is 
-    seperated by pipe delimetres.</p>
+    seperated by pipe delimetres.<br />
+	Example: file1.csv-ID|NAME|PHONE</p>
 
 
 	</div>

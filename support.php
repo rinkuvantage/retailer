@@ -1,4 +1,4 @@
-<?php require_once('header-withoutlogin.php');
+<?php require_once('header.php');
 $errors=array();
 
 $name='';
@@ -37,11 +37,6 @@ if(isset($_POST['sendmsg']))
 	{
 		array_push($errors,'Please enter message.');
 	}
-	else if(!preg_match('/^[a-zA-Z0-9,. ]+$/', trim($message)))
-	{
-		array_push($errors,'Please enter valid message.');
-	}
-	
 	
 	
 	$website=$_POST['website'];
@@ -86,16 +81,23 @@ if(isset($_POST['sendmsg']))
 <!-- Header -->
 <!-- Portfolio Grid Section -->
 
-<div class="container common_cntr innerpage">
-<div class="banner"><img src="img/support.png"/></div>
+<div id="page-wrapper">
 
-  <div class="row contactusblock">
+            <div class="container-fluid supportpage">
+			<div class="row">
+                    <div class="col-lg-12">
+                     
+                        <ol class="breadcrumb">
+                            
+                            <li class="active">
+                                <i class="fa fa-fw fa-user"></i> Support
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+  <div class="innerpage mainregisterbox">
   
-   
-    
-        <p>Our average response time is 9 hours.</p>
-        <p id="request_message"><a href="#" target="_blank">Active customers automatically get priority support</a>.</p>
-        
 	  <form id="support-form" name="support-form" method="post" action="">
 		<?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
         
@@ -135,5 +137,58 @@ if(isset($_POST['sendmsg']))
     
   </div>
 </div>
+</div>
+</div>
+<script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/validate.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('a.reloadimg').click(function(){
+			jQuery.ajax({
+			  url: "capcha/captchaimage.php"
+			})
+			  .done(function( data ) {
+				jQuery('img.captchaimg').attr('src',data);
+			  });
+		});
+		
+		jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  return value.indexOf(" ") < 0 && value != ""; 
+		}, "No space please and don't leave it empty");
+		
+		jQuery.validator.addMethod("onlytext",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z ]+$/i.test(value); 
+		},"Please enter only letter.");
+		jQuery.validator.addMethod("validemail",function(value,element)
+		{
+			return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i.test(value); 
+		},"Please enter valid email.");
+		jQuery.validator.addMethod("textnumber",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9 ]+$/i.test(value); 
+		},"Please enter only letter and number.");
+		jQuery.validator.addMethod("textnumberdash",function(value,element)
+		{
+			return this.optional(element) || /^[a-zA-Z0-9,. ]+$/i.test(value); 
+		},"Special characters are not allowed");
+		
+		jQuery.validator.addMethod("noSpace", function(value, element) { 
+		  return value.indexOf(" ") < 0 && value != ""; 
+		}, "No space please and don't leave it empty");
+		
+		jQuery('#support-form').validate({
+			rules: {
+				name: {
+					onlytext: true
+				}
+			}
+		});
+	});
+	</script>
 <!-- Footer -->
-<?php require_once('footer-withoutlogin.php'); ?>
+<?php require_once('footer.php'); ?>

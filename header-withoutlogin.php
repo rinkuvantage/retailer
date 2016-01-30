@@ -52,7 +52,7 @@
 				<input name="pwd" id="pwd" type="password" placeholder="Password" title="Enter your password" required="" autocomplete="off" class="required"><br>
 				<button type="button" id="btnLogin" class="btn">Login</button>
 			</form>
-              <a href="register.php" title="Fast and free sign up!" id="btnNewUser"  class="collapsed anchortext">New User? Sign-up..</a>
+              <a href="register.php" title="Fast and free sign up!" id="btnNewUser"  class="collapsed anchortext">New User? Sign-up</a>
             <button type="button" class="btn btn-info btn-lg anchortext forgotpwdlink" data-toggle="modal" data-target="#myModal">Forgot username or password?</button>
             <a class="anchortext"href="contactus.php"><small>Need help? Contact us</small></a>
             <!-- Modal -->

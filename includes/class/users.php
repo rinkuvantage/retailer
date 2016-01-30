@@ -525,6 +525,65 @@ if ( !class_exists( 'Users' ) ) {
 				return $data;
 			}
 		}
+		function get_user_meta( $user_id, $meta_key='', $single=false)
+		{
+			global $prefix;
+			$cnd='';
+			if(trim($meta_key)!='')
+			{
+				$cnd=" and meta_key='$meta_key'";
+			}
+			$sql="select * from ".$prefix."usermeta where user_id='$user_id' $cnd";
+			$result = mysql_query($sql);
+			if(!$result)
+			{
+				return '';
+			}
+			else
+			{
+				$data=array();
+				$count=1;
+				while($row = mysql_fetch_array($result))
+				{
+					$data[$count]=$row;
+					$count++;
+				}
+				if(empty($data))
+				{
+					return '';
+				}
+				if($single)
+				{
+					return $data[1]['meta_value'];
+				}
+				else
+				{
+					$arrayvalue=array();
+					if(!empty($data))
+					{
+						foreach($data as $k=>$value)
+						{
+							$value=array($data[$k]['meta_key']=>array($data[$k]['meta_key']));
+							$arrayvalue=array_merge($arrayvalue,$value);
+						}
+					}
+					return $arrayvalue;
+					
+				}
+			}
+		}
+		function add_user_meta( $user_id, $meta_key, $meta_value )
+		{
+			global $prefix;
+			$sql="INSERT INTO `".$prefix."usermeta` (`user_id`, `meta_key`,`meta_value`) VALUES ('$user_id', '$meta_key', '$meta_value')";
+			$result = mysql_query( $sql );
+		}
+		function update_user_meta( $user_id, $meta_key, $meta_value )
+		{
+			global $prefix;
+			$sql="UPDATE `".$prefix."usermeta` set meta_value='$meta_value' where  user_id='$user_id' and meta_key='$meta_key'";
+			$result = mysql_query( $sql );
+		}
 	}
 	global $user;
 

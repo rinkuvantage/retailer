@@ -18,9 +18,10 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
                             </li>
 				<li class="viewdropdown"><b>Viewing :</b>
 				<ul>
-							<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img src="img/n.png"/> All Notifications <b class="caret"></b></a>
+							<li class="dropdown"> <a href="notifications.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img src="img/n.png"/> All Notifications <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li> <a href="edit-notifications.php">Edit Notifications</a> </li>
+        <li> <a href="notifications.php">Notifications</a> </li>
+		<li> <a href="edit-notifications.php">Edit Preference</a> </li>
      
       </ul>
 	  
@@ -40,12 +41,12 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
 			<tr class="nhding"><th>Subject</th> <th>When</th> </tr> 
 			</thead> 
 			<tbody> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
-			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
+			<tr><td>Indicates a dangerous or potentially</td> <td>13/06/2014 15.53 UTC</td> </tr> 
 			
 			 </tbody> </table>
 			 </div>

@@ -7,6 +7,8 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
 }
+
+
 .col-md-12.imgsection {
     text-align: center;
 }
@@ -147,6 +149,7 @@ img.churmimgs {
 .readmorebox a {
     font-size: 20px;
 }
+.readmorebox a:hover{ color:#000;}
 .container.offeringblock {
     max-width: 1200px;
     width: 100%;
@@ -1172,5 +1175,8 @@ button#dropdownMenu1 {
   margin-top: 0;
   padding-bottom: 0;
   padding-top: 5px;
+}
+.retailerhomemain {
+    margin-top: 87px !important;
 }
 }

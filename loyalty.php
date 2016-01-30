@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<?php require_once('header-withoutlogin.php'); ?>
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="fonts/stylesheet.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -10,11 +8,11 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function(e) {
-	jQuery('.pricing_content3').hide();
-	jQuery('.inclusion_right_box').hide();
-	jQuery('#view3 div.pricing_content3:first').show();
-	jQuery('#view3 div.inclusion_right_box:first').show();
-    jQuery('.inclus').click( function(){
+	//jQuery('.pricing_content3').hide();
+	//jQuery('.inclusion_right_box').hide();
+	//jQuery('#view2 div.pricing_content3:first').show();
+	//jQuery('#view2 div.inclusion_right_box:first').show();
+   jQuery('.inclus').click( function(){
 		jQuery('.inclusions_ul a').removeClass('in_active');
 		jQuery(this).addClass('in_active');
 		jQuery('.pricing_content3').hide();
@@ -22,25 +20,21 @@ jQuery(document).ready(function(e) {
 		jQuery('.'+cl).show();
 	});
 	
-	 jQuery('.sidebarpackinclude').click( function(){
+	 /* jQuery('.sidebarpackinclude').click( function(){
 		jQuery('.inclusions_sidebar a').removeClass('active_sidebar');
 		jQuery(this).addClass('active_sidebar');
 		jQuery('.inclusion_right_box').hide();
 		var cl=jQuery(this).attr('coords');
 		jQuery('.'+cl).show();
-	});
+	});*/
 });
 </script>
 
-
-</head>
-<?php require_once('header-withoutlogin.php'); ?>
-<body>
 <div class="container innerpage cont_page common_cntr">
   <div class="banner"><img src="img/loyaltyimg.png"/></div>
   <div class="pricing_box row contactusblock">
     <ul class="tabs" data-persist="true">
-      <li><a href="#view1">Overview</a></li>
+      <li class="selected"><a href="#view1">Overview</a></li>
       <li><a href="#view2">Marketing Mix Modeling</a></li>
       <li><a href="#view3">Digital & Social Media ROI</a></li>
       <li><a href="#view4">Cross-Media Attribution</a></li>
