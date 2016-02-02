@@ -7,8 +7,59 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
 }
+.work-item img {
+    margin: 0 auto !important;
+}
+.container {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.row {
+     margin-left: 0px; */
+  margin-right: 0px; */
+}
+.amazingslider-button-1{ text-align:left; max-width:1170px; margin:0 auto;}
+.retailerhomemain .top-titlebar {
+    margin-bottom: 0px;
+}
+div#amazingslider-1 {
+    margin: 0px !important;
+    width: 100% !important;
+}
+.offering .rdmore:hover {
+    color: #000;
+}
+.offr_img_main {
+    float: left;
+    position: relative;
+    width: 100%;
+    min-height: 218px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.offr_img_main:hover .offr_img img {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
 
-
+.offr_img img {
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+.offr_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+a.socialicons {
+    float: left;
+    margin-right: 15px;
+}
+.socialicons img {
+    vertical-align: top;
+	margin-top:2px;
+}
 .col-md-12.imgsection {
     text-align: center;
 }
@@ -68,8 +119,8 @@ img.churmimgs {
   width: 100%;
 }
 .innermidbox {
-    max-width: 1170px;
     margin: 0 auto;
+	padding:0px 30px;
 }
 .adrsblock p{ font-size:13px;}
 .contactshadow .ginput_container input {
@@ -80,7 +131,6 @@ img.churmimgs {
 }
 .contactshadow {
     box-shadow: 0px 4px 12px 4px #eee;
-    margin-top: 50px;
     padding: 0px;
     padding-bottom: 50px;
 }
@@ -116,22 +166,23 @@ img.churmimgs {
     padding-right: 0px;
 }
 .row.contactusblock {
-    max-width: 1170px;
     margin: 0 auto;
+	width:100%;
+	padding:0px 30px;
 }
 .f_leftbox {
     text-align: left;
+	padding-left:0px;
 }
 .f_rightbox {
     text-align: right;
 }
 .f_rightbox li{ list-style:none; display:inline;}
 .ftrmid {
-    max-width: 1160px;
     margin: 0 auto;
     float: none;
     display: inline-block;
-    padding: 20px 0px 5px 0px;
+    padding: 20px 0px 5px 30px;
 }
 .f_rightbox li a{ color:#fff; margin-right:20px;}
 .ftrbox {
@@ -144,32 +195,29 @@ img.churmimgs {
     background: #d5653e;
     color: #fff;
     margin-bottom: 3px;
-    padding: 7px 15px;
+    padding: 8px 15px;
+	float:left;
+	width:100%;
 }
 .readmorebox a {
     font-size: 20px;
 }
 .readmorebox a:hover{ color:#000;}
 .container.offeringblock {
-    max-width: 1200px;
     width: 100%;
 }
-.mainservices {
-    padding-left: 0px;
-    padding-right: 36px;
-}
-.mainservices img {
-    width: 100%;
-}
+
+
 .readmorebox a{
     color: #fff;
 }
 .offeringblock h1 {
     font-size: 24px;
     text-transform: capitalize;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     font-weight: normal;
     color: #000;
+	margin-top:10px;
 }
 .block1box h1 {
     text-align: center;
@@ -178,11 +226,12 @@ img.churmimgs {
     font-size: 20px;
     min-height: 50px;
     margin-bottom: 0px;
+	margin-top:20px;
 }
 .block1box {
     box-shadow: 0px 0px 11px 2px #eee;
-    margin-right: 20px;
-	padding:0px;
+	overflow:hidden;
+  
 }
 .hdr_toglebox label {
   margin-bottom: 10px;
@@ -212,10 +261,13 @@ span.glyphicon.headericonbox {
     float: left;
     position: unset !important;
     height: 23px !important;
-    color: #000;
+    color: #d05125;
     font-size: 15px;
     line-height: 22px !important;
     padding: 0px 10px 0px 0px !important;
+}
+i.fa.fa-dashboard {
+    COLOR: #d05125;
 }
 img.sco {
     width: 38%;
@@ -277,11 +329,11 @@ p.social-buttons a {
     margin-left: 10px;
 }
 .fgtpwd .modal-footer a.btn {
-    background: #f5f5f5 !important;
     border: 1px solid #cccccc;
     box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
     padding: 4px 10px;
     color: #000 !important;
+	font-size:18px;
 }
 label.forgotemail.col-md-4.text-right {
     margin-top: 10px;
@@ -322,13 +374,21 @@ a.navbar-brand.logobox {
     min-height: 86px;
 }
 .right_box {
-    margin-top: 26px;
+    margin-top: 30px;
 }
 .fgtpwd a#btnForgotPassword {
     /* padding: 2px 10px; */
-    background: #d05125 !important;
+	background: linear-gradient(to bottom, #E36764 0%,#C12E2A 100%);
+background: -moz-linear-gradient(top, #C12E2A 0%, #E36764 100%);
+background: -webkit-linear-gradient(top, #C12E2A 0%,#E36764 100%);
+background: linear-gradient(to bottom, #C12E2A 0%,#E36764 100%);
+
+
+	
     border: none;
     color: #fff !important;
+    border: 1px solid #b92c28;
+	font-size:18px;
 }
 .centerbox{ text-align:center;}
 .form-horizontal .control-label {
@@ -341,16 +401,40 @@ form-horizontal .controls {
     margin-left: 180px;
 }
 .hdr_toglebox button {
-    background-color: #d05125;
-    background-image: none;
-    border-color: transparent;
+  
     color: #e6e6e6;
     text-shadow: 0 0 0;
-    box-shadow: 0 0 0;
+ 
     padding: 2px 10px !important;
-    font-size: 12px;
+    font-size: 18px;
     margin-bottom: 10px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e36764+0,c12e2a+100 */
+ border: 1px solid #b92c28;background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
+
+-webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
+    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+	font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
+
+
+.hdr_toglebox button:hover {
+  	color: #fff;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c12e2a+0,e36764+100 */
+background: #c12e2a; /* Old browsers */
+background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+
+}
+
+
 .hdr_toglebox .anchortext {
     width: 100%;
     font-weight: normal;
@@ -379,6 +463,7 @@ button#dropdownMenu1 {
     background: none;
     border: none;
     color: #000;
+	font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 .forgot a {
     font-weight: normal;
@@ -486,7 +571,6 @@ ul.dropdown-menu.pull-right {
     background-image: none;
     background-color: #d05125;
     color: #fff;
-    border-color: #0395f3;
     border: none;
     white-space: nowrap;
     padding: 6px 12px;
@@ -494,7 +578,32 @@ ul.dropdown-menu.pull-right {
     line-height: 1.42857;
     border-radius: 3px;
 
+
+ border: 1px solid #b92c28;background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
+
+-webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
+    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+
 	}
+	
+.contactusblock .gform_button.button:hover{
+  	color: #fff;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c12e2a+0,e36764+100 */
+background: #c12e2a; /* Old browsers */
+background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+	
+}	
+	
+	
 .contactusblock li {
     list-style: none;
     margin-bottom: 20px;
@@ -519,10 +628,11 @@ ul.dropdown-menu.pull-right {
 }
 .top_header .contact .btn-success, .phonno.pull-right {
     background: none;
-    color: #000 !important;
+    color: #000 !IMPORTANT;
     padding: 0px 10px 0px 15px;
-    border-right: 1px solid #eee;
     margin: 10px 0px;
+    FONT-WEIGHT: NORMAL;
+    FONT-FAMILY: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 a.navbar-brand.logobox {
     margin: 0px;
@@ -579,7 +689,7 @@ label.sr-only.titlbox {
     font-weight: bold;
     color: #fff;
 }
-.top_header { background:#fff; border:none;}
+.top_header { background:#fff; border:none; padding:0px;}
 .sbmit {
     background: #d05125;
     border-radius: 0px !important;
@@ -666,6 +776,8 @@ section#portfolio {
     letter-spacing: -0.025em;
     line-height: 1em;
     text-transform: capitalize;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 .row.turndata {
   padding-bottom: 20px;
@@ -995,6 +1107,112 @@ form.form-signin.registerbox{ display:inline-block;}
     color: #fff;
 }
 .top_header .btn-success a{ color:#fff;}
+
+
+.top-titlebar{
+background:url(../img/titlebg.jpg) left center repeat-x;
+height:80px;
+margin-bottom:44px;	
+}
+
+.top-titlebar h1{
+margin:30px 0 0 0;
+color:#fff;
+  font-family: "Open Sans",sans-serif;
+font-size:22px;	
+}
+
+
+button .glyphicon{
+    color: #fff;
+    font-size: 16px;
+    height: auto;
+    line-height: normal !important;
+    padding-left:0px;
+    position: relative !important;
+}
+
+
+.work-item {
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.work-item img {
+	display: block;
+	-webkit-transition: -webkit-transform .25s ease-in-out;
+	transition: transform .25s ease-in-out;
+}
+.work-item:hover img {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.image-extra {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	background-color: rgba(0, 194, 169, 0.1);
+	-webkit-transition: opacity .25s ease, background-color .45s ease;
+	transition: opacity .25s ease, background-color .45s ease;
+}
+.ie8 .image-extra {
+	visibility: hidden;
+}
+.work-item.touched .image-extra, .work-item:hover .image-extra {
+	/*background-color: #00c2a9;
+				background-color: rgba(0, 194, 169, 0.8);*/
+	background-color: #eb7800;
+	background-color: rgba(235, 120, 0, 0.8);
+	opacity: 1;
+	filter: alpha(opacity = 80);
+}
+.ie8 .work-item:hover .image-extra {
+	visibility: visible;
+}
+.extra-content {
+	display: table;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+.inner-extra {
+	display: table-cell;
+	margin: 0;
+	padding: 0 10px;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+}
+.offering .rdmore {
+    background: #d5653e ;
+    color: #ffffff;
+    display: block;
+    padding: 8px 12px;
+	text-decoration:none;
+	font-size:20px;
+}
+
+.work-item h2 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 0;
+  
+    text-align: center;
+}
+
+.show-grid{ box-shadow: 0 0 11px 2px #eeeeee;}
 @media only screen and (max-width:880px) {
 
 
@@ -1180,3 +1398,5 @@ button#dropdownMenu1 {
     margin-top: 87px !important;
 }
 }
+
+img{ max-width:100%; height:auto;}

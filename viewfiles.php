@@ -42,6 +42,7 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
     </div>
     <!-- /.row -->
     <div class="row">
+      <div class="col-lg-12">
 	<?php if(!empty($filelist)){ ?>
       <div class="viewfilebox">
 	 
@@ -49,8 +50,8 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
           <li class="f_name col-md-6">Name</li>
           <li class="f_size col-md-1">Size</li>
           <li class="f_type col-md-2">Type</li>
-          <li class="f_date col-md-2">Date Modified</li>
-          <li class="f_action col-md-1">Action</li>
+          <?php /*?><li class="f_date col-md-2">Date Modified</li><?php */?>
+          <li class="f_action col-md-3">Action</li>
         </ul>
 		<?php foreach($filelist as $file){ 
 				if (is_dir('uploads/'.$uid.'/'.date('Y-m-d H-i-s',strtotime($file['udate'])))) {
@@ -72,13 +73,13 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
           <li class="f_name col-md-6"><a href="javascript:;" coords="<?php echo $file['ID']; ?>" class="maindir"><b class="upcaret"></b> <img src="img/f.png"/> <?php echo $file['udate']; ?></a></li>
           <li class="f_size col-md-1"><?php echo $size; ?></li>
           <li class="f_type col-md-2">Directory</li>
-          <li class="f_date col-md-2"><?php echo date('Y-m-d',strtotime($file['udate'])); ?></li>
-          <li class="f_action col-md-1">
+          <?php /*?><li class="f_date col-md-2"><?php echo date('Y-m-d',strtotime($file['udate'])); ?></li><?php */?>
+          <li class="f_action actionblock col-md-3">
             <select>
-              <option value="volvo">Run chum</option>
+              <option value="volvo">Run Churn</option>
               <option value="saab">Run Loyalty</option>
-            
             </select>
+			<input type="button" value="Submit" class="upload_submit btn-primary" style="margin:5px;" />
           </li>
         </ul>
 		</div>
@@ -99,6 +100,10 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
 			
 			<?php } ?>
     </div>
+    
+    
+    </div>
+    
   </div>
   <!-- /.container-fluid -->
 </div>

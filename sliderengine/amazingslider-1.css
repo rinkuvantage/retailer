@@ -1,12 +1,17 @@
 /* blue button large */
+.amazingslider-space-1 img{ width:100% !important;}
+.amazingslider-space-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+}
 .as-btn-blue-large {
   	display: inline-block;
-  	border: none;
+  	border: 1px solid #b92c28;
   	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
   	margin: 0;
-  	background: #009cde;
+  	
   	font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif,Arial;
   	color: #fff;
   	cursor: pointer;
@@ -22,6 +27,13 @@
   	-webkit-border-radius: 4px;
   	-moz-border-radius: 4px;
   	border-radius: 4px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e36764+0,c12e2a+100 */
+background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
 }
 
 .as-btn-blue-large:hover {
@@ -36,13 +48,12 @@
 /* blue button medium */
 .as-btn-blue-medium {
   	display: inline-block;
-  	border: none;
+  	border: 1px solid #b92c28;
   	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
   	margin: 0;
-  	background: #009cde;
-  	font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif,Arial;
+   font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
   	color: #fff;
   	cursor: pointer;
   	text-align: center;
@@ -51,17 +62,36 @@
   	text-transform: none;
   	white-space: nowrap;
   	-webkit-font-smoothing: antialiased;
-	padding: 6px 12px;
-	font-size: 14px;
+	padding: 8px 20px;
+	font-size: 18px;
 	font-weight: normal;
-  	-webkit-border-radius: 2px;
-  	-moz-border-radius: 2px;
-  	border-radius: 2px;
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+	font-weight:400;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e36764+0,c12e2a+100 */
+background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
+
+-webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
+    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
 }
 
 .as-btn-blue-medium:hover {
   	color: #fff;
-  	background: #0285d2;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c12e2a+0,e36764+100 */
+background: #c12e2a; /* Old browsers */
+background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+
 }
 
 .as-btn-blue-medium:focus {
@@ -69,6 +99,11 @@
 }
 
 /* blue button small */
+
+.as-btn-blue-small a{
+ color:#fff !important;
+ }
+
 .as-btn-blue-small {
   	display: inline-block;
   	border: none;
@@ -78,7 +113,7 @@
   	margin: 0;
   	background: #009cde;
   	font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif,Arial;
-  	color: #fff;
+  	color: #fff !important;
   	cursor: pointer;
   	text-align: center;
   	text-decoration: none;
@@ -96,7 +131,7 @@
 
 .as-btn-blue-small:hover {
   	color: #fff;
-  	background: #0285d2;
+  	background: #000;
 }
 
 .as-btn-blue-small:focus {
@@ -112,7 +147,7 @@
   	box-sizing: border-box;
   	margin: 0;
   	background: transparent;
-  	font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif,Arial;
+  font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
   	color: #009cde;
   	cursor: pointer;
   	text-align: center;
@@ -164,6 +199,7 @@
   	-webkit-border-radius: 2px;
   	-moz-border-radius: 2px;
   	border-radius: 2px;
+	font-size:18px;
 }
 
 .as-btn-blueborder-medium:hover {

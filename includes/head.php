@@ -20,7 +20,7 @@ $sitname='Sigmaways Retail Analytics';
 
 //Global email for recieving and sending emails.
 
-$owner_email='rinku.vantage@gmail.com';
+$owner_email='abhishekvaid@gmail.com';
 
 //Email signature
 $email_signature='<br />Sincerely,<br />Sigmaways Team';
@@ -50,6 +50,8 @@ require_once('sendemails.php');
 
 $sepratefiles=explode('/',$_SERVER['REQUEST_URI']);
 $currentpage=$sepratefiles[count($sepratefiles)-1];
+if(trim($currentpage)==''){$currentpage='index.php';}
+
 
 $login_active=false;
 if(isset($_SESSION["User_id"]) && isset($_SESSION["User_type"])){ 

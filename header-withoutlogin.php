@@ -41,7 +41,7 @@
         </a> <a class="contact" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
-        <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
+       <!-- <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>-->
         <?php }else{ ?>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle pull-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="glyphicon glyphicon-user headericonbox"></span> Login </button>
@@ -61,7 +61,7 @@
         <a class="contact pull-right" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"><span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
-       <!-- <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>-->
+       <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
         <?php } ?>
       </div>
     </div>

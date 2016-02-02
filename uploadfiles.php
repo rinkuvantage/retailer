@@ -18,13 +18,7 @@ if(isset($_POST['upfile']))
 			{
 				if($_FILES['uploadfiles']['name']!='')
 				{
-					$uploadedfile=$_FILES['uploadfiles']["name"];
-					$checkfileexist=$user->userFilelist($uid, " and keyid='$skey' and filename='$uploadedfile'");
-					if(count($checkfileexist)>0)
-					{
-						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' is already exist.');
-					}
-					else if($_FILES['uploadfiles']['size']<=0)
+					if($_FILES['uploadfiles']['size']<=0)
 					{
 						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has 0 size');
 					}
@@ -56,36 +50,42 @@ if(isset($_POST['upfile']))
 							mkdir('uploads/'.$uid.'/'.$filetime.'/output');
 						}
 						$uploadto='uploads/'.$uid.'/'.$filetime.'/input/';
-						
-						
-						$altername=$_FILES['uploadfiles']["name"];
-						move_uploaded_file($_FILES['uploadfiles']["tmp_name"],$uploadto. $_FILES['uploadfiles']["name"]);
-						
-						$post['udate'] = $time;
-						$post['keyid']=$skey;
-						$post['user_id']=$uid;
-						$post['filename']=$altername;
-						$post['title']=$_POST['filename'];
-						$post['filecolumns']=$_POST['filecolumns'];
-						$fieldnames='';
-						$fieldvalues='';
-						$cnt=1;
-						foreach($post as $key=>$value)
+						if(file_exists($uploadto. $_FILES['uploadfiles']["name"]))
 						{
-							if($cnt==1)
-							{
-								$fieldnames.="`$key`";
-								$fieldvalues.="'$value'";
-							}
-							else
-							{
-								$fieldnames.=", `$key`";
-								$fieldvalues.=", '$value'";
-							}
-							$cnt++;
+							array_push($errors,'File '.$_FILES['uploadfiles']['name'].' is already exist.');
 						}
-						$res=$user->addUserFiles($fieldnames,$fieldvalues);
-						$totalfile++;
+						
+						if(empty($errors))
+						{
+							$altername=$_FILES['uploadfiles']["name"];
+							move_uploaded_file($_FILES['uploadfiles']["tmp_name"],$uploadto. $_FILES['uploadfiles']["name"]);
+							
+							$post['udate'] = $time;
+							$post['keyid']=$skey;
+							$post['user_id']=$uid;
+							$post['filename']=$altername;
+							$post['title']=$_POST['filename'];
+							$post['filecolumns']=$_POST['filecolumns'];
+							$fieldnames='';
+							$fieldvalues='';
+							$cnt=1;
+							foreach($post as $key=>$value)
+							{
+								if($cnt==1)
+								{
+									$fieldnames.="`$key`";
+									$fieldvalues.="'$value'";
+								}
+								else
+								{
+									$fieldnames.=", `$key`";
+									$fieldvalues.=", '$value'";
+								}
+								$cnt++;
+							}
+							$res=$user->addUserFiles($fieldnames,$fieldvalues);
+							$totalfile++;
+						}
 					}
 				}
 			}
@@ -146,7 +146,7 @@ if(isset($_POST['upfile']))
      <p>Coloumn headers are the 
     coloumn names of the file that
     you are uploaded that is 
-    seperated by pipe delimetres.<br />
+    seperated by pipe Delimiter.<br />
 	Example: file1.csv-ID|NAME|PHONE</p>
 
 
@@ -183,7 +183,7 @@ jQuery(document).ready(function(){
 		if(jQuery.trim(firstfile)=='')
 		{
 			jQuery('.uploading_files span.error').remove();
-			jQuery('.uploading_files').prepend('<span class="error">First file is required</span>');
+			jQuery('.uploading_files').prepend('<span class="error">File is required</span>');
 			return false;
 		}
 		var i=1;

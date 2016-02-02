@@ -4,7 +4,7 @@
 <ul>
 <li><a href="http://sigmaways.com/">About</a></li>
 <li><a href="termsofservices.php">Terms & Conditions</a></li>
-<li><a href="privacy.php">Privacy</a></li>
+<li><a href="privacy-policy.php">Privacy Policy</a></li>
 
 </ul>
 </div></div>

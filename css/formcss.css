@@ -5,8 +5,13 @@
     float: left;
 }
 .mainregisterbox .form-box-footer.form-header input.btn.btn-block {
-    background: #d05125;
-	color:#fff;
+    background: linear-gradient(to bottom, #e36764 0%,#c12e2a 100%);
+    color: #fff !important;
+    border: 1px solid #b92c28;
+background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
 }
 .mainregisterbox .form-box-footer.form-header a {
     color: #d05125;
@@ -115,11 +120,17 @@ i.fa.fa-phone.pno {
     text-align: center;
     top: 168px;
     width: 100%;
-    z-index: 9999;
+    z-index: 999;
 }
-.admindashboard .success {
+/*.admindashboard .success {
     top: 61px !important;
     width: 83% !important;
+}*/
+
+.admindashboard .success {
+    margin-left: 30px !important;
+    top: 174px !important;
+    width: 76% !important;
 }
 .admprofileedit {
     float: none;

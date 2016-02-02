@@ -187,10 +187,9 @@ jQuery(document).ready(function(){
             duration:1500,
             easing:"easeOutCubic",
             checked:true,
-            effects:"up,down,updown",
+            effects:"leftright,rightleft",
             slicecount:10
         },
-        transition:"slice",
         scalemode:"fill",
         isfullscreen:false,
         textformat: {

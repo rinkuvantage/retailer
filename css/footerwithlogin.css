@@ -1,13 +1,32 @@
 /* CSS Document */
-footer.text-center {
-    background: #f7f7f7;
-    padding: 19px 0px;
-	margin-top:30px;
-}
-footer .footer-above .container {
+ footer.text-center{  z-index: 99999999999 !important; margin-top:20px;}
+.ftrbox {
+    background: #000;
+    float: left;
     width: 100%;
-    padding: 0px 29px !important;
-    padding-left: 10% !important;
+}
+.ftrmid {
+    margin: 0 auto;
+    float: none !important;
+    display: inline-block;
+    padding: 20px 0px 5px 30px;
+}
+footer {
+    color: #fff;
+}
+.f_leftbox {
+    text-align: left;
+}
+.f_rightbox {
+    text-align: right;
+}
+.f_rightbox li {
+    list-style: none;
+    display: inline;
+}
+.f_rightbox li a {
+    color: #fff;
+    margin-right: 20px;
 }
 .nav>li>a>img {
     max-width: 80% !important;
@@ -83,13 +102,7 @@ footer{ position:relative;}
   padding: 30px;
 }
 .navbar-right{ right:0px !important;}
-footer.text-center {
-    overflow: hidden;
-    float: left;
-    width: 100% !important;
-    z-index: 99999999999 !important;
-    bottom: 0px;
-}
+
 .modal{z-index:9999999999!important;}
 #myModal1 .modal-dialog, #myModal2 .modal-dialog {
     max-width: 830px !important;

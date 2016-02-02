@@ -3,10 +3,15 @@
 
     <!-- Portfolio Grid Section -->
 	<div class="container innerpage cont_page common_cntr">
-		<div class="banner"><img src="img/t.png"/></div>
+<div class="top-titlebar">
+    <div class="container">
+      <h1>TERMS AND CONDITIONS</h1>
+    </div>
+  </div>    
+		
 		 	 <div class="row innermidbox">
 		<div class="entry">
-		<h2 class="main_heading">Terms of Condition</h2>
+	
 				<p>THESE TERMS AND CONDITIONS ("TERMS") ARE A LEGAL CONTRACT BETWEEN YOU AND COMPANY.  THE TERMS EXPLAIN HOW YOU ARE PERMITTED TO USE THE WEBSITE LOCATED AT THE URL: <a href="http://sigmaways.com/">http://sigmaways.com/</a> AS WELL AS ALL ASSOCIATED SITES LINKED TO <a href="http://sigmaways.com/">http://sigmaways.com/</a> BY COMPANY, ITS SUBSIDIARIES AND AFFILIATED COMPANIES (COLLECTIVELY, THE "SITE").  UNLESS OTHERWISE SPECIFICED, ALL REFERENCES TO "SITE" INCLUDE THE SERVICES AVAILABLE THROUGH THIS SITE (THE "SERVICES") AND ANY SOFTWARE THAT Company PROVIDES TO YOU THAT ALLOWS YOU TO ACCESS THE SITE FROM A MOBILE DEVICE (A "MOBILE APPLICATION"). THE TERM "SERVICES" ALSO INCLUDES ANY PROOF OF CONCEPT OR OTHER PROFESSIONAL SERVICES THAT YOU AND COMPANY AGREE IN WRITING IN A STATEMENT OF WORK WILL BE PERFORMED BY COMPANY. BY USING SELECTING OR CHECKING "I AGREE", YOU ARE AGREEING TO ALL THE TERMS; IF YOU DO NOT AGREE WITH ANY OF THESE TERMS, DO NOT SELECT OR CHECK "I AGREE" OR ACCESS OR OTHERWISE USE THIS SITE, ANY SERVICES AVAILABLE THROUGH THIS SITE OR ANY INFORMATION CONTAINED ON THIS SITE.</p>
 <h2>Changes</h2>
 <p>Company may make changes to the content and Services offered on the Site at any time. Company can change, update, or add or remove provisions of these Terms, at any time by having you agree to a new version of these Terms or by posting the updated Terms on this Site and by providing you notice.  By assenting to the updated Terms or using this Site after Company has updated the Terms, you are agreeing to all the updated Terms; if you do not agree with any of the updated Terms, you must stop using the Site and receiving Services.</p>
@@ -111,7 +116,7 @@
 39737 Paseo Padre Parkway<br>
 Fremont, CA 94538
 
-<a href="mailto:legal@sigmaways.com">legal@sigmaways.com</a></p>
+<a href="mailto:support@sigmaways.com">support@sigmaways.com.</a></p>
 <p>Please also note that for copyright infringements under Section 512(f) of the Copyright Act, any person who knowingly materially misrepresents that material or activity is infringing may be subject to liability.</p>
 <h3>Submitting a DMCA Counter-Notification</h3>
 <p>We will notify you that we have removed or disabled access to copyright-protected material that you provided, if such removal is pursuant to a valid DMCA take-down notice that we have received. If you receive such notice from us, you may provide us with a counter-notification in writing to Company designated agent that includes all of the following information:</p>

@@ -18,7 +18,6 @@ if(isset($_GET['showdir']) && $_GET['showdir']=='maindir')
           <li class="f_name col-md-6"><a href="javascript:;" coords="'.$filelist[1]['ID'].'" filetype="input" class="getfiles"><b class="upcaret"></b><img src="img/f.png"/> Input</a></li>
           <li class="f_size col-md-1">'.$inputsize.'</li>
           <li class="f_type col-md-2">Directory</li>
-          <li class="f_date col-md-2">'.date('Y-m-d',strtotime($filelist[1]['udate'])).'</li>
           <li class="f_action col-md-1"></li>
         </ul>';
 		
@@ -58,7 +57,6 @@ if(isset($_GET['showdir']) && $_GET['showdir']=='files')
 			  <li class="f_name col-md-6"><img src="img/installer.png"/> <a href="'.$inputfile.'">'.$filelist[1]['filename'].'</a></li>
 			  <li class="f_size col-md-1">'.$filesize.'</li>
 			  <li class="f_type col-md-2">'.$fileextension.'</li>
-			  <li class="f_date col-md-2">'.$filelist[1]['udate'].'</li>
 			  <li class="f_action col-md-1">
 			   
 			  </li>
@@ -78,7 +76,6 @@ if(isset($_GET['showdir']) && $_GET['showdir']=='files')
 				  <li class="f_name col-md-6"><img src="img/installer.png"/> '.$filelist[1]['filename'].'</li>
 				  <li class="f_size col-md-1">'.$filesize.'</li>
 				  <li class="f_type col-md-2">'.$fileextension.'</li>
-				  <li class="f_date col-md-2">'.$filelist[1]['udate'].'</li>
 				  <li class="f_action col-md-1">
 				   
 				  </li>

@@ -1,46 +1,14 @@
-<footer class="text-center">
-<div class="col-md-12">&copy; Copyright 2016 Sigmaways. All rights reserved.</div>
-  <!--<div class="footer-above footer_box">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
-          <p class="social-buttons"> <a href="https://twitter.com/sigmaways"><img src="img/tw.png"/></a> <a href="https://www.facebook.com/sigmaways"><img src="img/fb.png"/></a> <a href="https://www.linkedin.com/company/203731"><img src="img/linkedin.png"/></a> </p>
-          <address>
-          <strong>Sigmaways Inc</strong><br>
-          39737 Paseo Padre Parkway<br>
-          Fremont, CA 94538
-          </address>
-        </div>
-        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
-          <h4>Solutions</h4>
-          <ul class="footer-list">
-            <li><a href="#">Churn Analytics</a></li>
-            <li><a href="#">Loyalty Analytics </a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock">
-          <h4>CONTACT</h4>
-          <ul class="footer-list">
-            <li>
-              <button type="button" class="btn btn-info btn-lg anchortext forgotpwdlink supportbox" data-toggle="modal" data-target="#myModal1">Request Demo</button>
-            </li>
-            <li>
-              <button type="button" class="btn btn-info btn-lg anchortext forgotpwdlink supportbox" data-toggle="modal" data-target="#myModal2">Support</button>
-            </li>
-            <li><a href="contactus.php">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-xs-3 col-sm-3 col-md-3 ftrblock lastfblock">
-          <h4>COMPANY</h4>
-          <ul class="footer-list">
-            <li><a href="http://sigmaways.com/">About</a></li>
-            <li><a href="privacy.php">Privacy Policy</a></li>
-            <li><a href="termsofservices.php">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>-->
+<footer class="text-center ftrbox">
+<div class="col-md-12 ftrmid"><div class="col-md-6 f_leftbox">&copy; Copyright 2016 Sigmaways. All rights reserved.</div>
+<div class="col-md-6 f_rightbox">
+<ul>
+<li><a href="http://sigmaways.com/">About</a></li>
+<li><a href="termsofservices.php">Terms & Conditions</a></li>
+<li><a href="privacy-policy.php">Privacy Policy</a></li>
+
+</ul>
+</div></div>
+
   <div class="scroll-top page-scroll visible-xs visible-sm"> <a class="btn btn-primary scrolltotop" href="javascript:;"> <i class="fa fa-chevron-up"></i> </a> </div>
 </footer>
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->

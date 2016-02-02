@@ -72,13 +72,17 @@ if(isset($_POST['sendmsg']))
 <!-- Portfolio Grid Section -->
 
 <div class="container common_cntr innerpage">
-<div class="banner"><img src="img/contactimg.png"/></div>
+<div class="top-titlebar">
+    <div class="container">
+      <h1>Contact Us</h1>
+    </div>
+  </div>
 
   <div class="row contactusblock">
   
    
     <div class="col-sm-5 col-xs-10 col-md-6 cntleftblock contactshadow">
-	 <h1>CONTACT</h1>
+	 <h1>Contact Us</h1>
       <div class="gf_browser_gecko gform_wrapper cntmidbox" id="gform_wrapper_1"><a id="gf_1" class="gform_anchor"></a>
         <form method="post" name="loginuser" id="loginuser" action="">
           <div class="gform_body">

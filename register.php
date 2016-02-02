@@ -145,7 +145,13 @@ if(isset($_POST['fname']))
 
 
     <!-- Portfolio Grid Section -->
-	<div class="container innerpage mainregisterbox">
+	<div class="container innerpage mainregisterbox common_cntr">
+	<div class="top-titlebar">
+    <div class="container">
+      <h1>Register</h1>
+    </div>
+  </div>
+	<br/>
 		 <div class="row">
 <div class="login_form col-sm-12 col-xs-12 col-md-6 col-lg-6">
         <div class="form-header">Sigmaways Retail Analytics Signup</div>
@@ -199,7 +205,7 @@ if(isset($_POST['fname']))
 	 </div>
 		
           <div class="form-box-footer form-header">
-            <p>By signing up, you agree to the <a href="termsofservices.php" target="_blank">Terms of Service</a> and <a href="privacy.php" target="_blank">Privacy Policy</a>.</p>
+            <p>By signing up, you agree to the <a href="termsofservices.php" target="_blank">Terms of Service</a> and <a href="privacy-policy.php" target="_blank">Privacy Policy</a>.</p>
             <input class="btn btn-block" type="submit" name="signupSubmit" value="Continue" /> 
        
           </div>

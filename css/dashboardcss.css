@@ -7,6 +7,15 @@
  .admindashboard .navbar{ min-height:inherit !important;}
  .mainregisterbox .sr-only{position:inherit !important;}
 }
+.actionblock select {
+  float: left;
+  margin-top:10px;
+}
+.actionblock .upload_submit.btn-primary {
+  margin-left: 20px !important;
+  float: left;
+  padding: 2px 10px !important;
+}
 .admindashboard ul.nav.navbar-right.top-nav a:focus {
     background: #fff !important;
 }
@@ -37,8 +46,8 @@ b.upcaret {
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }	
-.brdcum{ padding:0px !important;}
- .admindashboard .row{ margin-left:0px !important; margin-right:0px;}
+/*.brdcum{ padding:0px !important;}
+ .admindashboard .row{ margin-left:0px !important; margin-right:0px;}*/
 .analyticchartsection {
     padding-left: 20px;
     margin-top: 30px;
@@ -52,9 +61,7 @@ b.upcaret {
     font-weight: bold;
 }
 
-.navbar-header img {
-    width: 67%;
-}
+
 .f_name {
     font-weight: bold;
     font-size: 14px;
@@ -93,6 +100,7 @@ b.upcaret {
 ul.main_folder {
     border-bottom: 1px solid #eee;
     margin: 0px;
+	padding-right:0px;
 }
 .main_folder i.fa.fa-folder-open {
     color: #d1a539;
@@ -148,7 +156,7 @@ form#upfiles {
     width: auto !important;
     padding: 7px 13px !important;
     border-radius: 3px !important;
-    font-size: 15px;
+
 }
 
 .notificationtable1 .submitbox {
@@ -175,7 +183,26 @@ form#upfiles {
     float: left !important;
     padding: 0px !important;
     right: 0px !important;
-    min-width: 116px;
+  min-width: 100% !important;
+      margin: 0px;
+    border-radius: inherit;
+    top: 26px;
+}
+input#requestsupport {
+	border: 1px solid #b92c28;
+    	background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
+
+-webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
+    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+	font-size:18px;
+	font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+
 }
 .notificationtable th {
     color: #4084d7;
@@ -189,8 +216,13 @@ form#upfiles {
 .nhding { border-top:none !important;}
 li.viewdropdown {
     float: right;
-    width: 18%;
     display: inherit;
+	width:73%;
+}
+.notificationtable1 li.viewdropdown {
+float: right;
+display: inherit;
+width: 100%;
 }
 .breadcrumb>li+li:before{ display:none;}
 li.viewdropdown ul {
@@ -209,6 +241,7 @@ li.viewdropdown ul {
     padding: 0px;
     list-style: none;
     padding: 3px 0px;
+	margin-left:10px;
 }
 li.rightviewingbox {
     float: right;
@@ -220,7 +253,7 @@ li.rightviewingbox .dropup {
 }
 .notificationtable{ width:}
 .admindashboard .upload_box input.filename {
-    width: 76% !important;
+    width: 74% !important;
 }
 .upload_box {
     padding: 0px !important;
@@ -265,7 +298,9 @@ li.rightviewingbox .dropup {
 .admindashboard div#page-wrapper {
     padding: 0px;
     overflow: hidden;
-    padding-left: 10px;
+    padding-left: 30px;
+	
+	 padding-right: 30px;
 }
 .admindashboard .container-fluid {
     padding: 0px;
@@ -279,7 +314,7 @@ div#wrapper.admindashboard {
     margin-top: 92px;
 }
 .admin_herder {
-    margin-top: 15px;
+    margin-top: 23px;
 }
 b.caret {
     color: #d05125;
@@ -400,9 +435,10 @@ ul.nav.navbar-nav.side-nav.dashboardsidebar li {
     float: right;
     border-right: 1px solid #eee;
 }
-.admindashboard .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{ background-color:#c64019 !important; color:#fff !important;}
+.admindashboard .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{ background-color:#e24a1e !important; color:#fff !important;}
 
-.admindashboard .side-nav li a:hover, .side-nav li a:focus{background-color:#c64019 !important; color:#fff !important;}
+.admindashboard .side-nav li a:hover{background-color:#fa8a2a !important;color:#fff !important; }
+ .side-nav li a:focus{background-color:#e24a1e !important; color:#fff !important;}
 .admindashboard ul.nav.navbar-right.top-nav a{ color:#000;}
 .admindashboard .navbar {
     height: 94px !important;
@@ -511,14 +547,24 @@ p.tokenkey {
 .admindashboard .upload_submit {
     width: auto !important;
     padding: 7px 13px !important;
-    border-radius: 3px !important;
+    border-radius: 5px !important;
     font-size: 15px;
-    background: #d45424 !important;
-    border: none !important;
+  
     float: left;
    
     margin-top: 30px;
 	margin-bottom:10px;
+	border: 1px solid #b92c28!important;
+	background: #e36764; /* Old browsers */
+background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+
+
+-webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
+    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
 }
 ul.pager.adc li a:hover{ border:1px solid #000;}
 

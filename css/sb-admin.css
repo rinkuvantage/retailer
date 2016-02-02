@@ -11,6 +11,27 @@ body {
     background-color: #222;
 }
 
+.navbar.navbar-inverse.navbar-fixed-top{ padding-left:30px!important; padding-right:30px!important;}
+
+#page-wrapper .breadcrumb {
+    background-color: transparent;
+	background:url(../img/titlebg.jpg) left center repeat-x;
+    height:80px;
+    border-radius:0px;
+    list-style: outside none none;
+    margin-bottom: 21px;
+    padding: 8px 15px;
+	margin-bottom:45px;
+}
+
+#page-wrapper .breadcrumb > li{ padding-top:19px;}
+
+#page-wrapper .breadcrumb > .active {
+    color: #fff;
+	  font-family: "Open Sans",sans-serif;
+font-size:22px;
+}
+
 @media(min-width:768px) {
     body {
         margin-top: 50px;
@@ -34,7 +55,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 265px;
     }
 
     #page-wrapper {
@@ -116,7 +137,7 @@ ul.alert-dropdown {
     .side-nav {
         position: fixed;
         top: 51px;
-        left: 225px;
+        left: 265px;
         width: 225px;
         margin-left: -225px;
         border: none;
