@@ -135,7 +135,7 @@ if(isset($_POST['sendmsg']))
 	 <P>Office Address: 39737 Paseo Padre
 Parkway Fremont, CA 94538<P/>
 
-<p><b>Phone No:</b> 1800-123-123</P>
+<p><b>Phone No:</b> 855-867-4473</P>
     </div>
 	<div class="mapbox">
 	   

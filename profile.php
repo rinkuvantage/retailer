@@ -73,7 +73,7 @@ if(isset($_POST['fname']))
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                      
                         <ol class="breadcrumb">
@@ -83,7 +83,7 @@ if(isset($_POST['fname']))
                             </li>
                         </ol>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.row -->
 
                 <!-- Flot Charts -->

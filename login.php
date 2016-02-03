@@ -1,5 +1,20 @@
 <?php require_once('header-withoutlogin.php');
+if($login_active)
+{
+	@header('Location: dashboard.php');
+	exit();
+}
 $errors=array();
+$email='';
+$pwd='';
+$rember=false;
+if(isset($_COOKIE['ret_usrname'])){
+	$email=$_COOKIE['ret_usrname'];
+	$rember=true;
+}
+if(isset($_COOKIE['ret_password'])){
+	$pwd=$_COOKIE['ret_password'];
+}
 if(isset($_POST['email']))
 {
 	
@@ -50,29 +65,54 @@ if(isset($_POST['email']))
 }
 
  ?>
-<!-- Header -->
-<!-- Portfolio Grid Section -->
-<div class="container innerpage">
-  <div class="row">
-    <div class="login_form col-sm-7 col-xs-12 col-md-5">
-      <div class="form-header"> <i class="fa fa-user"></i> </div>
-      <form class="form-signin" id="loginuser" name="loginuser" action="" method="post">
-        <h2 class="form-signin-heading">Login Form</h2>
-		<?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" name="email" id="email" class="form-control required email" placeholder="Email address" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="pwd" name="pwd" class="form-control required" placeholder="Password" required="" />
-        <div class="checkbox">
-          <label>
-          <input type="checkbox" name="rememberme" />
-          Remember me </label>
-        </div>
-        <div class="col-xs-7 forgot"> <i class="fa fa-unlock-alt"></i> <a href="forgot-password.php" id="forgot_from_1">Forgot password?</a> </div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+ <div class="container innerpage mainregisterbox common_cntr">
+	<div class="top-titlebar">
+    <div class="container">
+      <h1>Login</h1>
     </div>
   </div>
-</div>
-<!-- Footer -->
+	<br/>
+		 <div class="row">
+<div class="login_form col-sm-12 col-xs-12 col-md-6 col-lg-6">
+        <div class="form-header">Sigmaways Retail Analytics Login</div>
+        <form class="form-signin" id="loginuser" name="loginuser" action="" method="post">
+ 	 	<div class="rg_top_section">
+		  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
+		  <div class="reg_box fullreg">
+          <label for="inputEmail" class="sr-only">Email address*</label>
+		  <div class="inputiconbox">
+		  <span class="glyphicon glyphicon-envelope"></span>
+          <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control required email" required="required"  />
+		  </div>
+		  </div>
+		  <div class="reg_box fullreg">
+          <label for="inputPassword" class="sr-only">Password*</label>
+		  <div class="inputiconbox">
+		  <span class="glyphicon glyphicon-lock"></span>
+          <input type="password" id="pwd" name="pwd" class="form-control required" value="<?php echo $pwd; ?>" placeholder="Password" autocomplete="off" required="required"  />
+		  </div>
+		  </div>
+		  <div class="reg_box fullreg lgnbox">
+			  <label class="col-xs-3"><input type="checkbox" name="rememberme"<?php if($rember){echo' checked="checked"';} ?> style="width:20px; float:left; height:20px; min-height:20px;" /> Remember me </label>
+		
+			  
+			</div>
+			
+	 	</div>
+		
+        
+		
+          <div class="form-box-footer form-header ftr_loginsection">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<div class="col-md-12 lgnbox">
+			<div class="col-xs-6"> <i class="fa fa-unlock-alt"></i> <button data-target="#myModal" data-toggle="modal" class="btn btn-info btn-lg anchortext forgotpwdlink" type="button">Forgot username or password?</button> </div>
+			  <div class="col-md-3"><a href="register.php"><i class="fa fa-pencil-square-o"></i> Signup</a></div>
+       </div>
+          </div>
+        </form>
+      </div>
+	  </div>
+	  </div>
+<!-- Header -->
+
 <?php require_once('footer-withoutlogin.php'); ?>

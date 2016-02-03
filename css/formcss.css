@@ -128,9 +128,10 @@ i.fa.fa-phone.pno {
 }*/
 
 .admindashboard .success {
-    margin-left: 30px !important;
-    top: 174px !important;
-    width: 76% !important;
+    /* margin-left: 30px !important; */
+    top: 169px !important;
+    width: 100% !important;
+    left: 0px !important;
 }
 .admprofileedit {
     float: none;

@@ -61,19 +61,19 @@ if(isset($_POST['updatepref']))
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="row">
+    <!--<div class="row">
       <div class="col-lg-12 brdcum">
         <ol class="breadcrumb">
           <li class="active"> <i class="fa fa-bell"></i> Edit Notification </li>
           
         </ol>
       </div>
-    </div>
+    </div>-->
     <!-- /.row -->
     <div class="row notificationtable1">
 	 <div class="col-md-3 pull-right">
         <ul>
-	<li class="viewdropdown"><b>Viewing :</b>
+	<li class="viewdropdown"><b class="vebox">Viewing:</b>
             <ul>
               <li class="dropdown"> <a href="notifications.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> All Notifications <b class="caret"></b></a>
                 <ul class="dropdown-menu">

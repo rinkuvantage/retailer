@@ -2,7 +2,7 @@
 if(!$login_active)
 {
 	$_SESSION['message']='Please login first.';
-	@header('Location: index.php');
+	@header('Location: login.php');
 	exit();
 }
 $uid=$_SESSION["User_id"];
@@ -48,41 +48,6 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
     <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
-   <!-- <li>
-      <div class="phonno pull-right"><i class="fa fa-mobile"></i> 855-867-4473</div>
-    </li>-->
-    <!--<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-      <ul class="dropdown-menu message-dropdown">
-        <li class="message-preview"> <a href="#">
-          <div class="media"> <span class="pull-left"> <img class="media-object" src="http://placehold.it/50x50" alt=""> </span>
-            <div class="media-body">
-              <h5 class="media-heading"><strong>John Smith</strong> </h5>
-              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-              <p>Lorem ipsum dolor sit amet, consectetur...</p>
-            </div>
-          </div>
-          </a> </li>
-        <li class="message-preview"> <a href="#">
-          <div class="media"> <span class="pull-left"> <img class="media-object" src="http://placehold.it/50x50" alt=""> </span>
-            <div class="media-body">
-              <h5 class="media-heading"><strong>John Smith</strong> </h5>
-              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-              <p>Lorem ipsum dolor sit amet, consectetur...</p>
-            </div>
-          </div>
-          </a> </li>
-        <li class="message-preview"> <a href="#">
-          <div class="media"> <span class="pull-left"> <img class="media-object" src="http://placehold.it/50x50" alt=""> </span>
-            <div class="media-body">
-              <h5 class="media-heading"><strong>John Smith</strong> </h5>
-              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-              <p>Lorem ipsum dolor sit amet, consectetur...</p>
-            </div>
-          </div>
-          </a> </li>
-        <li class="message-footer"> <a href="#">Read All New Messages</a> </li>
-      </ul>
-    </li>-->
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu alert-dropdown">
         <li> <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a> </li>
@@ -97,19 +62,31 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
     </li>
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username; ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li><!--
-        <li> <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a> </li>
-        <li> <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a> </li>-->
+        <li> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
         <li class="divider"></li>
         <li> <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> </li>
       </ul>
     </li>
   </ul>
+  <div class="clr"></div>
+  <div class="top-titlebar">
+    <div class="container">
+		<?php if($currentpage=='dashboard.php'){ ?><h1><i class="fa fa-dashboard"></i> Dashboard</h1><?php } ?>
+		<?php if($currentpage=='profile.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Profile<?php } ?>
+		<?php if($currentpage=='notifications.php'){ ?><h1><i class="fa fa-bell"></i> Notification</h1><?php } ?>
+		<?php if($currentpage=='edit-notifications.php'){ ?><h1><i class="fa fa-bell"></i> Edit Notification</h1><?php } ?>
+		<?php if($currentpage=='uploadfiles.php'){ ?><h1><i class="fa fa-upload"></i> Upload Files</h1><?php } ?>
+		<?php if($currentpage=='viewfiles.php'){ ?><h1><i class="fa fa-eye"></i> View Files</h1><?php } ?>
+		<?php if($currentpage=='support.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Support</h1><?php } ?>
+		<?php if($currentpage=='analytics.php'){ ?><h1><img src="img/chart.png"/> Analytics</h1><?php } ?>
+		<?php if($currentpage=='manageusers.php'){ ?><h1><i class="fa fa-wrench"></i> Manage Users</h1><?php } ?>
+    </div>
+  </div>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav dashboardsidebar">
       <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="dashboard.php"> Dashboard</a> </li>
-      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"> My Account</a> </li>
+      <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"> Profile</a> </li>
       <?php /*?><li<?php if($currentpage=='manage-passwords.php'){ ?> class="active"<?php } ?>>
                         <a href="<?php echo $siteurl; ?>/manage-passwords"><i class="fa fa-fw fa-table"></i> Manage Password</a>
                     </li><?php */?>

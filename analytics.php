@@ -8,7 +8,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                        
                         <ol class="breadcrumb analyticimg">
@@ -20,7 +20,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
 							
                         </ol>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.row -->
 
                  <div class="row">

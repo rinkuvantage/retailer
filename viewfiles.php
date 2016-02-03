@@ -33,13 +33,13 @@ $totalrecords=$user->userFilelist($uid, " and keyid='$skey' order by id desc");
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="row">
+    <!--<div class="row">
       <div class="col-lg-12 brdcum">
         <ol class="breadcrumb">
           <li class="active"> <i class="fa fa-eye"></i> View Files </li>
         </ol>
       </div>
-    </div>
+    </div>-->
     <!-- /.row -->
     <div class="row">
       <div class="col-lg-12">

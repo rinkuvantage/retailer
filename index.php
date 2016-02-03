@@ -5,7 +5,6 @@ if($login_active)
 	exit();
 }
  ?>
-
 <!-- End of head section HTML codes -->
 
 <div class="retailerhomemain" style="margin-top:80px;">
@@ -34,7 +33,6 @@ if($login_active)
   </div>
 </div>
 <!-- End of body section HTML codes -->
-
 <section id="portfolio">
   <div class="container">
     <div class="row turndata">
@@ -44,86 +42,102 @@ if($login_active)
   </div>
   <div class="container offeringblock">
     <h1>Our Offerings</h1>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
     <div class="row">
-    
-    
-     <div class="col-md-4 ">
-    <div class=" show-grid">
-            <div class="entry-image">
-              <div class="work-item"> <img src="img/1.png"/>
-                <div class="image-extra">
-                  <div class="extra-content">
-                    <div class="inner-extra">
-                      <h2 class="extra-title">Churn Analytics</h2>
-                     </div>
-                    <!--/ .inner-extra--> 
+      <div class="col-md-4 firstbsctn">
+        <div class=" show-grid">
+          <div class="entry-image">
+            <div class="work-item"> <img src="img/1.png"/>
+              <div class="image-extra">
+                <div class="extra-content">
+                  <div class="inner-extra">
+                    <h2 class="extra-title">Churn Analytics</h2>
+					<div class="zoomcontent">
+					 
+					<a class="anchorbox" href="Churn-analytics.php"><i class="fa fa-link"></i></a>
+					<a class="anchorbox" data-toggle="modal" data-target="#myModa14"><i class="fa fa-plus"></i></a>
+					
+					</div>
                   </div>
-                  <!--/ .extra-content--> 
+                  <!--/ .inner-extra-->
                 </div>
-                <!--/ .image-extra--> 
+                <!--/ .extra-content-->
               </div>
-              <!--/ .work-item--> 
+              <!--/ .image-extra-->
             </div>
-            <!--/ .entry-image-->
-            
-            <div class="offering"> <a href="Churn-analytics.php" class="rdmore">Read More</a> </div>
-            </div>
+            <!--/ .work-item-->
           </div>
-    
-    
-    
-    
-    <div class="col-md-4 ">
-    <div class=" show-grid">
-            <div class="entry-image">
-              <div class="work-item"> <img src="img/2.png"/>
-                <div class="image-extra">
-                  <div class="extra-content">
-                    <div class="inner-extra">
-                      <h2 class="extra-title">Loyalty Status</h2>
-                     </div>
-                    <!--/ .inner-extra--> 
+          <!--/ .entry-image-->
+          <div class="offering"> <a href="Churn-analytics.php" class="rdmore">Read More</a> </div>
+        </div>
+      </div>
+      <div class="col-md-4 ">
+        <div class=" show-grid">
+          <div class="entry-image">
+            <div class="work-item"> <img src="img/2.png"/>
+              <div class="image-extra">
+                <div class="extra-content">
+                  <div class="inner-extra">
+                    <h2 class="extra-title">Loyalty Analysis</h2>
+					<div class="zoomcontent">
+					 
+					<a class="anchorbox" href="http://www.analyticpartners.com/services/customer-loyalty-analysis/"><i class="fa fa-link"></i></a>
+					<a class="anchorbox" data-toggle="modal" data-target="#myModa15"><i class="fa fa-plus"></i></a>
+					
+					</div>
                   </div>
-                  <!--/ .extra-content--> 
+                  <!--/ .inner-extra-->
                 </div>
-                <!--/ .image-extra--> 
+                <!--/ .extra-content-->
               </div>
-              <!--/ .work-item--> 
+              <!--/ .image-extra-->
             </div>
-            <!--/ .entry-image-->
-            
-            <div class="offering"> <a href="loyalty.php" class="rdmore">Read More</a> </div>
-            </div>
+            <!--/ .work-item-->
           </div>
-    
-    
-      
-      
+          <!--/ .entry-image-->
+          <div class="offering"> <a href="http://www.analyticpartners.com/services/customer-loyalty-analysis/" class="rdmore">Read More</a> </div>
+        </div>
+      </div>
       <div class="col-md-4 col-xs-12 col-sm-4 mainservices">
         <div class="block1box">
           <h1>Ready to go? Call us at<br />
             855-867-4473</h1>
-          <div style="text-align:center;">
-            <img src="img/3.png"/> 
-          </div>
+          <div style="text-align:center;"> <img src="img/3.png"/> </div>
           <div class="readmorebox"> <a class="socialicons" href="https://www.facebook.com/sigmaways" target="_blank"><img src="img/fbook.png"/></a> <a class="socialicons" href="https://twitter.com/sigmaways" target="_blank"><img src="img/twitter.png"/></a> <a class="socialicons" href="https://www.linkedin.com/company/sigmaways" target="_blank"><img src="img/l.png"/></a> </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div id="myModa14" class="modal fade modelboxmain" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content fgtpwd">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body resetp">
+  <img src="img/1.png"/>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id="myModa15" class="modal fade modelboxmain" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content fgtpwd">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body resetp">
+  <img src="img/lzoom.png"/>
+      </div>
+      
+    </div>
+  </div>
+</div>
 <?php require_once('footer-withoutlogin.php'); ?>

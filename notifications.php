@@ -7,25 +7,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12 brdcum">
-        <ol class="breadcrumb">
-          <li class="active"> <i class="fa fa-bell"></i> Notification </li>
-          <!--<li class="viewdropdown"><b>Viewing :</b>
-				<ul>
-							<li class="dropdown"> <a href="notifications.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img src="img/n.png"/> All Notifications <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li> <a href="notifications.php">Notifications</a> </li>
-		<li> <a href="edit-notifications.php">Edit Preference</a> </li>
-     
-      </ul>
-	  
-    </li>
-	</ul>
-	</li>-->
-        </ol>
-      </div>
-    </div>
+    
     <!-- /.row -->
     <div class="row">
       <div class="col-sm-12 col-xs-12 col-md-8">
@@ -66,7 +48,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
       </div>
       <div class="col-md-4">
         <ul>
-          <li class="viewdropdown"><b>Viewing :</b>
+          <li class="viewdropdown"><b class="vebox">Viewing:</b>
             <ul>
               <li class="dropdown"> <a href="notifications.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><img src="img/n.png"/> All Notifications <b class="caret"></b></a>
                 <ul class="dropdown-menu">

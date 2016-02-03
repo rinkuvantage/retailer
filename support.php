@@ -84,7 +84,7 @@ if(isset($_POST['sendmsg']))
 <div id="page-wrapper">
 
             <div class="container-fluid supportpage">
-			<div class="row">
+			<!--<div class="row">
                     <div class="col-lg-12">
                      
                         <ol class="breadcrumb">
@@ -94,11 +94,12 @@ if(isset($_POST['sendmsg']))
                             </li>
                         </ol>
                     </div>
-                </div>
+                </div>-->
 
-  <div class="innerpage mainregisterbox">
+  <div class="innerpage mainregisterbox suptboxsection col-md-10">
   
 	  <form id="support-form" name="support-form" method="post" action="">
+	  <div class="rg_top_section">
 		<?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
         
           <div class="form-group">
@@ -131,8 +132,13 @@ if(isset($_POST['sendmsg']))
               <input name="captchacode" id="captchacode" type="text" value="" class="form-control required">
             </div>
           </div>
-        
-      <input class="btn btn-info" type="submit" id="requestsupport" name="sendmsg" value="Submit Request" />
+        	  </div>
+     
+	  <div class="form-box-footer form-header">
+							 <input class="btn btn-info" type="submit" id="requestsupport" name="sendmsg" value="Submit Request" />
+						   
+						
+	  </div>
 	  </form>
     
   </div>

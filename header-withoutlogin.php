@@ -61,7 +61,7 @@
         <a class="contact pull-right" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"><span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
-       <div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div>
+       <?php if($currentpage!='index.php' && $currentpage!='contactus.php'){ ?><div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div><?php } ?>
         <?php } ?>
       </div>
     </div>

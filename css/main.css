@@ -7,6 +7,104 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
 }
+.col-md-4.firstbsctn {
+    padding-left: 0px;
+}
+a.anchorbox {
+    width: 50px;
+    height: 50px;
+    border-radius: 100% !important;
+    border: 1px solid #fff;
+    /* padding: 11px 20px; */
+    color: #fff;
+    font-size: 23px;
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 10px;
+    margin-top: 24px;
+}
+.modelboxmain .modal-header {
+    padding: 15px;
+    border-bottom: none;
+    min-height: 16.42857143px;
+    float: left;
+    width: 100% !important;
+    background: #fff;
+}
+.modelboxmain .modal-content.fgtpwd {
+    float: none; 
+}
+.modelboxmain .resetp {
+    float: left;
+    width: 100%;
+    text-align: center;
+    background: #fff !important;
+}
+a.anchorbox:hover{ background:#fff; color:#C64019;}
+textarea.error, input.error{ border:3px solid #bde1ff !important;}
+label.error {
+    border: none !important;
+}
+input:focus{ border:3px solid #bde1ff !important;}
+
+textarea:focus{ border:3px solid #bde1ff !important;}
+.f_rightbox {
+    padding-right: 40px;
+}
+.lgnbox .login_form .fa-unlock-alt {
+    color: #fff;
+
+}
+.mainregisterbox .form-box-footer.form-header.ftr_loginsection {
+    padding: 10px 30px;
+    text-align: center;
+    border-bottom: 1px solid #ccc !important;
+    float: left;
+    width: 100%;
+    margin-top: 0px;
+    text-align: left;
+}
+.lgnbox .col-xs-8 {
+    padding: 0px;
+}
+.lgnbox {
+    padding: 0px !important;
+}
+.login_form button.btn.btn-lg.btn-primary.btn-block {
+    background: #C64019;
+    border: 1px solid #b92c28;
+    color: #fff !important;
+    padding: 6px 12px 6px 40px !important;
+}
+.lgnbox > div {
+    padding: 0px;
+}
+.lgnbox label.col-xs-3 {
+    font-size: 17px;
+    font-weight: normal;
+    padding-left: 0px;
+}
+.lgnbox.fullreg.lgnbox {
+    min-height: inherit;
+}
+.lgnbox input[type="checkbox"] {
+    margin-right: 3px;
+    margin-top: 0px;
+}
+.lgnbox button.btn.btn-info.btn-lg.anchortext.forgotpwdlink {
+    font-size: 17px;
+}
+.lgnbox a {
+    color: #000 !important;
+    font-size: 17px;
+}
+.lgnbox i.fa.fa-unlock-alt {
+    color: #fff;
+}
+.lgnbox a:hover {
+    text-decoration: underline;
+    color: #000;
+}
 .work-item img {
     margin: 0 auto !important;
 }
@@ -19,7 +117,12 @@
      margin-left: 0px; */
   margin-right: 0px; */
 }
-.amazingslider-button-1{ text-align:left; max-width:1170px; margin:0 auto;}
+.amazingslider-button-1 {
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: left;
+  padding-left: 18px;
+}
 .retailerhomemain .top-titlebar {
     margin-bottom: 0px;
 }
@@ -261,7 +364,7 @@ span.glyphicon.headericonbox {
     float: left;
     position: unset !important;
     height: 23px !important;
-    color: #d05125;
+    color: #C64019;
     font-size: 15px;
     line-height: 22px !important;
     padding: 0px 10px 0px 0px !important;
@@ -401,36 +504,24 @@ form-horizontal .controls {
     margin-left: 180px;
 }
 .hdr_toglebox button {
-  
-    color: #e6e6e6;
-    text-shadow: 0 0 0;
- 
-    padding: 2px 10px !important;
-    font-size: 18px;
-    margin-bottom: 10px;
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e36764+0,c12e2a+100 */
- border: 1px solid #b92c28;background: #e36764; /* Old browsers */
-background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
-
-
--webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
-    -moz-box-shadow: inset 0 1px 1px 1px rgba(255,255,255,1);
-    box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
-	font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  background: #C64019;
+  border: 1px solid #b92c28;
+  box-shadow: 0 1px 1px -1px rgba(255, 255, 255, 1) inset;
+  color: #e6e6e6;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 2px 10px !important;
+  text-shadow: 0 0 0;
+  padding-bottom: 4px !important;
 }
 
 
 .hdr_toglebox button:hover {
   	color: #fff;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c12e2a+0,e36764+100 */
-background: #c12e2a; /* Old browsers */
-background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+background: #d9491f; /* Old browsers */
+
 
 }
 
@@ -580,10 +671,8 @@ ul.dropdown-menu.pull-right {
 
 
  border: 1px solid #b92c28;background: #e36764; /* Old browsers */
-background: -moz-linear-gradient(top,  #e36764 0%, #c12e2a 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #e36764 0%,#c12e2a 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #e36764 0%,#c12e2a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', endColorstr='#c12e2a',GradientType=0 ); /* IE6-9 */
+background: #C64019; /* FF3.6-15 */
+
 
 
 -webkit-box-shadow: inset 0 1px 1px -1px rgba(255,255,255,1);
@@ -595,11 +684,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', end
 .contactusblock .gform_button.button:hover{
   	color: #fff;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c12e2a+0,e36764+100 */
-background: #c12e2a; /* Old browsers */
-background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+background: #d9491f; /* Old browsers */
+
 	
 }	
 	
@@ -953,9 +1039,8 @@ line-height:40px;
     TEXT-ALIGN: RIGHT;
 }
 .login_form button.btn.btn-lg.btn-primary.btn-block {
-    background: #d05125;
-    border-radius: 0px !important;
-    border: none;
+ 
+ 
     padding: 11px 9px;
 }
 .login_form a#forgot_from_1 {

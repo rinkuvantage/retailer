@@ -18,6 +18,9 @@ if(isset($_POST['upfile']))
 			{
 				if($_FILES['uploadfiles']['name']!='')
 				{
+					if(trim($_POST['filecolumns'])==''){
+						array_push($errors,'Column headers is required.');
+					}
 					if($_FILES['uploadfiles']['size']<=0)
 					{
 						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has 0 size');
@@ -108,14 +111,7 @@ if(isset($_POST['upfile']))
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12 brdcum">
-        
-        <ol class="breadcrumb">
-          <li class="active"> <i class="fa fa-upload"></i> Upload Files </li>
-        </ol>
-      </div>
-    </div>
+    
 	<?php 
 	if($sumessage!=''){echo'<span>'.$sumessage.'</span><br />';}
 	if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
@@ -132,18 +128,19 @@ if(isset($_POST['upfile']))
 	</div>
 	<div class="uploadfile_textarebox col-md-12">
 	<div class="col-md-7 col-sm-6 leftuploadcnt">
-	<h1>Coloumn Headers</h1>
-	<textarea class="col-md-12 col-sm-12" name="filecolumns"></textarea>
+	<h1>Column Headers  *</h1>
+	<textarea class="col-md-11 col-sm-11 required" name="filecolumns"></textarea>
+	<div class="col-md-12  showeeror"></div>
 	<div class="col-md-12 col-sm-12 submitbox">
 	<input class="upload_submit btn btn-lg btn-primary btn-block" type="submit" value="Submit">
     <div class="cancelbox">or <a href="javascript:;" onclick="upfiles.reset()">Cancel</a></div>
 	</div>
 	</div>
-	<div class="col-md-3 col-sm-4 rightuploadcnt">
+	<div class="col-md-4 col-sm-4 rightuploadcnt">
 	
-   <h2><b>What are Coloumn Headers?</b></h2>
+   <h2><b>What are Column Headers?</b></h2>
 
-     <p>Coloumn headers are the 
+     <p>column headers are the 
     coloumn names of the file that
     you are uploaded that is 
     seperated by pipe Delimiter.<br />
@@ -180,12 +177,23 @@ jQuery(document).ready(function(){
 	});
 	jQuery('#upfiles').submit(function(){
 		var firstfile=jQuery('.firstfile').val();
+		var error=1;
 		if(jQuery.trim(firstfile)=='')
 		{
+			jQuery('input[name="filename"]').addClass('error');
 			jQuery('.uploading_files span.error').remove();
 			jQuery('.uploading_files').prepend('<span class="error">File is required</span>');
-			return false;
+			error= parseInt(error)+1;
 		}
+		var filecolumns=jQuery('textarea[name="filecolumns"]').val();
+		if(jQuery.trim(filecolumns)=='')
+		{
+			jQuery('textarea[name="filecolumns"]').addClass('error');
+			jQuery('.showeeror span.error').remove();
+			jQuery('.showeeror').html('<span class="error">Column headers is required</span>');
+			error= parseInt(error)+1;
+		}
+		if(parseInt(error)>1){return false;}
 		var i=1;
 		jQuery('#upfiles input[type="text"]').each(function(){
 			if(jQuery(this).val()!=''){i=parseInt(i)+1;}
