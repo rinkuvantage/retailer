@@ -144,7 +144,9 @@ if(isset($_POST['upfile']))
     coloumn names of the file that
     you are uploaded that is 
     seperated by pipe Delimiter.<br />
-	Example: file1.csv-ID|NAME|PHONE</p>
+	filename 1|list of columns, filename|list of columns
+Example: file1.csv-ID|NAME|PHONE, file2.csv-ID|NAME|PHONE
+</p>
 
 
 	</div>

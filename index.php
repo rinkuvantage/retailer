@@ -17,16 +17,16 @@ if($login_active)
     <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
       <ul class="amazingslider-slides" style="display:none;">
         <li><img src="images/analytics-shutterstock-139983946.jpg" />
-          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><span class="glyphicon glyphicon-edit"></span> Get Started Now</button>
+          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/> Get Started Now</button>
         </li>
         <li><img src="images/ban0.jpg" />
-          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><span class="glyphicon glyphicon-edit"></span> Get Started Now</button>
+          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/>  Get Started Now</button>
         </li>
         <li><img src="images/UnderstandingYourAnalytics.jpg" />
-          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><span class="glyphicon glyphicon-edit"></span> Get Started Now</button>
+          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/>  Get Started Now</button>
         </li>
         <li><img src="images/ban4.jpg" />
-          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><span class="glyphicon glyphicon-edit"></span> Get Started Now</button>
+          <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/>  Get Started Now</button>
         </li>
       </ul>
     </div>
@@ -73,14 +73,14 @@ if($login_active)
       <div class="col-md-4 ">
         <div class=" show-grid">
           <div class="entry-image">
-            <div class="work-item"> <img src="img/2.png"/>
+            <div class="work-item"> <img src="img/loyalty.png"/>
               <div class="image-extra">
                 <div class="extra-content">
                   <div class="inner-extra">
-                    <h2 class="extra-title">Loyalty Analysis</h2>
+                    <h2 class="extra-title">Loyalty Analytics</h2>
 					<div class="zoomcontent">
 					 
-					<a class="anchorbox" href="http://www.analyticpartners.com/services/customer-loyalty-analysis/"><i class="fa fa-link"></i></a>
+					<a class="anchorbox" href="Loyalty-status.php"><i class="fa fa-link"></i></a>
 					<a class="anchorbox" data-toggle="modal" data-target="#myModa15"><i class="fa fa-plus"></i></a>
 					
 					</div>
@@ -94,7 +94,7 @@ if($login_active)
             <!--/ .work-item-->
           </div>
           <!--/ .entry-image-->
-          <div class="offering"> <a href="http://www.analyticpartners.com/services/customer-loyalty-analysis/" class="rdmore">Read More</a> </div>
+          <div class="offering"> <a href="Loyalty-status.php" class="rdmore">Read More</a> </div>
         </div>
       </div>
       <div class="col-md-4 col-xs-12 col-sm-4 mainservices">

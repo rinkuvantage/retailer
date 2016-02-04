@@ -5,13 +5,10 @@
     float: left;
 }
 .mainregisterbox .form-box-footer.form-header input.btn.btn-block {
-    background: linear-gradient(to bottom, #e36764 0%,#c12e2a 100%);
+    background: #C64019 !important;
     color: #fff !important;
     border: 1px solid #b92c28;
-background: -moz-linear-gradient(top,  #c12e2a 0%, #e36764 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c12e2a 0%,#e36764 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c12e2a 0%,#e36764 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c12e2a', endColorstr='#e36764',GradientType=0 ); /* IE6-9 */
+
 }
 .mainregisterbox .form-box-footer.form-header a {
     color: #d05125;

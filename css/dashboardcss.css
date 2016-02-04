@@ -7,6 +7,28 @@
  .admindashboard .navbar{ min-height:inherit !important;}
  .mainregisterbox .sr-only{position:inherit !important;}
 }
+.btn.btn-lg.btn-primary.btn-block:focus {
+    border: 3px solid #bde1ff !important;
+}
+#support-form .inputiconbox i {
+    position: absolute;
+    color: #a2adc0;
+    font-size: 22px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+#support-form textarea.form-control.required {
+    padding-left: 40px;
+}
+
+#support-form .controls {
+    FLOAT: LEFT;
+    WIDTH: 100%;
+}
+#support-form .form-group {
+    FLOAT: LEFT;
+    WIDTH: 100%;
+}
 .ftrbox .btn-primary{ border-radius:100% !important;}
 .viewdropdown .vebox{ float:left; margin-top:3px;}
 .btn-primary:focus, .btn-primary.focus {
@@ -14,6 +36,7 @@
     border-color:#C64019 !important ;
     color: #ffffff;
 }
+
 textarea.error, input.error{ border:3px solid #bde1ff !important;}
 label.error {
     border: none !important;
@@ -62,7 +85,7 @@ textarea:focus{ border:3px solid #bde1ff !important;}
     border-radius: 3px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
     min-height: 35px;
-    padding-left: 15px;
+    padding-left: 40px;
 }
 .mainregisterbox .rg_top_section {
     box-sizing: border-box;
@@ -81,7 +104,7 @@ textarea:focus{ border:3px solid #bde1ff !important;}
 }
 .top-titlebar {
     background: rgba(0, 0, 0, 0) url("../img/titlebg.jpg") repeat-x scroll left center;
-    height: 80px;
+    height: 73px;
     margin-bottom: 44px;
     margin: 0px -30px;
     margin-top: 7px;
@@ -95,7 +118,7 @@ textarea:focus{ border:3px solid #bde1ff !important;}
   color: #fff;
   font-family: "Open Sans",sans-serif;
   font-size: 22px;
-  margin: 30px 0 0;
+  margin: 23px 0 0;
 }
 .actionblock select {
   float: left;

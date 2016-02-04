@@ -81,7 +81,7 @@ if(isset($_POST['sendmsg']))
   <div class="row contactusblock">
   
    
-    <div class="col-sm-5 col-xs-10 col-md-6 cntleftblock contactshadow">
+    <div class="col-sm-5 col-xs-10 col-md-6 cntleftblock contactshadow cntboxsectmain">
 	 <h1>Contact Us</h1>
       <div class="gf_browser_gecko gform_wrapper cntmidbox" id="gform_wrapper_1"><a id="gf_1" class="gform_anchor"></a>
         <form method="post" name="loginuser" id="loginuser" action="">
@@ -93,20 +93,29 @@ if(isset($_POST['sendmsg']))
               <li id="field_1_1" class="gfield gfield_contains_required field_sublabel_below field_description_below">
                 
                 <div class="ginput_container ginput_container_text">
+				<div class="inputiconbox">
+			<span class="glyphicon glyphicon-user"></span>
                   <input name="name" id="name" type="text" placeholder="Name" value="<?php echo $name; ?>" class="medium required" tabindex="1">
+				  </div>
                 </div>
               </li>
               <li id="field_1_2" class="gfield gfield_contains_required field_sublabel_below field_description_below">
                
                 <div class="ginput_container ginput_container_email">
+				 <div class="inputiconbox">
+							  <span class="glyphicon glyphicon-envelope"></span>
                   <input name="email" id="email" type="email" placeholder="Email" value="<?php echo $email; ?>" class="medium required email" tabindex="2">
                 </div>
+				</div>
               </li>
               <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_below field_description_below">
                 
                 <div class="ginput_container ginput_container_textarea">
+					<div class="inputiconbox">
+		<i class="fa fa-pencil"></i>
                   <textarea name="message" id="input_1_6" placeholder="Message" class="textarea medium required" tabindex="5" rows="10" cols="50"><?php echo $message; ?></textarea>
                 </div>
+				</div>
               </li>
 			  <li class="gfield gfield_contains_required field_sublabel_below field_description_below">
 			  <img src="<?php require_once('capcha/captchaimage.php'); ?>" class="captchaimg" alt="Catcha" /><a href="javascript:;" class="reloadimg"><img src="img/reload_icon.gif" alt="reload" /></a>

@@ -96,7 +96,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 	   <li<?php if($currentpage=='support.php'){ ?> class="active"<?php } ?>> <a href="support.php">Support</a> </li>
 	  <li<?php if($currentpage=='analytics.php'){ ?> class="active"<?php } ?>> <a href="analytics.php">Analytics</a> </li>
       <?php if($user_type=='admin'){ ?>
-      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php">Users</a> </li>
+      <li<?php if($currentpage=='manageusers.php' || $currentpage=='edit-user.php'){ ?> class="active"<?php } ?>> <a href="manageusers.php">Manage Users</a> </li>
       <?php } ?>
 	 
     </ul>

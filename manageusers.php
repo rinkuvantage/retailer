@@ -25,7 +25,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <ol class="breadcrumb">
                             <li class="active">
@@ -33,7 +33,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
                             </li>
                         </ol>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.row -->
 
                 <div class="row">

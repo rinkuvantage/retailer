@@ -7,9 +7,91 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
 }
+.reloadimg:focus {
+    border: 3px solid #bde1ff !important;
+	}
+.cntboxsectmain .inputiconbox i {
+    position: absolute;
+    color: #a2adc0;
+    font-size: 22px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.cntboxsectmain .glyphicon, .pno {
+  color: #a2adc0;
+  font-size: 18px;
+  height: 33px;
+  line-height: 34px !important;
+  padding-left: 10px;
+  position: absolute !important;
+}
+.cntboxsectmain li {
+    float: left;
+    width: 100%;
+}
+.cntboxsectmain .ginput_container input {
+
+  padding-left: 32px;
+
+}
+.contactusblock textarea#input_1_6 {
+  min-height: 158px;
+  
+  padding-left: 32px;
+}
+.top-titlebar .container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.common_cntr {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.top_header .container {
+  max-width: 100% !important;
+}
+.bkimg{ float:left; vertical-align:middle; margin-top:5px; margin-right:5px;}
+.lyltysection ul {
+  padding-left: 14px;
+}
+.lyltysection strong {
+  float: left;
+  margin: 11px 0;
+  width: 100%;
+}
+.lyltysection ul li{ line-height:30px;}
+.lyltysection .button-red {
+    background: #C64019;
+    color: #fff !important;
+    float: left;
+    margin-top: 20px !important;
+    padding: 10px;
+}
+.lyltysection h4{ margin-bottom:20px; margin-top:20px;}
+.lyltysection h3 {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-bottom:20px;
+  margin-top:0px;
+}
+
+.btn.btn-lg.btn-primary.btn-block:focus {
+    border: 3px solid #bde1ff !important;
+}
+#btnLogin:focus {
+    border: 3px solid #bde1ff !important;
+}
+#btnForgotPassword:focus {
+    border: 3px solid #bde1ff !important;
+}
+.btn:focus {
+    border: 3px solid #bde1ff !important;
+}
 .col-md-4.firstbsctn {
     padding-left: 0px;
 }
+
 a.anchorbox {
     width: 50px;
     height: 50px;
@@ -109,9 +191,10 @@ textarea:focus{ border:3px solid #bde1ff !important;}
     margin: 0 auto !important;
 }
 .container {
-    width: 100%;
+    max-width: 1150px;
     padding-left: 30px;
     padding-right: 30px;
+	width:100%;
 }
 .row {
      margin-left: 0px; */
@@ -287,7 +370,7 @@ img.churmimgs {
     display: inline-block;
     padding: 20px 0px 5px 30px;
 }
-.f_rightbox li a{ color:#fff; margin-right:20px;}
+.f_rightbox li a{ color:#fff; margin-right:43px;}
 .ftrbox {
     background: #000;
 	    float: left;
@@ -508,7 +591,6 @@ form-horizontal .controls {
   border: 1px solid #b92c28;
   box-shadow: 0 1px 1px -1px rgba(255, 255, 255, 1) inset;
   color: #e6e6e6;
-  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
   font-size: 18px;
   margin-bottom: 10px;
   padding: 2px 10px !important;
@@ -1196,12 +1278,12 @@ form.form-signin.registerbox{ display:inline-block;}
 
 .top-titlebar{
 background:url(../img/titlebg.jpg) left center repeat-x;
-height:80px;
+height:73px;
 margin-bottom:44px;	
 }
 
 .top-titlebar h1{
-margin:30px 0 0 0;
+margin:23px 0 0 0;
 color:#fff;
   font-family: "Open Sans",sans-serif;
 font-size:22px;	

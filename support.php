@@ -105,26 +105,38 @@ if(isset($_POST['sendmsg']))
           <div class="form-group">
             <label>Name*</label>
             <div class="controls">
+			<div class="inputiconbox">
+			<span class="glyphicon glyphicon-user"></span>
               <input name="name" type="text" value="<?php echo $name; ?>" placeholder="Your name" class="form-control required">
             </div>
+			</div>
           </div>
           <div class="form-group">
             <label>Email*</label>
             <div class="controls">
+			  <div class="inputiconbox">
+							  <span class="glyphicon glyphicon-envelope"></span>
               <input name="email" type="text" value="<?php echo $email; ?>" placeholder="Your email address" class="form-control required email">
+			  </div>
             </div>
           </div>
           <div class="form-group">
             <label>Website</label>
             <div class="controls">
+			<div class="inputiconbox">
+			<i class="fa fa-globe"></i>
               <input name="website" type="text" value="<?php echo $website; ?>" placeholder="Your website (if relevant)" class="form-control url" data-optional="true">
             </div>
+			</div>
           </div>
           <div class="form-group">
             <label>Message*</label>
             <div class="controls">
+			<div class="inputiconbox">
+		<i class="fa fa-pencil"></i>
               <textarea name="message" placeholder="Your message..." style="height: 210px" class="form-control required"><?php echo $message; ?></textarea>
             </div>
+			</div>
           </div>
 		  <div class="form-group">
             <label><img src="<?php require_once('capcha/captchaimage.php'); ?>" class="captchaimg" alt="Catcha" /><a href="javascript:;" class="reloadimg"><img src="img/reload_icon.gif" alt="reload" /></a></label>
