@@ -3,7 +3,11 @@
 
     <!-- Portfolio Grid Section -->
 	<div class="container innerpage cont_page common_cntr">
-	<div class="banner"><img src="img/churn.png"/></div>
+	<div class="top-titlebar">
+    <div class="container">
+      <h1>Churn Analytics</h1>
+    </div>
+  </div>
 		 <div class="row innermidbox">
 		 <div class="entry cntboxinner">
 		 	<h2 class="main_heading">Churn Analytics</h2>

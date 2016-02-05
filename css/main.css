@@ -6,6 +6,22 @@
  span.glyphicon.headericonbox{ position:inherit !important;}
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
+  input#requestsupport:focus{  border: 3px solid #bde1ff;}
+}
+.form-box-footer a:focus {
+  border: 3px solid #bde1ff;
+}
+#btnNewUser:focus {
+  border: 3px solid #bde1ff !important;
+}
+label.error {
+    font-size: 12px !important;
+}
+.anchortext:focus {
+  border: 3px solid #bde1ff;
+}
+.top_header .contact .btn-success:focus, button#dropdownMenu1:focus {
+    border: none !important;
 }
 .reloadimg:focus {
     border: 3px solid #bde1ff !important;
@@ -105,6 +121,10 @@ a.anchorbox {
     margin-right: 10px;
     margin-top: 24px;
 }
+.lgnbox input {
+  float: left;
+  margin-top: 4px !important;
+}
 .modelboxmain .modal-header {
     padding: 15px;
     border-bottom: none;
@@ -130,9 +150,7 @@ label.error {
 input:focus{ border:3px solid #bde1ff !important;}
 
 textarea:focus{ border:3px solid #bde1ff !important;}
-.f_rightbox {
-    padding-right: 40px;
-}
+
 .lgnbox .login_form .fa-unlock-alt {
     color: #fff;
 
@@ -146,6 +164,7 @@ textarea:focus{ border:3px solid #bde1ff !important;}
     margin-top: 0px;
     text-align: left;
 }
+
 .lgnbox .col-xs-8 {
     padding: 0px;
 }
@@ -162,9 +181,11 @@ textarea:focus{ border:3px solid #bde1ff !important;}
     padding: 0px;
 }
 .lgnbox label.col-xs-3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: normal;
     padding-left: 0px;
+	width:auto;
+	color:#000;
 }
 .lgnbox.fullreg.lgnbox {
     min-height: inherit;
@@ -174,11 +195,11 @@ textarea:focus{ border:3px solid #bde1ff !important;}
     margin-top: 0px;
 }
 .lgnbox button.btn.btn-info.btn-lg.anchortext.forgotpwdlink {
-    font-size: 17px;
+    font-size: 18px;
 }
 .lgnbox a {
     color: #000 !important;
-    font-size: 17px;
+    font-size: 18px;
 }
 .lgnbox i.fa.fa-unlock-alt {
     color: #fff;
@@ -368,7 +389,7 @@ img.churmimgs {
     margin: 0 auto;
     float: none;
     display: inline-block;
-    padding: 20px 0px 5px 30px;
+    padding: 20px 15px 5px 30px;
 }
 .f_rightbox li a{ color:#fff; margin-right:43px;}
 .ftrbox {
@@ -636,7 +657,7 @@ button#dropdownMenu1 {
     background: none;
     border: none;
     color: #000;
-	font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	
 }
 .forgot a {
     font-weight: normal;
@@ -1282,11 +1303,13 @@ height:73px;
 margin-bottom:44px;	
 }
 
-.top-titlebar h1{
-margin:23px 0 0 0;
-color:#fff;
+.top-titlebar h1 {
+  color: #fff;
   font-family: "Open Sans",sans-serif;
-font-size:22px;	
+  font-size: 22px;
+  margin: 23px 0 0;
+  TEXT-TRANSFORM: CAPITALIZE;
+  FONT-WEIGHT: NORMAL;
 }
 
 

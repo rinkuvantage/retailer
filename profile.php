@@ -91,6 +91,7 @@ if(isset($_POST['fname']))
 				<div class="innerpage mainregisterbox">
 				 <div class="row">
 					<div class="login_form col-sm-12 col-xs-12 col-md-10 col-lg-10 admprofileedit">
+					  <div class="form-header">Sigmaways Retail Analytics Profile</div>
 							<form class="form-signin registerbox" name="newuser" id="newuser" method="post" action="">
 					  <div class="rg_top_section">
 							  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>

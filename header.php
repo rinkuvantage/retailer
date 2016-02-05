@@ -21,6 +21,9 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 <title><?php echo $sitname; ?>- Dashboard</title>
 <!-- Bootstrap Core CSS -->
 <link href="css/formcss.css" rel="stylesheet" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic&#038;subset=latin,latin-ext"  type="text/css" />
+
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="css/dashboardcss.css" rel="stylesheet" />
 <link href="css/footerwithlogin.css" rel="stylesheet" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +33,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 <link href="css/plugins/morris.css" rel="stylesheet">
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -80,6 +84,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 		<?php if($currentpage=='support.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Support</h1><?php } ?>
 		<?php if($currentpage=='analytics.php'){ ?><h1><img src="img/chart.png"/> Analytics</h1><?php } ?>
 		<?php if($currentpage=='manageusers.php'){ ?><h1><i class="fa fa-wrench"></i> Manage Users</h1><?php } ?>
+		<?php if($currentpage=='edit-user.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Edit Users</h1><?php } ?>
     </div>
   </div>
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

@@ -97,7 +97,7 @@ if(isset($_POST['sendmsg']))
                 </div>-->
 
   <div class="innerpage mainregisterbox suptboxsection col-md-10">
-  
+  <div class="form-header">Sigmaways Retail Analytics Support</div>
 	  <form id="support-form" name="support-form" method="post" action="">
 	  <div class="rg_top_section">
 		<?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>

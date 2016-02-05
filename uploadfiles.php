@@ -136,15 +136,15 @@ if(isset($_POST['upfile']))
     <div class="cancelbox">or <a href="javascript:;" onclick="upfiles.reset()">Cancel</a></div>
 	</div>
 	</div>
-	<div class="col-md-4 col-sm-4 rightuploadcnt">
+	<div class="col-md-5 col-sm-4 rightuploadcnt">
 	
    <h2><b>What are Column Headers?</b></h2>
 
-     <p>column headers are the 
+     <p>Column headers are the 
     coloumn names of the file that
     you are uploaded that is 
     seperated by pipe Delimiter.<br />
-	filename 1|list of columns, filename|list of columns
+	filename 1|list of columns, filename|list of columns<br/>
 Example: file1.csv-ID|NAME|PHONE, file2.csv-ID|NAME|PHONE
 </p>
 

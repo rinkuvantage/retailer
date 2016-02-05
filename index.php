@@ -134,7 +134,7 @@ if($login_active)
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body resetp">
-  <img src="img/lzoom.png"/>
+<img src="img/loyalty.png"/>
       </div>
       
     </div>

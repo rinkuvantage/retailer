@@ -5,7 +5,7 @@
 	<div class="container innerpage cont_page common_cntr">
 <div class="top-titlebar">
     <div class="container">
-      <h1>TERMS AND CONDITIONS</h1>
+      <h1>Terms And Conditions</h1>
     </div>
   </div>    
 		

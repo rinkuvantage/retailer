@@ -61,8 +61,9 @@
         <a class="contact pull-right" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"><span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>
         </a>
-       <?php if($currentpage!='index.php' && $currentpage!='contactus.php' && $currentpage!='login.php' && $currentpage!='register.php' && $currentpage!='Churn-analytics.php'){ ?><div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div><?php } ?>
+       <?php if($currentpage!='index.php' && $currentpage!='contactus.php' && $currentpage!='login.php' && $currentpage!='register.php' && $currentpage!='Churn-analytics.php' && $currentpage!='Loyalty-status.php' && $currentpage!='termsofservices.php' && $currentpage!='privacy-policy.php'){ ?><div class="phonno pull-right"><span class="glyphicon glyphicon-phone-alt headericonbox"></span> 855-867-4473</div><?php } ?>
         <?php } ?>
+		
 		
       </div>
     </div>

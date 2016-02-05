@@ -123,7 +123,7 @@ if(isset($_POST['signupSubmit']))
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <ol class="breadcrumb">
                             <li class="active">
@@ -131,13 +131,14 @@ if(isset($_POST['signupSubmit']))
                             </li>
                         </ol>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.row -->
 
                 <!-- Flot Charts -->
 				<div class="innerpage mainregisterbox">
-				 <div class="row">
+				 <div class="row editusersectionblock">
 					<div class="login_form col-sm-12 col-xs-12 col-md-10 col-lg-10 admprofileedit useredit">
+					  <div class="form-header">Sigmaways Retail Analytics Edit User</div>
 							<form class="form-signin registerbox" name="newuser" id="newuser" method="post" action="">
 					  <div class="rg_top_section">
 							  <?php if(!empty($errors)){foreach($errors as $error){echo '<span class="error">'.$error.'</span><br />';}} ?>
@@ -185,13 +186,13 @@ if(isset($_POST['signupSubmit']))
 							  </div>
 						 </div>
 							
-						<div class="reg_box tokensection">
+						<div class="reg_box tokensection edituserbox">
 								<label for="inputEmail" class="sr-only">Reset Token/Key</label>
 								<div class="inputiconbox">
 							 <input type="checkbox" name="resettokenkey" class="form-checkbox" id="resettokenkey" />
 							  </div>
 							  </div>
-							  <div class="reg_box lstbox tokensection">
+							  <div class="reg_box lstbox tokensection edituserbox">
 								<label for="inputEmail" class="sr-only">Re-activation</label>
 								<div class="inputiconbox">
 							  <input type="checkbox" name="resetactivation" class="form-checkbox" id="resetactivation" />
