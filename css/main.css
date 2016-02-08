@@ -7,7 +7,18 @@
  .admindashboard .navbar{ min-height:inherit !important;}
   .mainregisterbox .sr-only{position:inherit !important;}
   input#requestsupport:focus{  border: 3px solid #bde1ff;}
+  input:focus {
+    border: 3px solid #bde1ff !important;
 }
+}
+.contact:hover{ border:none !important; outline:none !important;; text-decoration:none !important;}
+.container .row.contactusblock.innermidbox {
+    max-width: 1140px !important;
+}
+.row.innermidbox {
+    max-width: 1150px;
+}
+
 .form-box-footer a:focus {
   border: 3px solid #bde1ff;
 }
@@ -334,7 +345,7 @@ img.churmimgs {
     width: 69%;
     height: 35px;
     font-size: 14px;
-    box-shadow: inset 0 2px 1px rgba(0,0,0,0.075);
+    /*box-shadow: inset 0 2px 1px rgba(0,0,0,0.075);*/
 }
 .contactshadow {
     box-shadow: 0px 4px 12px 4px #eee;
@@ -375,7 +386,7 @@ img.churmimgs {
 .row.contactusblock {
     margin: 0 auto;
 	width:100%;
-	padding:0px 30px;
+	padding:0px 0px;
 }
 .f_leftbox {
     text-align: left;
@@ -811,8 +822,8 @@ background: #d9491f; /* Old browsers */
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 3px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    border-radius: 0px;
+ /*   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);*/
  
 }
 .top_header .contact .btn-success, .phonno.pull-right {
@@ -1588,5 +1599,5 @@ button#dropdownMenu1 {
     margin-top: 87px !important;
 }
 }
-
 img{ max-width:100%; height:auto;}
+input, textarea{outline:none;}

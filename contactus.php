@@ -78,7 +78,7 @@ if(isset($_POST['sendmsg']))
     </div>
   </div>
 
-  <div class="row contactusblock">
+  <div class="row contactusblock innermidbox">
   
    
     <div class="col-sm-5 col-xs-10 col-md-6 cntleftblock contactshadow cntboxsectmain">

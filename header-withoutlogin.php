@@ -99,3 +99,5 @@
 <?php if(isset($_SESSION['message']) && trim($_SESSION['message'])!=''){ ?>
 <div class="success"><?php echo $_SESSION['message']; $_SESSION['message']=''; ?></div>
 <?php } ?>
+
+

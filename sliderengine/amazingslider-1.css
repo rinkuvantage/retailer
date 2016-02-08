@@ -69,6 +69,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e36764', end
   	-moz-border-radius: 5px;
   	border-radius: 5px;
 	font-weight:400;
+	border:1px solid #a4310f;
+	margin-top:300px;
 	
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e36764+0,c12e2a+100 */
 background: #C64019 ; /* Old browsers */
@@ -771,3 +773,5 @@ background: #d9491f; /* Old browsers */
 .as-btn-navy-small:focus {
   	outline: 0;
 }
+
+.amazingslider-button-1{left:0px!important; opacity:1!important;}

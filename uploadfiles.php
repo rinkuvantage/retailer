@@ -117,26 +117,32 @@ if(isset($_POST['upfile']))
 	if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
     <!-- /.row -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
-	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="upfile">
+	<form name="upfiles" id="upfiles" action="http://104.196.1.230:9786/selservice" method="post" enctype="multipart/form-data">
+	<?php /*?><input type="hidden" name="upfile"><?php */?>
+	<input type="hidden" name="company" value="<?php echo $user->Userdetail($uid, 'company', true); ?>" />
+	<input type="hidden" name="user" value="<?php echo $user->Userdetail($uid, 'user_email', true); ?>" />
 	<div class="uploading_files">
-    <div class="upload_box col-md-7"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
-      <input type="file" class="upfile firstfile" name="uploadfiles"onchange="ValidateFileInput(this);"/>
+    <div class="upload_box col-md-9"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files
+      <input type="file" class="upfile firstfile" name="upfile"onchange="ValidateFileInput(this);"/>
       </span>
-      <input type="text" class="form-control filename" readonly="" name="filename" value=""> *
+      <input type="text" class="form-control filename" readonly="" name="filename" value=""> <span class="star">*</span>
     </div>
 	</div>
 	<div class="uploadfile_textarebox col-md-12">
-	<div class="col-md-7 col-sm-6 leftuploadcnt">
+	<div class="col-md-6 col-sm-6 leftuploadcnt">
 	<h1>Column Headers  *</h1>
-	<textarea class="col-md-11 col-sm-11 required" name="filecolumns"></textarea>
+	<textarea class="col-md-12 col-sm-11 required" name="colTxt"></textarea>
 	<div class="col-md-12  showeeror"></div>
+	<div class="col-md-12">
+		<div class="col-md-4"><label><input type="radio" value="Churn" name="srv" checked="checked" /> Churn</label></div>
+		<div class="col-md-4"><label><input type="radio" value="Loyalty" name="srv" /> Loyalty</label></div>
+	</div>
 	<div class="col-md-12 col-sm-12 submitbox">
 	<input class="upload_submit btn btn-lg btn-primary btn-block" type="submit" value="Submit">
     <div class="cancelbox">or <a href="javascript:;" onclick="upfiles.reset()">Cancel</a></div>
 	</div>
 	</div>
-	<div class="col-md-5 col-sm-4 rightuploadcnt">
+	<div class="col-md-6 col-sm-4 rightuploadcnt">
 	
    <h2><b>What are Column Headers?</b></h2>
 
@@ -144,12 +150,10 @@ if(isset($_POST['upfile']))
     coloumn names of the file that
     you are uploaded that is 
     seperated by pipe Delimiter.<br />
-	filename 1|list of columns, filename|list of columns<br/>
+	filename 1|list of columns, filename 2|list of columns<br/>
 Example: file1.csv-ID|NAME|PHONE, file2.csv-ID|NAME|PHONE
 </p>
-
-
-	</div>
+</div>
 	</div>
   <!--  <a class="add_more" href="javascript:;">Add More Files</a>-->
     
@@ -187,10 +191,10 @@ jQuery(document).ready(function(){
 			jQuery('.uploading_files').prepend('<span class="error">File is required</span>');
 			error= parseInt(error)+1;
 		}
-		var filecolumns=jQuery('textarea[name="filecolumns"]').val();
+		var filecolumns=jQuery('textarea[name="colTxt"]').val();
 		if(jQuery.trim(filecolumns)=='')
 		{
-			jQuery('textarea[name="filecolumns"]').addClass('error');
+			jQuery('textarea[name="colTxt"]').addClass('error');
 			jQuery('.showeeror span.error').remove();
 			jQuery('.showeeror').html('<span class="error">Column headers is required</span>');
 			error= parseInt(error)+1;

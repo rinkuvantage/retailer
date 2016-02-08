@@ -22,7 +22,7 @@
                 
                 <!-- /.row -->
 
-                <div class="row">
+                <!--<div class="row">
                     
                     
                     <?php /*?><div class="col-lg-3 col-md-6">
@@ -117,7 +117,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.row -->
 
                 <div class="row">

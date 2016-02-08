@@ -51,7 +51,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
   <a href="index.php"><img class="" src="img/RA.png"/></a> </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
-    <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>
+   <!-- <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>-->
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
       <ul class="dropdown-menu alert-dropdown">
         <li> <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a> </li>
@@ -66,9 +66,28 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
     </li>
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username; ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
+       
+        <li> <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
+		  <li class="divider"></li>
         <li> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
-        <li class="divider"></li>
-        <li> <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> </li>
+		<li class="divider"></li>
+        <li> <a href="notifications.php"><i class="fa fa-fw fa-bell"></i> Notification</a> </li>
+
+		<li class="divider"></li>
+        <li> <a href="uploadfiles.php"><i class="fa fa-fw fa-upload"></i> Upload Files</a> </li>
+		<li class="divider"></li>
+        <li> <a href="viewfiles.php"><i class="fa fa-eye"></i> View Files</a> </li>
+			<li class="divider"></li>
+        <li> <a href="support.php"><i class="fa fa-fw fa-user"></i> Support</a> </li>
+			<li class="divider"></li>
+        <li> <a href="analytics.php"><i class="fa fa-fw fa-bar-chart"></i> Analytics</a> </li>
+		 <li class="divider"></li>
+		 <?php if($user_type=='admin'){ ?>
+      <li> <a href="manageusers.php"><i class="fa fa-fw fa-user"></i> Manage Users</a> </li>
+	   <li class="divider"></li>
+      <?php } ?>
+		 <li> <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a> </li>
+		 
       </ul>
     </li>
   </ul>
@@ -78,11 +97,11 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 		<?php if($currentpage=='dashboard.php'){ ?><h1><i class="fa fa-dashboard"></i> Dashboard</h1><?php } ?>
 		<?php if($currentpage=='profile.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Profile<?php } ?>
 		<?php if($currentpage=='notifications.php'){ ?><h1><i class="fa fa-bell"></i> Notification</h1><?php } ?>
-		<?php if($currentpage=='edit-notifications.php'){ ?><h1><i class="fa fa-bell"></i> Edit Notification</h1><?php } ?>
+		<?php if($currentpage=='edit-notifications.php'){ ?><h1><i class="fa fa-bell"></i> Edit Preference</h1><?php } ?>
 		<?php if($currentpage=='uploadfiles.php'){ ?><h1><i class="fa fa-upload"></i> Upload Files</h1><?php } ?>
 		<?php if($currentpage=='viewfiles.php'){ ?><h1><i class="fa fa-eye"></i> View Files</h1><?php } ?>
 		<?php if($currentpage=='support.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Support</h1><?php } ?>
-		<?php if($currentpage=='analytics.php'){ ?><h1><img src="img/chart.png"/> Analytics</h1><?php } ?>
+		<?php if($currentpage=='analytics.php'){ ?><h1><i class="fa fa-fw fa-bar-chart"></i> Analytics</h1><?php } ?>
 		<?php if($currentpage=='manageusers.php'){ ?><h1><i class="fa fa-wrench"></i> Manage Users</h1><?php } ?>
 		<?php if($currentpage=='edit-user.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Edit Users</h1><?php } ?>
     </div>
@@ -113,3 +132,5 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 <?php if(isset($_SESSION['message']) && trim($_SESSION['message'])!=''){ ?>
 <div class="success"><?php echo $_SESSION['message']; $_SESSION['message']=''; ?></div>
 <?php } ?>
+
+

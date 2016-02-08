@@ -37,7 +37,7 @@ $totalrecords=$user->UserList(" and user_type='user' order by ID desc");
                 <!-- /.row -->
 
                 <div class="row">
-				<div class="col-lg-11">
+				<div class="col-lg-12">
                       
                         <div class="table-responsive">
 							<?php if(!empty($userlist)){ ?>

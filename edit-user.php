@@ -145,6 +145,7 @@ if(isset($_POST['signupSubmit']))
 							  <div class="reg_box">
 								<label for="inputEmail" class="sr-only">First Name</label>
 								<div class="inputiconbox">
+								<span class="glyphicon glyphicon-user"></span>
 							  <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" class="form-control required firstnametst" placeholder="" required="required"  />
 							  </div>
 							  </div>

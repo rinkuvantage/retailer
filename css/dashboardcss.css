@@ -22,6 +22,25 @@ textarea.error:focus, input.error:focus{border: 3px solid #BDE1FF !important;}
 border: 3px solid #BDE1FF !important;
 }
 }
+.star {
+  float: right;
+  left: -14px !important;
+  position: relative;
+}
+.contact:hover{ border:none !important; outline:none !important;; text-decoration:none !important;}
+
+.analyticchartsection > img {
+  width: 100%;
+}
+.notificationtable1 ul {
+  padding-left: 0px;
+}
+
+.uploadfile_textarebox .leftuploadcnt {
+    padding-right: 20px !important;
+}
+input, textarea{outline:none;}
+.top-nav>.open>.dropdown-menu{ min-width:172px !important;}
 
 .error {
     color: red !important;
@@ -46,7 +65,7 @@ label.error {
     border: 3px solid #bde1ff !important;
 }
 .reg_box.tokensection.edituserbox {
-    width: 22%;
+    width: 27%;
     min-height: inherit;
 }
 .editusersectionblock .inputiconbox{ text-align:left;}
@@ -450,7 +469,7 @@ li.rightviewingbox .dropup {
     overflow: hidden;
     padding-left: 30px;
 	
-	 padding-right: 30px;
+	 padding-right: 126px;
 }
 .admindashboard .container-fluid {
     padding: 0px;
@@ -461,7 +480,7 @@ li.rightviewingbox .dropup {
 	color:#000;
 }
 div#wrapper.admindashboard {
-    margin-top: 202px;
+    margin-top: 218px;
 }
 .admin_herder {
     margin-top: 23px;
@@ -514,9 +533,7 @@ span.glyphicon.headericonbox {
     line-height: 22px !important;
     padding: 0px 10px 0px 0px !important;
 }
-.firstnametst {
-    padding-left: 10px !important;
-}
+
 .userlogo img {
     width: 32%;
     float: left;
@@ -581,10 +598,11 @@ ul.nav.navbar-nav.side-nav.dashboardsidebar li {
 }
 .admindashboard .side-nav {
     background-color: #fff !important;
-    top: 200px !important;
+    top: 217px !important;
     float: right;
     border-right: 1px solid #eee;
 }
+
 .admindashboard .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{ background-color:#e24a1e !important; color:#fff !important;}
 
 .admindashboard .side-nav li a:hover{background-color:#fa8a2a !important;color:#fff !important; }
