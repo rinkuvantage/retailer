@@ -4,34 +4,34 @@ $errors=array();
 $errormsg='';
 $sumessage='';
 
-if(isset($_POST['upfile']))
+if(isset($_FILES['upfile']))
 {
 	if(!empty($_FILES))
 	{
 		$i=0;
 		$totalfile=0;
-		$fnames = $_FILES['uploadfiles']['name'];
+		$fnames = $_FILES['upfile']['name'];
 		
 		if(empty($errors))
 		{
-			if(isset($_FILES['uploadfiles']['name']))
+			if(isset($_FILES['upfile']['name']))
 			{
-				if($_FILES['uploadfiles']['name']!='')
+				if($_FILES['upfile']['name']!='')
 				{
-					if(trim($_POST['filecolumns'])==''){
+					if(trim($_POST['colTxt'])==''){
 						array_push($errors,'Column headers is required.');
 					}
-					if($_FILES['uploadfiles']['size']<=0)
+					if($_FILES['upfile']['size']<=0)
 					{
-						array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has 0 size');
+						array_push($errors,'File '.$_FILES['upfile']['name'].' has 0 size');
 					}
-					else if ($_FILES['uploadfiles']["error"] > 0)
+					else if ($_FILES['upfile']["error"] > 0)
 					{
-						 array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has error '.$_FILES['uploadfiles']["error"]);
+						 array_push($errors,'File '.$_FILES['upfile']['name'].' has error '.$_FILES['upfile']["error"]);
 					}
-					else if (!in_array($_FILES['uploadfiles']['type'],$filetypes))
+					else if (!in_array($_FILES['upfile']['type'],$filetypes))
 					{
-						 array_push($errors,'File '.$_FILES['uploadfiles']['name'].' has different extension. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
+						 array_push($errors,'File '.$_FILES['upfile']['name'].' has different extension. Flies of type '.implode(', ',$fileextension).' are allowed to upload.');
 					}
 					else
 					{
@@ -53,15 +53,27 @@ if(isset($_POST['upfile']))
 							mkdir('uploads/'.$uid.'/'.$filetime.'/output');
 						}
 						$uploadto='uploads/'.$uid.'/'.$filetime.'/input/';
-						if(file_exists($uploadto. $_FILES['uploadfiles']["name"]))
+						if(file_exists($uploadto. $_FILES['upfile']["name"]))
 						{
-							array_push($errors,'File '.$_FILES['uploadfiles']['name'].' is already exist.');
+							array_push($errors,'File '.$_FILES['upfile']['name'].' is already exist.');
 						}
 						
 						if(empty($errors))
 						{
-							$altername=$_FILES['uploadfiles']["name"];
-							move_uploaded_file($_FILES['uploadfiles']["tmp_name"],$uploadto. $_FILES['uploadfiles']["name"]);
+							$url='http://104.196.1.230:9786/selservice';
+							$data = array('company' => $user->Userdetail($uid, 'company', true), 'user' => $user->Userdetail($uid, 'user_email', true), 'colTxt' => $_POST['colTxt'], 'srv' => $_POST['srv']);
+
+							// You can POST a file by prefixing with an @ (for <input type="file"> fields)
+							$data['upfile'] = '@'.$_FILES['upfile']['tmp_name'].';filename='. $_FILES['upfile']['name'].';type='.$_FILES['upfile']['type'];
+							
+							$handle = curl_init($url);
+							curl_setopt($handle, CURLOPT_POST, true);
+							curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
+							$result=curl_exec($handle);
+							print_r($result);
+							
+							/*$altername=$_FILES['upfile']["name"];
+							move_uploaded_file($_FILES['upfile']["tmp_name"],$uploadto. $_FILES['upfile']["name"]);
 							
 							$post['udate'] = $time;
 							$post['keyid']=$skey;
@@ -87,7 +99,7 @@ if(isset($_POST['upfile']))
 								$cnt++;
 							}
 							$res=$user->addUserFiles($fieldnames,$fieldvalues);
-							$totalfile++;
+							$totalfile++;*/
 						}
 					}
 				}
@@ -98,12 +110,12 @@ if(isset($_POST['upfile']))
 				
 			}
 		}
-		if($totalfile>0 && empty($errors)){
+		/*if($totalfile>0 && empty($errors)){
 			if(trim($errormsg)!=''){$errormsg='<br />'.$errormsg;}
 			$_SESSION['message']=$sumessage.$errormsg;
 			echo"<script type='text/javascript'>window.location='viewfiles.php';</script>";
 			exit();
-		}
+		}*/
 	}
 }
 ?>
@@ -170,7 +182,7 @@ Example: file1.csv-ID|NAME|PHONE, file2.csv-ID|NAME|PHONE
 jQuery(document).ready(function(){
 	
 	jQuery('.add_more').live('click', function(){
-		jQuery('.uploading_files').append('<div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files<input type="file" name="uploadfiles[]" class="upfile" onchange="ValidateFileInput(this);" /></span><input type="text" class="form-control filename" readonly="true" name="filename[]" value=""><a href="javascript:;" class="deletefiles">X</a></div>');
+		jQuery('.uploading_files').append('<div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files<input type="file" name="upfile[]" class="upfile" onchange="ValidateFileInput(this);" /></span><input type="text" class="form-control filename" readonly="true" name="filename[]" value=""><a href="javascript:;" class="deletefiles">X</a></div>');
 	});
 	jQuery('.deletefiles').live('click', function(){
 		jQuery(this).parent('.upload_box').remove();
@@ -186,7 +198,7 @@ jQuery(document).ready(function(){
 		var error=1;
 		if(jQuery.trim(firstfile)=='')
 		{
-			jQuery('input[name="filename"]').addClass('error');
+			jQuery('input[name="upfile"]').addClass('error');
 			jQuery('.uploading_files span.error').remove();
 			jQuery('.uploading_files').prepend('<span class="error">File is required</span>');
 			error= parseInt(error)+1;

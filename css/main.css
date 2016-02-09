@@ -11,6 +11,26 @@
     border: 3px solid #bde1ff !important;
 }
 }
+.detailboxsectiong > p {
+  font-size: 18px;
+}
+.lyltysection .static-holder {
+    margin: 20px 0px;
+}
+.detailboxsectiong{ font-size:18px;}
+.clr{ clear:both; margin:0px; padding:0px;}
+.rgtr_main:hover{ color:#fff !important;}
+.rgtr_main {
+  background: #e34921;
+  color: #fff;
+  padding: 10px;
+  float: left;
+  display: inline-block;
+  font-size: 18px;
+  margin-bottom:20px;
+}
+.mailbox:hover{color:#000;}
+.mailbox{ color:#e34921;}
 .contact:hover{ border:none !important; outline:none !important;; text-decoration:none !important;}
 .container .row.contactusblock.innermidbox {
     max-width: 1140px !important;
