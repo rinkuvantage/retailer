@@ -11,7 +11,21 @@ function isValidEmail($email)
 {
 	return preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email);
 }
+function create_unique_id() {
 
+	$tuid = '';
+	$uid = uniqid( "", true );
+	$data = '';
+	$data .= isset( $_SERVER[ 'REQUEST_TIME' ] ) ? $_SERVER[ 'REQUEST_TIME' ] : rand( 1, 999 );
+	$data .= isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) ? $_SERVER[ 'HTTP_USER_AGENT' ] : rand( 1, 999 );
+	$data .= isset( $_SERVER[ 'LOCAL_ADDR' ] ) ? $_SERVER[ 'LOCAL_ADDR' ] : rand( 1, 999 );
+	$data .= isset( $_SERVER[ 'LOCAL_PORT' ] ) ? $_SERVER[ 'LOCAL_PORT' ] : rand( 1, 999 );
+	$data .= isset( $_SERVER[ 'REMOTE_ADDR' ] ) ? $_SERVER[ 'REMOTE_ADDR' ] : rand( 1, 999 );
+	$data .= isset( $_SERVER[ 'REMOTE_PORT' ] ) ? $_SERVER[ 'REMOTE_PORT' ] : rand( 1, 999 );
+	$tuid = substr( strtoupper( hash( 'ripemd128', $uid . md5( $data ) ) ), 0, 12 );
+	return $tuid;
+
+}
 if(isset($_POST['sendmsg']))
 {
 	$name=$_POST['name'];
@@ -46,14 +60,18 @@ if(isset($_POST['sendmsg']))
 		array_push($errors,'Captcha did not match.');
 	}
 	if(empty($errors))
-	{		
-		$to      = 	'support@sigmaways.com';
-		$subject = $sitname.' : Request Demo';	
+	{	
+	
+		$ticketid=create_unique_id();
+			
+		$to      = 	'ram@sigmaways.com';
+		$subject = $sitname.' : Sigmaways Retail Analytics Support';	
 		$from = $email;
 		$fromname=$sitname;
 		
 		$message="Dear Admin,<br /><br />
 		Following user has been contact you for support. The user detail is given below<br /><br />
+		Support Ticket ID: ".$ticketid."<br />
 		Name: ".$name."<br />
 		Email: ".$email."<br />";
 		if($website != "")
@@ -64,7 +82,20 @@ if(isset($_POST['sendmsg']))
 		$message .= "Message: ".$message1."<br /><br />";
 		$message.=$email_signature;
 		Sendemail( $to, $subject, $message,$from,$from,$fromname);
-		$_SESSION['message'] = "Thank You, Your message has been sent successfully. We will get back to you shortly.";
+		
+		$to      = 	$email;
+		$subject = $sitname.' : Sigmaways Retail Analytics Support';	
+		$from = 'ram@sigmaways.com';
+		$fromname=$sitname;
+		
+		$message="Dear ".$name.",<br /><br />
+		Thank you for sending message. We will get back to you shortly.<br /><br />Your support ticket id is ".$ticketid;
+		
+		$message .= "<br /><br />";
+		$message.=$email_signature;
+		Sendemail( $to, $subject, $message,$from,$from,$fromname);
+		
+		$_SESSION['message'] = "Thank You, Your message has been sent successfully. We will get back to you shortly. Your support ticket id is ".$ticketid;
 		@header('Location: support.php');
 		
 	}

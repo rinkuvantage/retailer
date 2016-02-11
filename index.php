@@ -1,7 +1,7 @@
 <?php require_once('header-withoutlogin.php');
 if($login_active)
 {
-	@header('Location: dashboard.php');
+	@header('Location: uploadfiles.php');
 	exit();
 }
  ?>
@@ -19,9 +19,9 @@ if($login_active)
         <li><img src="images/analytics-shutterstock-139983946.jpg" />
           <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/> Get Started Now</button>
         </li>
-        <li><img src="images/ban0.jpg" />
+        <!--<li><img src="images/ban0.jpg" />
           <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/>  Get Started Now</button>
-        </li>
+        </li>-->
         <li><img src="images/UnderstandingYourAnalytics.jpg" />
           <button class="as-btn-blue-medium" OnClick=" location.href='register.php' "><img class="bkimg" src="img/book.png"/>  Get Started Now</button>
         </li>

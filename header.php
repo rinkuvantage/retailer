@@ -52,12 +52,12 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav admin_herder">
    <!-- <li> </a> <a class="contact" href="contactus.php"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact </a> </li>-->
-    <li class="dropdown"> <a href="notifications.php"><i class="fa fa-bell"></i> <b class="caret"></b></a></li>
+    <li class="dropdown"> <a href="notifications.php"><i class="fa fa-bell"></i> </a></li>
     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username; ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
        
-        <li> <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
-		  <li class="divider"></li>
+        <?php /*?><li> <a href="uploadfiles.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
+		  <li class="divider"></li><?php */?>
         <li> <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
 		<li class="divider"></li>
         <li> <a href="notifications.php"><i class="fa fa-fw fa-bell"></i> Notification</a> </li>
@@ -83,7 +83,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
   <div class="clr"></div>
   <div class="top-titlebar">
     <div class="container">
-		<?php if($currentpage=='dashboard.php'){ ?><h1><i class="fa fa-dashboard"></i> Dashboard</h1><?php } ?>
+		<?php /*?><?php if($currentpage=='uploadfiles.php'){ ?><h1><i class="fa fa-dashboard"></i> Dashboard</h1><?php } ?><?php */?>
 		<?php if($currentpage=='profile.php'){ ?><h1><i class="fa fa-fw fa-user"></i> Profile<?php } ?>
 		<?php if($currentpage=='notifications.php'){ ?><h1><i class="fa fa-bell"></i> Notification</h1><?php } ?>
 		<?php if($currentpage=='edit-notifications.php'){ ?><h1><i class="fa fa-bell"></i> Edit Preference</h1><?php } ?>
@@ -98,7 +98,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
   <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav dashboardsidebar">
-      <li<?php if($currentpage=='dashboard.php'){ ?> class="active"<?php } ?>> <a href="dashboard.php"> Dashboard</a> </li>
+     <?php /*?> <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="uploadfiles.php"> Dashboard</a> </li><?php */?>
       <li<?php if($currentpage=='profile.php'){ ?> class="active"<?php } ?>> <a href="profile.php"> Profile</a> </li>
       <?php /*?><li<?php if($currentpage=='manage-passwords.php'){ ?> class="active"<?php } ?>>
                         <a href="<?php echo $siteurl; ?>/manage-passwords"><i class="fa fa-fw fa-table"></i> Manage Password</a>

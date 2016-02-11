@@ -759,6 +759,8 @@ ul.pager.adc li a:hover{ border:1px solid #000;}
   margin-left: 10px;
   margin-top:15px;
 }
+.showmsgaftersubmit{position:fixed; height:100%; width:100%; background:#ffffff; opacity:0.9; z-index:9999999; top:0px; left:0px; display:none;}
+.showmsgaftersubmit .msg{ width:300px; height:50px; margin-left:-150px; left:50%; top:50%; position:absolute; text-align:center; background:#FFFFFF; border:1px solid #333333; border-radius:5px; line-height:40px;}
 @media only screen and (max-width:1200px) {
 .admindashboard .upload_box input.filename {
   width: 69% !important;

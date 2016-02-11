@@ -231,7 +231,7 @@ jQuery(document).ready(function(){
 				success: function(res) {
 					if(jQuery.trim(res)=='Done'){
 						jQuery('label.showmsg').next('.showingerror').remove();
-						window.location='dashboard.php';
+						window.location='uploadfiles.php';
 					}
 					else
 					{

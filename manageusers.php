@@ -3,7 +3,7 @@ $totalrec=15;
 if($user_type=='user')
 {
 	$_SESSION['message']='You do not have access this page.';
-	echo"<script type='text/javascript'>window.location='dashboard.php';</script>";
+	echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
 	exit();
 }
 if(isset($_REQUEST['pagedid']) && $_REQUEST['pagedid']>1)

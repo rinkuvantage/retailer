@@ -36,7 +36,7 @@
     <div class="container"> <a class="navbar-brand logobox col-lg-3 col-xs-5" href="index.php"><img src="img/RA.png"/></a>
       <div class="right_box col-lg-9 col-sm-5 pull-right">
         <?php if($login_active){ ?>
-        <a class="contact dashboard" href="dashboard.php">
+        <a class="contact dashboard" href="uploadfiles.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"> <i class="fa fa-dashboard"></i> Dashboard</button>
         </a> <a class="contact" href="contactus.php">
         <button class="btn btn-success btn-lg pull-right" type="submit"> <span class="glyphicon glyphicon-comment headericonbox"></span> Contact</button>

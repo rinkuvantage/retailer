@@ -1,9 +1,13 @@
-<?php require_once('header.php');
+<?php 
+require_once('header.php');
 require_once('includes/class/encryptclass.php');
 $errors=array();
 $errormsg='';
 $sumessage='';
+?>
 
+
+<?php
 if(isset($_FILES['upfile']))
 {
 	if(!empty($_FILES))
@@ -60,17 +64,63 @@ if(isset($_FILES['upfile']))
 						
 						if(empty($errors))
 						{
+							
 							$url='http://104.196.1.230:9786/selservice';
 							$data = array('company' => $user->Userdetail($uid, 'company', true), 'user' => $user->Userdetail($uid, 'user_email', true), 'colTxt' => $_POST['colTxt'], 'srv' => $_POST['srv']);
 
 							// You can POST a file by prefixing with an @ (for <input type="file"> fields)
 							$data['upfile'] = '@'.$_FILES['upfile']['tmp_name'].';filename='. $_FILES['upfile']['name'].';type='.$_FILES['upfile']['type'];
 							
-							$handle = curl_init($url);
-							curl_setopt($handle, CURLOPT_POST, true);
-							curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
-							$result=curl_exec($handle);
-							print_r($result);
+							$ch = curl_init();
+							curl_setopt($ch, CURLOPT_POST, true);
+							curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+							curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+							curl_setopt($ch, CURLOPT_URL, $url);
+							$str=curl_exec($ch);
+							curl_close($ch);
+							$result=json_decode($str);
+							if(trim($result->ResString)=='Session Timed Out')
+							{
+								array_push($errors,$result->ResString);
+							}
+							else
+							{
+								//$result=str_replace('},{',$result->ResString;
+								//print_r($result);
+								$str=$result->ResString;
+								$str=str_replace('},{','|',$str);
+								$str=str_replace(array('}','{'),'',$str);
+								$results=explode('|',$str);
+								$dataarray=array();
+								foreach($results as $result){
+									$results2=explode(',',$result);
+									//print_r($results2);
+									$str1='';
+									$i=1;
+									foreach($results2 as $result2){
+										$results3=explode(':',$result2);
+										if($i%2==0){
+											$dataarray=array_merge($dataarray,array($str1.','.trim($results3[1])));
+										}
+										else
+										{
+											$str1.=trim($results3[1]);
+										}
+										$i++;
+									}
+								}
+								
+								$csv="letter,frequency \n";
+								foreach ( $dataarray as $line ) {
+									$csv.= $line."\n";
+								}
+								$csv_handler = fopen ('uploads/'.$uid.'/data.csv','w');
+								@fwrite ($csv_handler,$csv);
+								@fclose ($csv_handler);
+								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
+								exit();
+							}
+							
 							
 							/*$altername=$_FILES['upfile']["name"];
 							move_uploaded_file($_FILES['upfile']["tmp_name"],$uploadto. $_FILES['upfile']["name"]);
@@ -129,7 +179,7 @@ if(isset($_FILES['upfile']))
 	if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
     <!-- /.row -->
     <!-- Main jumbotron for a primary marketing message or call to action -->
-	<form name="upfiles" id="upfiles" action="http://104.196.1.230:9786/selservice" method="post" enctype="multipart/form-data">
+	<form name="upfiles" id="upfiles" action="" method="post" enctype="multipart/form-data">
 	<?php /*?><input type="hidden" name="upfile"><?php */?>
 	<input type="hidden" name="company" value="<?php echo $user->Userdetail($uid, 'company', true); ?>" />
 	<input type="hidden" name="user" value="<?php echo $user->Userdetail($uid, 'user_email', true); ?>" />
@@ -158,12 +208,11 @@ if(isset($_FILES['upfile']))
 	
    <h2><b>What are Column Headers?</b></h2>
 
-     <p>Column headers are the 
-    coloumn names of the file that
-    you are uploaded that is 
-    seperated by pipe Delimiter.<br />
-	filename 1|list of columns, filename 2|list of columns<br/>
-Example: file1.csv-ID|NAME|PHONE, file2.csv-ID|NAME|PHONE
+     <p>
+	 Column headers are the column names of the file that you are uploaded that is separated by pipe Delimiter.
+list of columns to be dropped.<br/>
+Example: ID|NAME|PHONE|EMAIL|STATE
+
 </p>
 </div>
 	</div>
@@ -217,6 +266,7 @@ jQuery(document).ready(function(){
 			if(jQuery(this).val()!=''){i=parseInt(i)+1;}
 		});
 		if(i==1){return false;}
+		jQuery('.showmsgaftersubmit').show();
 	});
 });
 </script>
@@ -255,5 +305,5 @@ function ValidateFileInput(oInput) {
 		});
 	</script>
 <script type="text/javascript" src="js/jquery.appear.js"></script>
-
+<div class="showmsgaftersubmit"><div class="msg">The request is processing please wait...</div></div>
 <?php require_once('footer.php'); ?>

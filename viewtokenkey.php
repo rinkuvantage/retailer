@@ -1,7 +1,7 @@
 <?php require_once('header.php');
 $uid=$_SESSION["User_id"];
 $tokenid=$user->Userdetail($uid, 'tokenid', true);
-$keyid=$user->Userdetail($uid, 'keyid', true);
+$keyid=$user->Userdetail($uid, 'keyid', true); 
 ?>
         <div id="page-wrapper">
 
@@ -15,7 +15,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="dashboard.php">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="uploadfiles.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-key"></i> View Token/Key

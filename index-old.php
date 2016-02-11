@@ -1,7 +1,7 @@
 <?php require_once('header-withoutlogin.php');
 if($login_active)
 {
-	@header('Location: dashboard.php');
+	@header('Location: uploadfiles.php');
 	exit();
 }
  ?>

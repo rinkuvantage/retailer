@@ -1,7 +1,7 @@
 <?php require_once('header-withoutlogin.php');
 if($login_active)
 {
-	@header('Location: dashboard.php');
+	@header('Location: uploadfiles.php');
 	exit();
 }
 $errors=array();
@@ -47,7 +47,7 @@ if(isset($_POST['email']))
 		$check=$user->checkUserLogin($email, $password, $rememberme);
 		if($check>0)
 		{
-			@header('Location: dashboard.php');
+			@header('Location: uploadfiles.php');
 		}
 		else
 		{

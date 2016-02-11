@@ -4,7 +4,7 @@ require_once('header-withoutlogin.php');
 if($login_active)
 {
 	$_SESSION['message']='You do not have access of registration page after login.';
-	@header('Location: dashboard.php');
+	@header('Location: uploadfiles.php');
 	exit();
 }
 $errors=array();

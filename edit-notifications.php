@@ -88,7 +88,7 @@ if(isset($_POST['updatepref']))
 		  
       <div class="notification_note col-md-9">
         <h1>Notifications Subscription Preferences</h1>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.</div>
+        Choose how you wish to be alerted to new notifications from Sigmaways . If you subscribe via Web you will see a purple beacon in the header when a new message arrives. If you subscribe via Email we will send a copy to your email address. Even without a subscription, all of our messages to you will display on your Notifications tab.</div>
       <div class="col-sm-12 col-xs-12 col-md-8">
 	  <form name="editpref" id="editpref" action="" method="post">
         <table class="notificationtable table table-striped">
