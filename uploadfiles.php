@@ -47,7 +47,7 @@ if(isset($_FILES['upfile']))
 						if (!is_dir('uploads/'.$uid)) {
 							mkdir('uploads/'.$uid);
 						}
-						if (!is_dir('uploads/'.$uid.'/'.$filetime)) {
+						/*if (!is_dir('uploads/'.$uid.'/'.$filetime)) {
 							mkdir('uploads/'.$uid.'/'.$filetime);
 						}
 						if (!is_dir('uploads/'.$uid.'/'.$filetime.'/input')) {
@@ -60,7 +60,7 @@ if(isset($_FILES['upfile']))
 						if(file_exists($uploadto. $_FILES['upfile']["name"]))
 						{
 							array_push($errors,'File '.$_FILES['upfile']['name'].' is already exist.');
-						}
+						}*/
 						
 						if(empty($errors))
 						{
@@ -79,77 +79,43 @@ if(isset($_FILES['upfile']))
 							$str=curl_exec($ch);
 							curl_close($ch);
 							$result=json_decode($str);
-							if(trim($result->ResString)=='Session Timed Out')
+							
+							if(empty($result))
 							{
-								array_push($errors,$result->ResString);
+								//array_push($errors,$result->ResString);
+								$_SESSION['message']='Empty response from server.';
+								echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
+								exit();
+							}
+							else if(trim($result->ResString)=='Session Timed Out')
+							{
+								//array_push($errors,$result->ResString);
+								$_SESSION['message']=$result->ResString;
+								echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
+								exit();
 							}
 							else
 							{
-								//$result=str_replace('},{',$result->ResString;
-								//print_r($result);
 								$str=$result->ResString;
 								$str=str_replace('},{','|',$str);
 								$str=str_replace(array('}','{'),'',$str);
 								$results=explode('|',$str);
-								$dataarray=array();
+
+								$file = fopen('uploads/'.$uid.'/demosaved.csv', 'w');
+								 
+								// save the column headers
+								fputcsv($file, array('letter', 'frequency'));
 								foreach($results as $result){
 									$results2=explode(',',$result);
-									//print_r($results2);
-									$str1='';
-									$i=1;
-									foreach($results2 as $result2){
-										$results3=explode(':',$result2);
-										if($i%2==0){
-											$dataarray=array_merge($dataarray,array($str1.','.trim($results3[1])));
-										}
-										else
-										{
-											$str1.=trim($results3[1]);
-										}
-										$i++;
-									}
+									$text1=str_replace('Featurename:','',$results2[0]);
+									$text2=str_replace('Importance:','',$results2[1]);
+									$dataarray=array(trim($text1),trim($text2));
+									fputcsv($file, $dataarray);
 								}
-								
-								$csv="letter,frequency \n";
-								foreach ( $dataarray as $line ) {
-									$csv.= $line."\n";
-								}
-								$csv_handler = fopen ('uploads/'.$uid.'/data.csv','w');
-								@fwrite ($csv_handler,$csv);
-								@fclose ($csv_handler);
+								fclose($file);
 								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
 								exit();
 							}
-							
-							
-							/*$altername=$_FILES['upfile']["name"];
-							move_uploaded_file($_FILES['upfile']["tmp_name"],$uploadto. $_FILES['upfile']["name"]);
-							
-							$post['udate'] = $time;
-							$post['keyid']=$skey;
-							$post['user_id']=$uid;
-							$post['filename']=$altername;
-							$post['title']=$_POST['filename'];
-							$post['filecolumns']=$_POST['filecolumns'];
-							$fieldnames='';
-							$fieldvalues='';
-							$cnt=1;
-							foreach($post as $key=>$value)
-							{
-								if($cnt==1)
-								{
-									$fieldnames.="`$key`";
-									$fieldvalues.="'$value'";
-								}
-								else
-								{
-									$fieldnames.=", `$key`";
-									$fieldvalues.=", '$value'";
-								}
-								$cnt++;
-							}
-							$res=$user->addUserFiles($fieldnames,$fieldvalues);
-							$totalfile++;*/
 						}
 					}
 				}
@@ -160,12 +126,7 @@ if(isset($_FILES['upfile']))
 				
 			}
 		}
-		/*if($totalfile>0 && empty($errors)){
-			if(trim($errormsg)!=''){$errormsg='<br />'.$errormsg;}
-			$_SESSION['message']=$sumessage.$errormsg;
-			echo"<script type='text/javascript'>window.location='viewfiles.php';</script>";
-			exit();
-		}*/
+		
 	}
 }
 ?>

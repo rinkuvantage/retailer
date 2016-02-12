@@ -11,7 +11,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
   fill: brown;
 }
 .axis {
-  font: 10px sans-serif;
+  font-size: 10px;
 }
 .axis path,
 .axis line {
@@ -22,6 +22,8 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
 .x.axis path {
   display: none;
 }
+.axis .yaxistext{font-size:20px;}
+.axis .xaxistext{font-size:20px;}
 </style>
         <div id="page-wrapper">
 
@@ -40,10 +42,10 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
         <!-- /#page-wrapper -->
 
     </div>
-	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="js/d3.v3.min.js"></script>
  <script type="text/javascript">
- var filepath='<?php echo 'uploads/'.$uid.'/data.csv'; ?>';
- var margin = {top: 20, right: 20, bottom: 30, left: 40},
+ var filepath='<?php echo 'uploads/'.$uid.'/demosaved.csv'; ?>';
+ var margin = {top: 20, right: 20, bottom: 60, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -77,17 +79,24 @@ d3.csv(filepath, type, function(error, data) {
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+	  .append("text")
+      .attr("transform", "rotate(0)")
+      .attr("x", 400)
+      .attr("dy", "2em")
+	  .attr("class", "xaxistext")
+      .text("Feature Name");
 
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
+      .attr("y", -50)
+      .attr("dy", ".90em")
+	  .attr("class", "yaxistext")
       .style("text-anchor", "end")
-      .text("");
+      .text("Percentage of Respondents");
 
   svg.selectAll(".bar")
       .data(data)

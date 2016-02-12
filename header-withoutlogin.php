@@ -48,8 +48,12 @@
           <div class="dropdown-menu hdr_toglebox pull-right col-lg-4" style="padding:17px;">
             <form id="toploginuser" class="form" name="toploginuser" action="" method="post"> 
 				<label class="showmsg">Login</label> 
+				<div class="m_loginbox">
 				<input name="email" id="email" type="email" placeholder="Email address" title="Enter your email" required="" class="required email">
-				<input name="pwd" id="pwd" type="password" placeholder="Password" title="Enter your password" required="" autocomplete="off" class="required"><br>
+				</div>
+				<div class="m_loginbox">
+				<input name="pwd" id="pwd" type="password" placeholder="Password" title="Enter your password" required="" autocomplete="off" class="required">
+				</div>
 				<button type="button" id="btnLogin" class="btn">Login</button>
 			</form>
               <a href="register.php" title="Fast and free sign up!" id="btnNewUser"  class="collapsed anchortext">New User? Sign-up</a>
