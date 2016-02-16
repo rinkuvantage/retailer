@@ -4,6 +4,8 @@ require_once('includes/class/encryptclass.php');
 $errors=array();
 $errormsg='';
 $sumessage='';
+
+
 ?>
 
 
@@ -96,23 +98,125 @@ if(isset($_FILES['upfile']))
 							}
 							else
 							{
+								
 								$str=$result->ResString;
-								$str=str_replace('},{','|',$str);
-								$str=str_replace(array('}','{'),'',$str);
+								$graphs=explode('"Graph 1":',$str);
+								
+								
+								//Graph 1
+								$str=$graphs[1];
+								$str=str_replace(array('}, {','},{'),'|',$str);
+								$str=str_replace(array('}','{','"',']','['),'',$str);
 								$results=explode('|',$str);
-
-								$file = fopen('uploads/'.$uid.'/demosaved.csv', 'w');
-								 
+								//echo'<pre>';print_r($results);echo'</pre>';
+								
+								$barfile = fopen('uploads/'.$uid.'/bar.csv', 'w');
 								// save the column headers
-								fputcsv($file, array('letter', 'frequency'));
+								fputcsv($barfile, array('letter', 'frequency'));
+								$totaly=0;
 								foreach($results as $result){
 									$results2=explode(',',$result);
 									$text1=str_replace('Featurename:','',$results2[0]);
 									$text2=str_replace('Importance:','',$results2[1]);
 									$dataarray=array(trim($text1),trim($text2));
-									fputcsv($file, $dataarray);
+									fputcsv($barfile, $dataarray);
 								}
-								fclose($file);
+								fclose($barfile);
+								
+								
+								$graphs=explode('"Graph 2":',$graphs[0]);
+								//echo'<pre>';print_r($graphs);echo'</pre>';
+								$str=$graphs[1];
+								$str=str_replace(array('}], [{','}],[{'),'|',$str);
+								$str=str_replace(array('}','{','"',']','['),'',$str);
+								$results=explode('|',$str);
+								//echo'<pre>';print_r($results);echo'</pre>';
+								unset($_SESSION['graph']);
+								$stackbar = fopen('uploads/'.$uid.'/stackbar.json', 'w');
+								$stackbardata = fopen('uploads/'.$uid.'/'.date('Y-m-d').'.json', 'w');
+								// save the column headers
+								$_SESSION['graph']['today'][]=date('Y-m-d');
+								$tt=count($_SESSION['graph']['today'])-1;
+								$totaly=0;
+								$unchurnresults=$results;
+								foreach($results as $result){
+									$results2=explode(',',$result);
+									$text1=str_replace('State:','',$results2[0]);
+									$text2=str_replace('Not Churned:','',$results2[1]);
+									$text3=str_replace('Churned:','',$results2[2]);
+
+									$_SESSION['graph']['chrun'][$tt][]=array("time"=>trim($text1),"y"=>trim($text3));
+									$totaly=$totaly+trim($text3);
+								}
+								$_SESSION['graph']['y'][$tt][]=array('time'=>$_SESSION['graph']['today'][$i],'y'=>number_format($totaly,2,'.',''));
+								
+								$totaly=0;
+								//echo'<pre>';print_r($unchurnresults);echo'</pre>';
+								foreach($unchurnresults as $result){
+									$results2=explode(',',$result);
+									$text1=str_replace('State:','',$results2[0]);
+									$text2=str_replace('Not Churned:','',$results2[1]);
+									$text3=str_replace('Churned:','',$results2[2]);
+
+									$_SESSION['graph']['unchurn'][$tt][]=array("time"=>trim($text1),"y"=>trim($text2));
+									$totaly=$totaly+trim($text2);
+								}
+								
+								$_SESSION['graph']['y'][$tt][]=array('time'=>date('Y-m-d', strtotime('+1 day', strtotime($_SESSION['graph']['today'][$i]))),'y'=>number_format($totaly,2,'.',''));
+								
+								$dataaray=array($_SESSION['graph']['chrun'],$_SESSION['graph']['unchurn']);
+								//echo'<pre>';print_r($dataaray);echo'</pre>';
+								
+								fwrite($stackbar, json_encode($_SESSION['graph']['y']));
+								fclose($stackbar);
+								fwrite($stackbardata, json_encode($dataaray));
+								fclose($stackbardata);
+								
+								
+								$graphs=explode('"Graph 3":',$graphs[0]);
+								//echo'<pre>';print_r($graphs);echo'</pre>';
+								$str=$graphs[1];
+								$str=str_replace(array('}, {','},{'),'|',$str);
+								$str=str_replace(array('}','{','"',']','['),'',$str);
+								$results=explode('|',$str);
+								//echo'<pre>';print_r($results);echo'</pre>';
+								$linebar = fopen('uploads/'.$uid.'/linebar.csv', 'w');
+								$linebar2 = fopen('uploads/'.$uid.'/linebar.tsv', 'w');
+								$linebar3 = fopen('uploads/'.$uid.'/linebar2.tsv', 'w');
+								
+								// save the column headers
+								fputcsv($linebar, array('date', 'close'));
+								$dataarray2=array(array('date', 'close'));
+								$i=2;
+								$fileds="date\tclose\n";
+								$fileds2="date\tDay\n";
+								foreach($results as $result){
+									$results2=explode(',',$result);
+									$text1=str_replace('Churn:','',$results2[0]);
+									$text2=str_replace('Day:','',$results2[1]);
+									$xval=intval($text2);
+									if(trim($xval)!=0){
+										$day=date('j-M-y', strtotime('+'.$xval.' day', strtotime(date('Y-m-d'))));
+									}
+									else
+									{
+										$day=date('j-M-y');
+									}
+									$dataarray=array(trim($day),trim($text1)*100);
+									fputcsv($linebar, $dataarray);
+									$dataarray2=array_merge($dataarray,$dataarray2);
+									$val=trim($text1)*100;
+									if($i<=11){
+									$fileds.=trim($day)."\t".$val."\n";
+									}
+									$fileds2.=trim($day)."\t".$val."\n";
+									$i++;
+								}
+								fclose($linebar);
+								
+								fwrite($linebar2, $fileds);
+								fclose($linebar2);
+								
 								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
 								exit();
 							}

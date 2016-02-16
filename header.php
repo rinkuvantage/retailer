@@ -64,8 +64,9 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
 
 		<li class="divider"></li>
         <li> <a href="uploadfiles.php"><i class="fa fa-fw fa-upload"></i> Upload Files</a> </li>
-		<li class="divider"></li>
-        <li> <a href="viewfiles.php"><i class="fa fa-eye"></i> View Files</a> </li>
+<!--		<li class="divider"></li>
+        <li> <a href="viewfiles.php"><i class="fa fa-eye"></i> View Files</a> </li>-->
+		
 			<li class="divider"></li>
         <li> <a href="support.php"><i class="fa fa-fw fa-user"></i> Support</a> </li>
 			<li class="divider"></li>
@@ -105,7 +106,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
                     </li><?php */?>
       <li<?php if($currentpage=='notifications.php' || $currentpage=='edit-notifications.php'){ ?> class="active"<?php } ?>> <a href="notifications.php"> Notification</a> </li>
       <li<?php if($currentpage=='uploadfiles.php'){ ?> class="active"<?php } ?>> <a href="uploadfiles.php"> Upload Files</a> </li>
-      <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="viewfiles.php"> View files</a> </li>
+     <!-- <li<?php if($currentpage=='viewfiles.php'){ ?> class="active"<?php } ?>> <a href="viewfiles.php"> View files</a> </li>-->
 	   <li<?php if($currentpage=='support.php'){ ?> class="active"<?php } ?>> <a href="support.php">Support</a> </li>
 	  <li<?php if($currentpage=='analytics.php'){ ?> class="active"<?php } ?>> <a href="analytics.php">Analytics</a> </li>
       <?php if($user_type=='admin'){ ?>
@@ -115,6 +116,7 @@ if(count($currentpagesss)>1){$currentpage=$currentpagesss[0];}
     </ul>
 	
   </div>
+  
 	
   <!-- /.navbar-collapse -->
 </nav>

@@ -13,7 +13,7 @@
 		 	<h3 class="no-border">Churn Analytics</h3>
 
 			
-				<p>Churnanalysis would help us in analyzing why customers leave, engage those customers by improving communication and loyalty, develop effective marketing strategies to target customers and to increase the profit. Now that we understand what churn is, the next step is to learn how to analyze it. So, before we try to improve our churn rate, we need to identify problem areas so that we can focus and prioritize them.
+				<p>Churn Analysis would help us in analyzing why customers leave, engage those customers by improving communication and loyalty, develop effective marketing strategies to target customers and to increase the profit. Now that we understand what churn is, the next step is to learn how to analyze it. So, before we try to improve our churn rate, we need to identify problem areas so that we can focus and prioritize them.
 You can begin to segment you customer base by lifecycle stages. There are 3 broad categories that any customer base can be organized by:
 New, Active, and Churn.
 </p>
