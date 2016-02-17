@@ -81,7 +81,7 @@ if(isset($_FILES['upfile']))
 							$str=curl_exec($ch);
 							curl_close($ch);
 							$result=json_decode($str);
-							
+							//echo'<pre>';print_r($str);echo'</pre>';
 							if(empty($result))
 							{
 								//array_push($errors,$result->ResString);
@@ -100,11 +100,22 @@ if(isset($_FILES['upfile']))
 							{
 								
 								$str=$result->ResString;
-								$graphs=explode('"Graph 1":',$str);
+								$graphs=explode(',',$str);
+								if($_POST['srv']=='Churn'){
+									$_SESSION['churn']=$graphs;
+								}
+								else
+								{
+									$_SESSION['loyality']=$graphs;
+								}
+								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
+								exit();
+								//echo'<pre>';print_r($result);echo'</pre>';
+								//$graphs=explode('"Graph 1":',$str);
 								
-								
+								//echo'<pre>';print_r($result);echo'</pre>';
 								//Graph 1
-								$str=$graphs[1];
+								/*$str=$graphs[1];
 								$str=str_replace(array('}, {','},{'),'|',$str);
 								$str=str_replace(array('}','{','"',']','['),'',$str);
 								$results=explode('|',$str);
@@ -218,7 +229,7 @@ if(isset($_FILES['upfile']))
 								fclose($linebar2);
 								
 								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
-								exit();
+								exit();*/
 							}
 						}
 					}

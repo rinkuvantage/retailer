@@ -5,7 +5,7 @@ $keyid=$user->Userdetail($uid, 'keyid', true);
 //echo'<pre>';print_r(json_encode($_SESSION['graph'][date('Y-m-d')]));echo'</pre>';
 $mperday=array();
 ?>
-<style>
+<?php /*?><style>
 		.axis path,.axis line {fill: none;
 	stroke: black;
 	shape-rendering: crispEdges;
@@ -69,11 +69,16 @@ $mperday=array();
 }
 
 
-		</style>
+		</style><?php */?>
 <div id="page-wrapper">
   <div class="container-fluid">
   <div class="row">
-      <div class="col-md-6 col-sm-6"><a href="analytics2.php">Next Graph</a></div>
+  <?php if(isset($_SESSION['churn'])){ ?>
+      <div class="col-md-6 col-sm-6"><a href="churn.php">Churn</a></div>
+  <?php } ?>
+  <?php if(isset($_SESSION['loyality'])){ ?>
+	  <div class="col-md-6 col-sm-6"><a href="loyalty-graph.php">Loyalty</a></div>
+	<?php } ?>
     </div>
     <div class="row">
         <div class="analyticchartsection"></div>
@@ -85,7 +90,7 @@ $mperday=array();
 </div>
 <!-- /#page-wrapper -->
 </div>
-<script src="js/d3.v3.min.js"></script>
+<?php /*?><script src="js/d3.v3.min.js"></script><?php */?>
 <!-- /#wrapper -->
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
@@ -356,7 +361,7 @@ $mperday=array();
 		});
 
 		</script><?php */?>
-<script type="text/javascript">
+<?php /*?><script type="text/javascript">
 		 var filepath='<?php echo 'uploads/'.$uid.'/demosaved.csv'; ?>';
 		 var margin = {top: 20, right: 20, bottom: 60, left: 60},
 			width = 980 - margin.left - margin.right,
@@ -426,7 +431,7 @@ $mperday=array();
 		  return d;
 		}
 		
-		 </script>
+		 </script><?php */?>
 		 
 		<?php /*?> <script>
 
