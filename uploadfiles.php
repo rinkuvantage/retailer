@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('header.php');
 require_once('includes/class/encryptclass.php');
 $errors=array();
@@ -17,7 +17,7 @@ if(isset($_FILES['upfile']))
 		$i=0;
 		$totalfile=0;
 		$fnames = $_FILES['upfile']['name'];
-		
+
 		if(empty($errors))
 		{
 			if(isset($_FILES['upfile']['name']))
@@ -63,16 +63,16 @@ if(isset($_FILES['upfile']))
 						{
 							array_push($errors,'File '.$_FILES['upfile']['name'].' is already exist.');
 						}*/
-						
+
 						if(empty($errors))
 						{
-							
+
 							$url='http://104.196.1.230:9786/selservice';
 							$data = array('company' => $user->Userdetail($uid, 'company', true), 'user' => $user->Userdetail($uid, 'user_email', true), 'colTxt' => $_POST['colTxt'], 'srv' => $_POST['srv']);
 
 							// You can POST a file by prefixing with an @ (for <input type="file"> fields)
 							$data['upfile'] = '@'.$_FILES['upfile']['tmp_name'].';filename='. $_FILES['upfile']['name'].';type='.$_FILES['upfile']['type'];
-							
+
 							$ch = curl_init();
 							curl_setopt($ch, CURLOPT_POST, true);
 							curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -81,7 +81,7 @@ if(isset($_FILES['upfile']))
 							$str=curl_exec($ch);
 							curl_close($ch);
 							$result=json_decode($str);
-							//echo'<pre>';print_r($str);echo'</pre>';
+							//echo'<pre>';print_r($result);echo'</pre>';
 							if(empty($result))
 							{
 								//array_push($errors,$result->ResString);
@@ -89,30 +89,23 @@ if(isset($_FILES['upfile']))
 								echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
 								exit();
 							}
-							else if(trim($result->ResString)=='Session Timed Out')
-							{
-								//array_push($errors,$result->ResString);
-								$_SESSION['message']=$result->ResString;
-								echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
-								exit();
-							}
 							else
 							{
-								
-								$str=$result->ResString;
-								$graphs=explode(',',$str);
+
+								//$str=$result->ResString;
+								//$graphs=explode(',',$str);
 								if($_POST['srv']=='Churn'){
-									$_SESSION['churn']=$graphs;
+									$_SESSION['churn']=$result;
 								}
-								else
+								else if($_POST['srv']=='Loyalty')
 								{
-									$_SESSION['loyality']=$graphs;
+									$_SESSION['loyalty']=$result;
 								}
 								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
 								exit();
 								//echo'<pre>';print_r($result);echo'</pre>';
 								//$graphs=explode('"Graph 1":',$str);
-								
+
 								//echo'<pre>';print_r($result);echo'</pre>';
 								//Graph 1
 								/*$str=$graphs[1];
@@ -120,7 +113,7 @@ if(isset($_FILES['upfile']))
 								$str=str_replace(array('}','{','"',']','['),'',$str);
 								$results=explode('|',$str);
 								//echo'<pre>';print_r($results);echo'</pre>';
-								
+
 								$barfile = fopen('uploads/'.$uid.'/bar.csv', 'w');
 								// save the column headers
 								fputcsv($barfile, array('letter', 'frequency'));
@@ -133,8 +126,8 @@ if(isset($_FILES['upfile']))
 									fputcsv($barfile, $dataarray);
 								}
 								fclose($barfile);
-								
-								
+
+
 								$graphs=explode('"Graph 2":',$graphs[0]);
 								//echo'<pre>';print_r($graphs);echo'</pre>';
 								$str=$graphs[1];
@@ -160,7 +153,7 @@ if(isset($_FILES['upfile']))
 									$totaly=$totaly+trim($text3);
 								}
 								$_SESSION['graph']['y'][$tt][]=array('time'=>$_SESSION['graph']['today'][$i],'y'=>number_format($totaly,2,'.',''));
-								
+
 								$totaly=0;
 								//echo'<pre>';print_r($unchurnresults);echo'</pre>';
 								foreach($unchurnresults as $result){
@@ -172,18 +165,18 @@ if(isset($_FILES['upfile']))
 									$_SESSION['graph']['unchurn'][$tt][]=array("time"=>trim($text1),"y"=>trim($text2));
 									$totaly=$totaly+trim($text2);
 								}
-								
+
 								$_SESSION['graph']['y'][$tt][]=array('time'=>date('Y-m-d', strtotime('+1 day', strtotime($_SESSION['graph']['today'][$i]))),'y'=>number_format($totaly,2,'.',''));
-								
+
 								$dataaray=array($_SESSION['graph']['chrun'],$_SESSION['graph']['unchurn']);
 								//echo'<pre>';print_r($dataaray);echo'</pre>';
-								
+
 								fwrite($stackbar, json_encode($_SESSION['graph']['y']));
 								fclose($stackbar);
 								fwrite($stackbardata, json_encode($dataaray));
 								fclose($stackbardata);
-								
-								
+
+
 								$graphs=explode('"Graph 3":',$graphs[0]);
 								//echo'<pre>';print_r($graphs);echo'</pre>';
 								$str=$graphs[1];
@@ -194,7 +187,7 @@ if(isset($_FILES['upfile']))
 								$linebar = fopen('uploads/'.$uid.'/linebar.csv', 'w');
 								$linebar2 = fopen('uploads/'.$uid.'/linebar.tsv', 'w');
 								$linebar3 = fopen('uploads/'.$uid.'/linebar2.tsv', 'w');
-								
+
 								// save the column headers
 								fputcsv($linebar, array('date', 'close'));
 								$dataarray2=array(array('date', 'close'));
@@ -224,10 +217,10 @@ if(isset($_FILES['upfile']))
 									$i++;
 								}
 								fclose($linebar);
-								
+
 								fwrite($linebar2, $fileds);
 								fclose($linebar2);
-								
+
 								echo"<script type='text/javascript'>window.location='analytics.php';</script>";
 								exit();*/
 							}
@@ -236,12 +229,12 @@ if(isset($_FILES['upfile']))
 				}
 			}
 			if($totalfile>0){
-				
+
 				$sumessage='File uploaded successfully.';
-				
+
 			}
 		}
-		
+
 	}
 }
 ?>
@@ -249,8 +242,8 @@ if(isset($_FILES['upfile']))
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
-    
-	<?php 
+
+	<?php
 	if($sumessage!=''){echo'<span>'.$sumessage.'</span><br />';}
 	if(!empty($errors)){foreach($errors as $error){echo'<span class="error">'.$error.'</span><br />';}} ?>
     <!-- /.row -->
@@ -281,7 +274,7 @@ if(isset($_FILES['upfile']))
 	</div>
 	</div>
 	<div class="col-md-6 col-sm-4 rightuploadcnt">
-	
+
    <h2><b>What are Column Headers?</b></h2>
 
      <p>
@@ -293,7 +286,7 @@ Example: ID|NAME|PHONE|EMAIL|STATE
 </div>
 	</div>
   <!--  <a class="add_more" href="javascript:;">Add More Files</a>-->
-    
+
 	</form>
   </div>
   <!-- /.container-fluid -->
@@ -305,7 +298,7 @@ Example: ID|NAME|PHONE|EMAIL|STATE
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
-	
+
 	jQuery('.add_more').live('click', function(){
 		jQuery('.uploading_files').append('<div class="upload_box"> <span class="btn btn-default btn-file"><i class="fa fa-folder-open"></i> Choose Files<input type="file" name="upfile[]" class="upfile" onchange="ValidateFileInput(this);" /></span><input type="text" class="form-control filename" readonly="true" name="filename[]" value=""><a href="javascript:;" class="deletefiles">X</a></div>');
 	});
@@ -313,7 +306,7 @@ jQuery(document).ready(function(){
 		jQuery(this).parent('.upload_box').remove();
 	});
 	jQuery('.upfile').live('change',function(){
-		var file = this.files[0];  
+		var file = this.files[0];
    		var ff = file.name;
 		//var ff=jQuery(this).val();
 		jQuery(this).parents('.upload_box').find('.filename').val(ff);
@@ -348,7 +341,7 @@ jQuery(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip", ".tar.gz", ".dat"];    
+var validFileExtensions = [".txt", ".rtf", ".csv", ".xlsx", ".tar", ".gz", ".zip", ".tar.gz", ".dat"];
 function ValidateFileInput(oInput) {
     if (oInput.type == "file") {
         var sFileName = oInput.value;

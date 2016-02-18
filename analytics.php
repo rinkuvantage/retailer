@@ -74,16 +74,21 @@ $mperday=array();
   <div class="container-fluid">
   <div class="row">
   <?php if(isset($_SESSION['churn'])){ ?>
-      <div class="col-md-6 col-sm-6"><a href="churn.php">Churn</a></div>
+      <div class="col-md-6 col-sm-6">
+        <a href="churn.php">Churn</a>
+        <div class=".a-chart">
+        </div>
+      </div>
   <?php } ?>
-  <?php if(isset($_SESSION['loyality'])){ ?>
+  <?php if(isset($_SESSION['loyalty'])){ ?>
 	  <div class="col-md-6 col-sm-6"><a href="loyalty-graph.php">Loyalty</a></div>
 	<?php } ?>
+
     </div>
     <div class="row">
         <div class="analyticchartsection"></div>
     </div>
-	
+
     <!-- /.row -->
   </div>
   <!-- /.container-fluid -->
@@ -93,6 +98,7 @@ $mperday=array();
 <?php /*?><script src="js/d3.v3.min.js"></script><?php */?>
 <!-- /#wrapper -->
 <!-- jQuery -->
+
 <script src="js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -102,6 +108,7 @@ $mperday=array();
 			jQuery('#page-wrapper').css({'min-height':h+'px'});
 		});
 	</script>
+  
 <?php /*?><script type="text/javascript">
 		var w = 450;                        //width
 		var h = 500;                        //height
@@ -128,7 +135,7 @@ $mperday=array();
 				.rangeRound([0, w-padding.left-padding.right]);
 
 			var yScale = d3.scale.linear()
-				.domain([0,				
+				.domain([0,
 					d3.max(dataset, function(d) {
 						return d3.max(d, function(d) {
 							return d.y0 + d.y;
@@ -250,15 +257,15 @@ $mperday=array();
 			   .attr("text-anchor","middle")
 			   .text("Days");
 
-			
 
-			//On click, update with new data			
+
+			//On click, update with new data
 			d3.selectAll(".m")
 				.on("click", function() {
 					var date = this.getAttribute("value");
 
 					var str='<?php echo 'uploads/'.$uid.'/'.date('Y-m-d'); ?>.json';
-					
+
 
 					d3.json(str,function(json){
 
@@ -270,7 +277,7 @@ $mperday=array();
 						xScale.domain([new Date(0, 0, 0,dataset[0][0].time,0, 0, 0),new Date(0, 0, 0,dataset[0][dataset[0].length-1].time,0, 0, 0)])
 						.rangeRound([0, w-padding.left-padding.right]);
 
-						yScale.domain([0,				
+						yScale.domain([0,
 										d3.max(dataset, function(d) {
 											return d3.max(d, function(d) {
 												return d.y0 + d.y;
@@ -354,7 +361,7 @@ $mperday=array();
 
 						svg.select(".title")
 				        .text("Number of messages per hour on " + date + ".");
-					});			
+					});
 				});
 
 
@@ -366,34 +373,34 @@ $mperday=array();
 		 var margin = {top: 20, right: 20, bottom: 60, left: 60},
 			width = 980 - margin.left - margin.right,
 			height = 400 - margin.top - margin.bottom;
-		
+
 		var x = d3.scale.ordinal()
 			.rangeRoundBands([0, width], .1);
-		
+
 		var y = d3.scale.linear()
 			.range([height, 0]);
-		
+
 		var xAxis = d3.svg.axis()
 			.scale(x)
 			.orient("bottom");
-		
+
 		var yAxis = d3.svg.axis()
 			.scale(y)
 			.orient("left")
 			.ticks(10, "%");
-		
+
 		var svg = d3.select("body .analyticchartsection").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		  .append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-		
+
 		d3.csv(filepath, type, function(error, data) {
 		  if (error) throw error;
-		
+
 		  x.domain(data.map(function(d) { return d.letter; }));
 		  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-		
+
 		  svg.append("g")
 			  .attr("class", "x axis")
 			  .attr("transform", "translate(0," + height + ")")
@@ -404,7 +411,7 @@ $mperday=array();
 			  .attr("dy", "2em")
 			  .attr("class", "xaxistext")
 			  .text("Feature Name");
-		
+
 		  svg.append("g")
 			  .attr("class", "y axis")
 			  .call(yAxis)
@@ -415,7 +422,7 @@ $mperday=array();
 			  .attr("class", "yaxistext")
 			  .style("text-anchor", "end")
 			  .text("Percentage of Respondents");
-		
+
 		  svg.selectAll(".bar")
 			  .data(data)
 			.enter().append("rect")
@@ -425,14 +432,14 @@ $mperday=array();
 			  .attr("y", function(d) { return y(d.frequency); })
 			  .attr("height", function(d) { return height - y(d.frequency); });
 		});
-		
+
 		function type(d) {
 		  d.frequency = +d.frequency;
 		  return d;
 		}
-		
+
 		 </script><?php */?>
-		 
+
 		<?php /*?> <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
