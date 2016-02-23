@@ -67,6 +67,12 @@ if(isset($_FILES['upfile']))
 							$str=curl_exec($ch);
 							curl_close($ch);
 							$result=json_decode($str);
+							if($str === false)
+							{
+								$_SESSION['message']='Curl error: ' . curl_error($ch);
+								echo"<script type='text/javascript'>window.location='uploadfiles.php';</script>";
+								exit();
+							}
 							//echo'<pre>';print_r($result);echo'</pre>';
 							if(empty($result))
 							{
